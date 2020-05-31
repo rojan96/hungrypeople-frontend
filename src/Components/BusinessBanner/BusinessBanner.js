@@ -6,12 +6,11 @@ import Container from 'react-bootstrap/Container';
 import './Style.css';
 
 const styles = {
-    color: 'black',
+    color: 'White',
     fontFamily: 'Cabin Sketch',
     backgroundImage : 'url(' + require('../../momoMain.jpg') +')',
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    height: '1000'
+    backgroundRepeat: 'no-repeat'
 };
 
 export class BusinessBanner extends React.Component {
