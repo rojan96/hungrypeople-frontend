@@ -6,18 +6,18 @@ import Container from 'react-bootstrap/Container';
 import './Style.css';
 
 const styles = {
-    color: 'White',
-    fontFamily: 'Cabin Sketch',
-    backgroundImage : 'url(' + require('../../momoMain.jpg') +')',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat'
+       color: 'White',
+       fontFamily: 'Cabin Sketch',
+       backgroundImage : 'url(' + require('../../lighterMain.jpg') +')',
+       backgroundSize: 'cover',
+       backgroundRepeat: 'no-repeat'
 };
 
 export class BusinessBanner extends React.Component {
     render(){
         return(
             <Container style = {styles} fluid>
-                <NavBar />
+                <NavBar variant={"light"}/>
                 <JumboHeader />
             </Container>
         );

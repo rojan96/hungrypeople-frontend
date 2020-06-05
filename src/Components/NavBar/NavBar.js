@@ -14,7 +14,7 @@ export class NavBar extends React.Component {
 
     render(){
         return(
-            <Navbar collapseOnSelect expand="lg" variant={"dark"}>
+            <Navbar collapseOnSelect expand="lg" variant={this.props.variant}>
                 <Navbar.Brand href="#home" >
                     <img
                         src={require("./HungryPeopleLogo.png")}
