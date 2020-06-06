@@ -1,7 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container'
-import Business from "../Business/Business";
 
 const styles = {
     color: 'White',
@@ -9,12 +8,19 @@ const styles = {
     backgroundColor: 'lightblue',
     textAlign: 'center',
     padding: 5,
-
 };
 
 const stylesh1 = {
     border: '2px solid white',
     padding: 3
+}
+
+const stylesBusinessDiv = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    flexWrap: 'wrap'
+
 }
 
 export class RecommendedBusinesses extends React.Component {
@@ -23,9 +29,8 @@ export class RecommendedBusinesses extends React.Component {
         return(
             <Container style = {styles} fluid>
                 <h1 style={stylesh1}>Recommended Businesses</h1>
-                <div>
-                    <Business />
-                    <Business />
+                <div style={stylesBusinessDiv}>
+
                 </div>
             </Container>
         );

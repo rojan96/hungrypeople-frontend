@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -11,7 +13,7 @@ import './Business.css'
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 200,
+        maxWidth: 250,
         margin: 10
     },
     media: {
@@ -19,42 +21,37 @@ const useStyles = makeStyles({
     },
 });
 
-const Pokemon = {
-    name: 'Chiya Pasal',
-    type1: 'Bhatti',
-    type2: 'Churot',
+const imageUrl = {
     sprite: 'https://images.unsplash.com/photo-1587461158349-e8d15154d7fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-    ability: 'chlorophyll'
-
 }
 
-
-export default function Business(){
+export default function Business(props){
 
     const classes = useStyles();
     return(
         <Card className={classes.root} >
             <CardActionArea>
+
                 <CardMedia
                     className={classes.media}
-                    image={Pokemon.sprite}
-                    title= {Pokemon.name}
+                    image={imageUrl.sprite}
+                    title= {props.content.fullName}
                 />
+
                 <CardContent>
                     <Typography gutterBottom variant="h6" component="h4">
-                        {Pokemon.name}
+                        {props.content.fullName}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Type1: {Pokemon.type1}
+                        id: {props.content.id}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Type2: {Pokemon.type2}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        Ability: {Pokemon.ability}
+                        email: {props.content.email}
                     </Typography>
                 </CardContent>
+
             </CardActionArea>
+
             <CardActions>
                 <Button size="small" color="primary">
                     Order

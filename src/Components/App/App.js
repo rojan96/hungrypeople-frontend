@@ -1,26 +1,68 @@
 import React from 'react';
-import {BusinessBanner} from '../BusinessBanner/BusinessBanner';
-import {WhatWeDo} from "../WhatWeDo/WhatWeDo";
-import {RecommendedBusinesses} from "../RecommendedBusinesses/RecommendedBusinesses";
-
-import About from '../About/About';
-import Search from '../Search/Search';
-
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-const App = () => {
-  return(
-      <Router>
-        <div>
-          <Switch>
-            <Route path="/" exact component={BusinessBanner}/>
-            <Route path="/About" component={About} />
-            <Route path="/Search" component={Search} />
-          </Switch>
-        <WhatWeDo/>
-        <RecommendedBusinesses/>
-        </div>
-      </Router>
+import {WhatWeDo} from "../WhatWeDo/WhatWeDo";
+import {RecommendedBusinesses} from "../RecommendedBusinesses/RecommendedBusinesses";
+import About from '../About/About';
+import Search from '../SearchBar/SearchBar';
+import Container from "@material-ui/core/Container";
+import {NavBar} from "../NavBar/NavBar";
+import {JumboHeader} from "../JumboHeader/JumboHeader";
+import './Style.css';
+const isLoggedIn = true;
 
+const styles = {
+    color: 'White',
+    fontFamily: 'Cabin Sketch',
+    backgroundImage : 'url(' + require('../../lighterMain.jpg') +')',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    maxWidth: 'none'
+};
+
+const App = () => {
+    if (isLoggedIn){
+        return (
+            <Router>
+                <div>
+                    <Switch>
+
+                        <Route path="/" exact >
+                            <Container style = {styles} fluid>
+                                <NavBar variant={"light"} isLoggedIn={isLoggedIn} logoSize={300}/>
+                                <JumboHeader />
+                            </Container>
+                            <WhatWeDo />
+                            <RecommendedBusinesses />
+                        </Route>
+
+                        <Route path="/Search">
+                                <NavBar variant={"dark"} bg={"dark"} isLoggedIn={isLoggedIn} logoSize={100}/>
+                                <Search/>
+                        </Route>
+
+                        <Route path="/profile">
+                            <NavBar variant={"dark"} bg={"dark"} isLoggedIn={isLoggedIn} logoSize={100}/>
+                        </Route>
+
+                    </Switch>
+                </div>
+            </Router>
+        );
+    } else {
+        return (
+            <Router>
+                <div>
+                    <Container style = {styles} fluid>
+                        <NavBar variant={"light"} isLoggedIn={isLoggedIn}/>
+                        <JumboHeader />
+                    </Container>
+                    <WhatWeDo/>
+                    <RecommendedBusinesses/>
+                </div>
+            </Router>
+        );
+    }
+}
 
 export default App;

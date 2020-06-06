@@ -2,6 +2,8 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
+import Nav from "react-bootstrap/Nav";
+import {Link} from "react-router-dom";
 
 const styles = {
     background: 'none',
@@ -22,14 +24,17 @@ export class JumboHeader extends React.Component {
 
     render(){
         return(
-            <Jumbotron style={styles}>
+            <Jumbotron style={styles} fluid>
                 <div style={stylesDiv}>
                     <h1 style={stylesHeader}> HungryPeople</h1>
                     <p>
                         Order food. Wherever you are. Wherever you want.
                     </p>
                 </div>
-                <Button variant={"light"} size={"lg"}>Get Food.</Button>
+                <Link to="/Search">
+                    <Button variant={"light"} size={"lg"}>Get Food.</Button>
+                </Link>
+
             </Jumbotron>
         );
     }
