@@ -3,12 +3,13 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import {WhatWeDo} from "../WhatWeDo/WhatWeDo";
 import {RecommendedBusinesses} from "../RecommendedBusinesses/RecommendedBusinesses";
-import About from '../About/About';
 import Search from '../SearchBar/SearchBar';
 import Container from "@material-ui/core/Container";
 import {NavBar} from "../NavBar/NavBar";
 import {JumboHeader} from "../JumboHeader/JumboHeader";
 import './Style.css';
+import Login from "../Login/Login";
+import SignUp from "../SignUp/SignUp";
 const isLoggedIn = true;
 
 const styles = {
@@ -41,9 +42,18 @@ const App = () => {
                                 <Search/>
                         </Route>
 
-                        <Route path="/profile">
+                        <Route path="/Profile">
                             <NavBar variant={"dark"} bg={"dark"} isLoggedIn={isLoggedIn} logoSize={100}/>
                         </Route>
+
+                        <Route path="/Login">
+                            <Login/>
+                        </Route>
+
+                        <Route path="/SignUp">
+                            <SignUp/>
+                        </Route>
+
 
                     </Switch>
                 </div>
