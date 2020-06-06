@@ -55,7 +55,7 @@ export class NavBar extends React.Component {
                             {/*<Link to="/Login">*/}
                             {/*    <li >Past Orders</li>*/}
                             {/*</Link>*/}
-                            {/*<Link to="/Signup">*/}
+                            {/*<Link to="/SignUp">*/}
                             {/*    <li>Profile</li>*/}
                             {/*</Link>*/}
                         </Navbar.Collapse>
@@ -88,7 +88,7 @@ export class NavBar extends React.Component {
                                 <Link to="/Login">
                                     <Nav.Link href="#2" className="align-top" style={styles}>Log in</Nav.Link>
                                 </Link>
-                                <Link to="/Signup">
+                                <Link to="/SignUp">
                                     <Nav.Link href="#3" className="align-top" style={styles}>Sign up</Nav.Link>
                                 </Link>
                             </Nav>
