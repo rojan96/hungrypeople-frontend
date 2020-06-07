@@ -64,16 +64,18 @@ export class NavBar extends React.Component {
             } else {
                 return (
                     <Navbar collapseOnSelect expand="lg" variant={this.props.variant} bg={this.props.bg}>
-                        <Navbar.Brand href="#home" >
-                            <img
-                                src={require("./HungryPeopleLogo.png")}
-                                className="d-inline-block align-top"
-                                height={"200"}
-                                width={"200"}
-                                alt="Img not found"
-                                style={{backgroundColor: 'Black'}}
-                            />
-                        </Navbar.Brand>
+
+                        <Link to="/">
+                            <Navbar.Brand>
+                                <img
+                                    src={require("./HungryPeopleLogo.png")}
+                                    className="d-inline-block align-top"
+                                    height={this.props.logoSize}
+                                    width={this.props.logoSize}
+                                    alt="Img not found"
+                                />
+                            </Navbar.Brand>
+                        </Link>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav" >
                             <Nav className="mr-auto">

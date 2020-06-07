@@ -14,9 +14,12 @@ export default function Login() {
         event.preventDefault();
     }
 
+
+
     return (
         <div className="Login">
             <form onSubmit={handleSubmit}>
+
                 <FormGroup controlId="email" bsSize="large">
                     <FormLabel>Email</FormLabel>
                     <FormControl
@@ -26,6 +29,7 @@ export default function Login() {
                         onChange={e => setEmail(e.target.value)}
                     />
                 </FormGroup>
+
                 <FormGroup controlId="password" bsSize="large">
                     <FormLabel>Password</FormLabel>
                     <FormControl
@@ -33,10 +37,12 @@ export default function Login() {
                         onChange={e => setPassword(e.target.value)}
                         type="password"
                     />
+
                 </FormGroup>
                 <Button block bsSize="large" disabled={!validateForm()} type="submit">
                     Login
                 </Button>
+
             </form>
         </div>
     );

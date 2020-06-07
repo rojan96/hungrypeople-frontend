@@ -27,7 +27,6 @@ const App = () => {
             <Router>
                 <div>
                     <Switch>
-
                         <Route path="/" exact >
                             <Container style = {styles} fluid>
                                 <NavBar variant={"light"} isLoggedIn={isLoggedIn} logoSize={300}/>
@@ -54,7 +53,6 @@ const App = () => {
                             <SignUp/>
                         </Route>
 
-
                     </Switch>
                 </div>
             </Router>
@@ -62,14 +60,31 @@ const App = () => {
     } else {
         return (
             <Router>
-                <div>
-                    <Container style = {styles} fluid>
-                        <NavBar variant={"light"} isLoggedIn={isLoggedIn}/>
-                        <JumboHeader />
-                    </Container>
-                    <WhatWeDo/>
-                    <RecommendedBusinesses/>
-                </div>
+                <Route exact path="/">
+                    <div>
+                        <Container style = {styles} fluid>
+                            <NavBar variant={"dark"} bg={"dark"} logoSize={100} isLoggedIn={isLoggedIn}/>
+                            <JumboHeader />
+                        </Container>
+                        <WhatWeDo/>
+                        <RecommendedBusinesses/>
+                    </div>
+                </Route>
+
+                <Route path="/Search">
+                    <NavBar variant={"dark"} bg={"dark"} isLoggedIn={isLoggedIn} logoSize={100}/>
+                    <Search/>
+                </Route>
+
+                <Route path="/Login">
+                    <NavBar variant={"dark"} bg={"dark"} logoSize={100} isLoggedIn={isLoggedIn}/>
+                    <Login/>
+                </Route>
+
+                <Route path="/SignUp">
+                    <NavBar variant={"dark"} bg={"dark"} logoSize={100} isLoggedIn={isLoggedIn}/>
+                    <SignUp/>
+                </Route>
             </Router>
         );
     }
