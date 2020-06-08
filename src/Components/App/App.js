@@ -20,6 +20,11 @@ const styles = {
     backgroundRepeat: 'no-repeat',
     maxWidth: 'none'
 };
+const smallLogoSize = 100;
+const largeLogoSize = 300;
+const App = (props) => {
+        const existingTokens = JSON.parse(localStorage.getItem("tokens"));
+        const [authTokens, setAuthTokens] = useState(localStorage.getItem('authTokens') || '');
 
 const App = () => {
     if (isLoggedIn){
