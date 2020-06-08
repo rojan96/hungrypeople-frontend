@@ -11,9 +11,7 @@ const styles = {
 }
 
 export class NavBar extends React.Component {
-
     render(){
-
             if (this.props.isLoggedIn){
                 return(
                     <Navbar collapseOnSelect expand="lg" variant={this.props.variant} bg={this.props.bg}>
@@ -35,14 +33,14 @@ export class NavBar extends React.Component {
                             <Nav className="mr-auto">
                             </Nav>
                             <Nav>
-                                <Link to="/Search">
+                                <Link to="/search">
                                     <Nav.Link href="#1" className="align-top" style={styles}>Find Businesses </Nav.Link>
                                 </Link>
-                                <Link to="/Orders">
+                                <Link to="/orders">
                                     <Nav.Link href="#2" className="align-top" style={styles}>Past Orders</Nav.Link>
                                 </Link>
-                                <Link to="/Profile">
-                                    <Nav.Link href="#3" className="align-top" style={styles}>Profile</Nav.Link>
+                                <Link to="/profile">
+                                    <Nav.Link href="#3" className="align-top" style={styles}>UserProfile</Nav.Link>
                                 </Link>
                             </Nav>
 
@@ -53,10 +51,10 @@ export class NavBar extends React.Component {
                             {/*    <li>Find Businesses </li>*/}
                             {/*</Link>*/}
                             {/*<Link to="/Login">*/}
-                            {/*    <li >Past Orders</li>*/}
+                            {/*    <li >Past OrderPage</li>*/}
                             {/*</Link>*/}
                             {/*<Link to="/SignUp">*/}
-                            {/*    <li>Profile</li>*/}
+                            {/*    <li>UserProfile</li>*/}
                             {/*</Link>*/}
                         </Navbar.Collapse>
                     </Navbar>
@@ -64,31 +62,33 @@ export class NavBar extends React.Component {
             } else {
                 return (
                     <Navbar collapseOnSelect expand="lg" variant={this.props.variant} bg={this.props.bg}>
-                        <Navbar.Brand href="#home" >
-                            <img
-                                src={require("./HungryPeopleLogo.png")}
-                                className="d-inline-block align-top"
-                                height={"200"}
-                                width={"200"}
-                                alt="Img not found"
-                                style={{backgroundColor: 'Black'}}
-                            />
-                        </Navbar.Brand>
+
+                        <Link to="/">
+                            <Navbar.Brand>
+                                <img
+                                    src={require("./HungryPeopleLogo.png")}
+                                    className="d-inline-block align-top"
+                                    height={this.props.logoSize}
+                                    width={this.props.logoSize}
+                                    alt="Img not found"
+                                />
+                            </Navbar.Brand>
+                        </Link>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav" >
                             <Nav className="mr-auto">
                             </Nav>
                             <Nav>
-                                {/*<Link>*/}
-                                <Nav.Link href="#memes" className="align-top" style={styles}>What we do</Nav.Link>
-                                {/*</Link>*/}
-                                <Link to="/Search">
-                                    <Nav.Link href="#1" className="align-top" style={styles}>Find Businesses </Nav.Link>
+                                <Link to="/">
+                                    <Nav.Link href="#memes" className="align-top" style={styles}>What we do</Nav.Link>
                                 </Link>
-                                <Link to="/Login">
+                                <Link to="/search">
+                                    <Nav.Link href="#1" className="align-top" style={styles}>Find Businesses</Nav.Link>
+                                </Link>
+                                <Link to="/login">
                                     <Nav.Link href="#2" className="align-top" style={styles}>Log in</Nav.Link>
                                 </Link>
-                                <Link to="/SignUp">
+                                <Link to="/signup">
                                     <Nav.Link href="#3" className="align-top" style={styles}>Sign up</Nav.Link>
                                 </Link>
                             </Nav>
