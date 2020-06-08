@@ -1,23 +1,52 @@
 import React, { useState } from "react";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import "./SignUp.css";
+import axios from 'axios';
+import {Link, Redirect} from 'react-router-dom';
+import {useAuth} from "../../context/auth";
 
 export default function SignUp() {
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [username, setUsername] = useState("");
+    const [isLoggedIn, setLoggedIn] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const { setAuthTokens } = useAuth();
+
+    const referer = '/Profile';
+    const url ="https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/business";
 
     function validateForm() {
-        return email.length > 0 && password.length > 0;
+        return email.length > 0 && password.length > 0 && username.length > 0;
     }
 
-    function handleSubmit(event) {
-        event.preventDefault();
+    // function handleSubmit(event) {
+    //     event.preventDefault();
+    //     postSignup();
+    // }
+
+    function postSignup() {
+        axios.post(url, {
+            fullName: username ,
+            email: email,
+            password: password
+        }).then(result => {
+            console.log(result);
+            if (result.status === 200) {
+                setAuthTokens(result.data);
+                setLoggedIn(true);
+            } else {
+                setIsError(true);
+            }
+        }).catch(e => {
+            setIsError(true);
+        });
+        return <Redirect to={"/"}/>;
     }
 
     return (
         <div className="SignUp">
-            <form onSubmit={handleSubmit}>
+            <form>
 
                 <FormGroup controlId="email" bsSize="large">
                     <FormLabel>Email</FormLabel>
@@ -30,10 +59,10 @@ export default function SignUp() {
                 </FormGroup>
 
                 <FormGroup controlId="username" bsSize="large">
-                    <FormLabel>User name</FormLabel>
+                    <FormLabel>Username</FormLabel>
                     <FormControl
                         autoFocus
-                        type="text"
+                        type="userName"
                         value={username}
                         onChange={e => setUsername(e.target.value)}
                     />
@@ -48,9 +77,10 @@ export default function SignUp() {
                     />
                 </FormGroup>
 
-                <Button block bsSize="large" disabled={!validateForm()} type="submit">
+                <Button block bsSize="large" disabled={!validateForm()} onClick={postSignup} type="submit">
                     Sign up
                 </Button>
+                <Link to="/login"><p>Already have an account?</p></Link>
 
             </form>
         </div>

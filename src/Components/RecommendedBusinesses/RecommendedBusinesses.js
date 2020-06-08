@@ -8,6 +8,7 @@ const styles = {
     backgroundColor: 'lightblue',
     textAlign: 'center',
     padding: 5,
+    height: 200
 };
 
 const stylesh1 = {
