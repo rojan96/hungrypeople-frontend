@@ -17,7 +17,7 @@ import PrivateRoute from "../../Routes/PrivateRoute";
 import ProfilePage from "../../pages/ProfilePage";
 import OrderPage from "../../pages/OrderPage";
 
-const isLoggedIn = false;
+const isLoggedIn = true;
 
 const styles = {
     color: 'White',
@@ -38,7 +38,7 @@ const App = (props) => {
             setAuthTokens(data);
         }
         return (
-            <AuthContext.Provider value = {{authTokens, setAuthTokens: setTokens}}>
+            <AuthContext.Provider value = {isLoggedIn}>
                 <Router>
                     
                         <Switch>

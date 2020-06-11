@@ -1,11 +1,14 @@
 import React from 'react';
-
+import './Footer.css';
 const style={
     textAlign: 'center',
     background: 'gray',
     margin: 0,
     padding: 20,
     fontFamily: 'Cabin Sketch',
+    position: 'absolute',
+    bottom: 0,
+    width: '100%'
 }
 
 export default function Footer () {

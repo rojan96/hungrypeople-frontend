@@ -15,7 +15,7 @@ export default function Login() {
     const { setAuthTokens } = useAuth();
 
     const referer = '/';
-    const url ="https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/business";
+    const url ="https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/users";
 
     function validateForm() {
         return userName.length > 0 && password.length > 0;
@@ -27,12 +27,8 @@ export default function Login() {
 
     function postLogin() {
         axios.post(url, {
-
-        },{
-            auth:{
-                username: userName,
-                password: password
-            }
+            "username": userName,
+            "password": password
         }).then(result => {
             if (result.status === 200) {
                 setAuthTokens(result.data);
@@ -46,7 +42,7 @@ export default function Login() {
     }
 
     if (isLoggedIn) {
-        return <Redirect to={"/Profile"}/>;
+        return <Redirect to={"/profile"}/>;
     }
 
     return (
