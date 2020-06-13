@@ -18,7 +18,6 @@ export function NavBar (props) {
     if (props.isLoggedIn) {
             return (
                 <Navbar collapseOnSelect expand="lg" variant={props.variant} bg={props.bg}>
-
                     <Link to="/">
                         <Navbar.Brand>
                             <img

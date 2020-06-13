@@ -14,19 +14,20 @@ import PrivateRoute from "../../Routes/PrivateRoute";
 import ProfilePage from "../../pages/ProfilePage";
 import OrderPage from "../../pages/OrderPage";
 import {AuthContext} from "../../context/auth";
-
+import DesktopBg from "../../images/bg-curvy-desktop.svg";
 
 const styles = {
     color: 'White',
     fontFamily: 'Cabin Sketch',
-    backgroundImage: 'url(' + require('../../lighterMain.jpg') + ')',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
+    // backgroundImage: 'url(' + require('../../lighterMain.jpg') + ')',
+    // backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
+    backgroundColor:  'hsl(217, 28%, 15%)',
     maxWidth: 'none'
 };
 
 const smallLogoSize = 100;
-const largeLogoSize = 300;
+const largeLogoSize = 200;
 function App () {
     const [user, setUser] = useState(null);
     const value = useMemo(() => ({user, setUser}), [user, setUser]);
@@ -43,8 +44,8 @@ function App () {
             <Router>
                 <Switch>
                     <Route path="/" exact>
-                        <Container style={styles} fluid>
-                            <NavBar variant={"light"} isLoggedIn={isLoggedIn} logoSize={largeLogoSize}/>
+                        <Container style={styles} className="intro-section" fluid>
+                            <NavBar variant={"dark"} isLoggedIn={isLoggedIn} logoSize={largeLogoSize}/>
                             <JumboHeader/>
                         </Container>
                         <WhatWeDo/>
