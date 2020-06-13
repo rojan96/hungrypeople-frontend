@@ -5,7 +5,6 @@ import Container from 'react-bootstrap/Container'
 const styles = {
     color: 'White',
     fontFamily: 'Cabin Sketch',
-    backgroundColor: 'orange',
     textAlign: 'center',
     padding: 30,
 
