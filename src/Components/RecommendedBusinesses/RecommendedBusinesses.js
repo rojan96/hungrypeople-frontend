@@ -26,9 +26,9 @@ const stylesBusinessDiv = {
 
 export class RecommendedBusinesses extends React.Component {
 
-    render(){
-        return(
-            <Container style = {styles} fluid>
+    render() {
+        return (
+            <Container style={styles} fluid>
                 <h1 style={stylesh1}>Recommended Businesses</h1>
                 <div style={stylesBusinessDiv}>
 

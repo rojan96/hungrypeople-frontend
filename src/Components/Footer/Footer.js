@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.css';
-const style={
+
+const style = {
     textAlign: 'center',
     background: 'gray',
     margin: 0,
@@ -11,8 +12,8 @@ const style={
     width: '100%'
 }
 
-export default function Footer () {
-    return(
+export default function Footer() {
+    return (
         <div style={style}>
             <h3>Copyright 2020 HungryPeople</h3>
             <h4>All rights reserved.</h4>

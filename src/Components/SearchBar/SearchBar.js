@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Business from "../Business/Business";
 
 const divStyles = {
@@ -12,7 +12,7 @@ function SearchBar() {
 
     useEffect(() => {
         fetchItems();
-    },[]);
+    }, []);
 
     const [items, setItems] = useState([]);
 

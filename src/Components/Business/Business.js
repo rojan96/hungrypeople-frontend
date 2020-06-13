@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -25,17 +24,17 @@ const imageUrl = {
     sprite: 'https://images.unsplash.com/photo-1587461158349-e8d15154d7fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
 }
 
-export default function Business(props){
+export default function Business(props) {
 
     const classes = useStyles();
-    return(
-        <Card className={classes.root} >
+    return (
+        <Card className={classes.root}>
             <CardActionArea>
 
                 <CardMedia
                     className={classes.media}
                     image={imageUrl.sprite}
-                    title= {props.content.fullName}
+                    title={props.content.fullName}
                 />
 
                 <CardContent>

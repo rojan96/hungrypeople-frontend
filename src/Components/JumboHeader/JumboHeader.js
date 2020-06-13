@@ -2,7 +2,6 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
-import Nav from "react-bootstrap/Nav";
 import {Link} from "react-router-dom";
 
 const styles = {
@@ -22,8 +21,8 @@ const stylesDiv = {
 
 export class JumboHeader extends React.Component {
 
-    render(){
-        return(
+    render() {
+        return (
             <Jumbotron style={styles} fluid>
                 <div style={stylesDiv}>
                     <h1 style={stylesHeader}> HungryPeople</h1>

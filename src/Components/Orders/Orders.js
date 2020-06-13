@@ -1,6 +1,7 @@
 import React from 'react';
 import './Orders.css';
-const style={
+
+const style = {
     textAlign: 'center',
     background: '',
     margin: 0,
@@ -8,8 +9,8 @@ const style={
     fontFamily: 'Cabin Sketch',
 }
 
-export default function Orders () {
-    return(
+export default function Orders() {
+    return (
         <div className="orderDiv">
             <h1>Past Orders:</h1>
             <h3>6/5/2020</h3>
