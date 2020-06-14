@@ -7,8 +7,6 @@ const style = {
     margin: 0,
     padding: 20,
     fontFamily: 'Just Another Hand',
-    position: 'absolute',
-    bottom: 0,
     width: '100%',
     fontSize: 40
 }

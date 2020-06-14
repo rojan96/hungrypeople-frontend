@@ -133,19 +133,21 @@ body{
     border: none;
     border-radius: 50px;
     width: 280px;
-    color: hsl(0, 0%, 100%);
+    color: gray;
     padding: 15px 0;
     font-size: 15px;
     text-transform: capitalize;
     font-weight: 400;
-    background: linear-gradient(135deg ,hsl(176, 68%, 64%), hsl(198, 60%, 50%));
+    background: lightcyan;
     transition: .2s ease;
     cursor: pointer;
+    font-size: 30px;
 }
 .hero-content button:hover,
 .signup-box form .signup-btn:hover{
     background: linear-gradient(135deg ,hsl(176, 43%, 52%), hsl(198, 62%, 39%));
     box-shadow: 8px 8px 5px #0000003f;
+    color:hsl(0, 0%, 100%);
 }
 .services-section,
 .productive-section{
