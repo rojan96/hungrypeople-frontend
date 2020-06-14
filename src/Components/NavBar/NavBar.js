@@ -9,15 +9,15 @@ import {AuthContext} from "../../context/auth";
 
 export function NavBar (props) {
     const styles = {
-        fontSize: 30,
-        fontFamily: 'Cabin Sketch'
+        fontSize: 20,
+        fontFamily: 'Rock Salt',
     }
     const {setUser} = useContext(AuthContext);
     const history = useHistory();
 
     if (props.isLoggedIn) {
             return (
-                <Navbar collapseOnSelect expand="lg" variant={props.variant} bg={props.bg}>
+                <Navbar collapseOnSelect expand="lg" variant={props.variant} bg={props.bg} style={{padding: 0}}>
                     <Link to="/">
                         <Navbar.Brand>
                             <img
@@ -35,15 +35,15 @@ export function NavBar (props) {
                         </Nav>
                         <Nav>
                             <Link to="/search">
-                                <Nav.Link href="#1" className="align-top" style={styles}>Find Businesses </Nav.Link>
+                                <Nav.Link className="align-top NavOption" style={styles}>Find Businesses </Nav.Link>
                             </Link>
                             <Link to="/orders">
-                                <Nav.Link href="#2" className="align-top" style={styles}>Past Orders</Nav.Link>
+                                <Nav.Link className="align-top NavOption" style={styles}>Past Orders</Nav.Link>
                             </Link>
                             <Link to="/profile">
-                                <Nav.Link href="#3" className="align-top" style={styles}>UserProfile</Nav.Link>
+                                <Nav.Link className="align-top NavOption" style={styles}>Profile</Nav.Link>
                             </Link>
-                             <Nav.Link href="#3" className="align-top" onClick={() => {
+                             <Nav.Link className="align-top NavOption" onClick={() => {
                                  setUser(null);
                                  history.push("/");
                              }}

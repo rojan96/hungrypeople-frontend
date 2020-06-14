@@ -11,12 +11,17 @@ const styles = {
     background: 'none',
     textAlign: "center",
     fontSize: 50,
-    margin: 0
+    margin: 0,
+    paddingTop: 0,
+    fontFamily: 'Just Another Hand',
+    letterSpacing: 5
 };
 
 const stylesHeader = {
-    fontSize: 100,
-    fontFamily: 'Cabin Sketch'
+    fontSize: 60,
+    fontWeight: 'normal',
+    fontFamily: 'Rock Salt',
+    overflow: 'hidden'
 }
 
 // const stylesDiv = {
@@ -33,12 +38,12 @@ export class JumboHeader extends React.Component {
                 <div>
                     <div className="hero-section container">
                         <div className="hero-image">
-                            <img src={mainIllustration} alt="hero-image" style={{maxWidth: '40%'}}/>
+                            <img src={mainIllustration} alt="hero-image" style={{maxWidth: '50%', padding: 0}}/>
                         </div>
                         <div className="hero-content">
                             <h1 style={stylesHeader}> HungryPeople</h1>
-                            <p>Order food. Wherever you are. Wherever you want.
-                            </p>
+                            <h2>Order food. Wherever you are. Wherever you want.</h2>
+                            <br/>
                             <Link to="/Search">
                                 <button>Get Food.</button>
                             </Link>
@@ -46,7 +51,6 @@ export class JumboHeader extends React.Component {
                     </div>
 
                 </div>
-
 
             </Jumbotron>
         );

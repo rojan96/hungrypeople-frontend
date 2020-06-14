@@ -17,17 +17,17 @@ import {AuthContext} from "../../context/auth";
 import DesktopBg from "../../images/bg-curvy-desktop.svg";
 
 const styles = {
-    color: 'White',
-    fontFamily: 'Cabin Sketch',
+    color: 'lightgray',
+    fontFamily: 'Just Another Hand',
     // backgroundImage: 'url(' + require('../../lighterMain.jpg') + ')',
     // backgroundSize: 'cover',
     // backgroundRepeat: 'no-repeat',
-    backgroundColor:  'hsl(217, 28%, 15%)',
+    backgroundColor:  '#40739e',
     maxWidth: 'none'
 };
 
 const smallLogoSize = 100;
-const largeLogoSize = 200;
+const largeLogoSize = 100;
 function App () {
     const [user, setUser] = useState(null);
     const value = useMemo(() => ({user, setUser}), [user, setUser]);
