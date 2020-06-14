@@ -19,9 +19,6 @@ import DesktopBg from "../../images/bg-curvy-desktop.svg";
 const styles = {
     color: 'lightgray',
     fontFamily: 'Just Another Hand',
-    // backgroundImage: 'url(' + require('../../lighterMain.jpg') + ')',
-    // backgroundSize: 'cover',
-    // backgroundRepeat: 'no-repeat',
     backgroundColor:  '#40739e',
     maxWidth: 'none'
 };
@@ -50,30 +47,27 @@ function App () {
                         </Container>
                         <WhatWeDo/>
                         <RecommendedBusinesses/>
-                        <Footer/>
                     </Route>
                     <Route path="/login">
                         <NavBar variant={"dark"} bg={"dark"} isLoggedIn={isLoggedIn} logoSize={smallLogoSize}/>
                         <Login/>
-                        <Footer/>
                     </Route>
                     <Route path="/signup">
                         <NavBar variant={"dark"} bg={"dark"} isLoggedIn={isLoggedIn} logoSize={smallLogoSize}/>
                         <SignUp/>
-                        <Footer/>
                     </Route>
                     <Route path="/search">
                         <NavBar variant={"dark"} bg={"dark"} isLoggedIn={isLoggedIn} logoSize={smallLogoSize}/>
                         <Search/>
-                        <Footer/>
                     </Route>
                     <Route path="/businessprofile">
                         <NavBar variant={"dark"} bg={"dark"} isLoggedIn={isLoggedIn} logoSize={smallLogoSize}/>
-                        <Footer/>
                     </Route>
                     <PrivateRoute path="/profile" component={ProfilePage}/>
                     <PrivateRoute path="/orders" component={OrderPage}/>
+
                 </Switch>
+                <Footer/>
             </Router>
         </AuthContext.Provider>
     );

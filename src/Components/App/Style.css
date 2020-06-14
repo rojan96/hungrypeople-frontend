@@ -26,6 +26,9 @@ body{
     background-color:  hsl(218, 28%, 13%);
     font-family: 'Open Sans';
     font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 .clearfix::after {
     content: "";

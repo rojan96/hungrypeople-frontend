@@ -9,18 +9,24 @@ const style = {
     background: 'gray',
     margin: 0,
     padding: 20,
-    fontFamily: 'Cabin Sketch',
+    fontFamily: 'Just Another Hand',
+    display: 'flex',
 }
 const isLoggedIn = true;
 const logoSize = 100;
 
 export default function ProfilePage() {
     return (
-        <div>
+        <container>
             <NavBar variant={"dark"} bg={"dark"} isLoggedIn={isLoggedIn} logoSize={logoSize}/>
-            <UserProfile/>
-            <Orders/>
+            <div style={style}>
+                <div>
+                    <UserProfile/>
+                </div>
+                <Orders/>
+            </div>
             <Footer/>
-        </div>
+        </container>
+
     );
 }

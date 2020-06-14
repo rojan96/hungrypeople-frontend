@@ -8,7 +8,7 @@ const style = {
     background: 'gray',
     margin: 0,
     padding: 20,
-    fontFamily: 'Cabin Sketch',
+    fontFamily: 'Just another hand'
 }
 const isLoggedIn = true;
 const logoSize = 100;
