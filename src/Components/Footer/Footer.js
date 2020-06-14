@@ -3,20 +3,21 @@ import './Footer.css';
 
 const style = {
     textAlign: 'center',
-    background: 'gray',
+    background: '#a5b1c2',
     margin: 0,
     padding: 20,
-    fontFamily: 'Cabin Sketch',
+    fontFamily: 'Just Another Hand',
     position: 'absolute',
     bottom: 0,
-    width: '100%'
+    width: '100%',
+    fontSize: 40
 }
 
 export default function Footer() {
     return (
         <div style={style}>
-            <h3>Copyright 2020 HungryPeople</h3>
-            <h4>All rights reserved.</h4>
+            <p>Copyright 2020 HungryPeople</p>
+            <p>All rights reserved.</p>
         </div>
     );
 }

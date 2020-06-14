@@ -4,17 +4,13 @@ import Container from 'react-bootstrap/Container'
 
 const styles = {
     color: 'White',
-    fontFamily: 'Cabin Sketch',
-    backgroundColor: 'lightblue',
+    fontFamily: 'Just Another Hand',
+    backgroundColor: '#4b6584',
     textAlign: 'center',
-    padding: 5,
-    height: 200
+    padding: 20,
+    height: 700,
+    fontSize: 60
 };
-
-const stylesh1 = {
-    border: '2px solid white',
-    padding: 3
-}
 
 const stylesBusinessDiv = {
     display: 'flex',
@@ -29,7 +25,7 @@ export class RecommendedBusinesses extends React.Component {
     render() {
         return (
             <Container style={styles} fluid>
-                <h1 style={stylesh1}>Recommended Businesses</h1>
+                <p>Recommended Businesses</p>
                 <div style={stylesBusinessDiv}>
 
                 </div>
