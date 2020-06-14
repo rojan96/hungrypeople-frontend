@@ -18,32 +18,35 @@ export function NavBar (props) {
     if (props.isLoggedIn) {
             return (
                 <Navbar collapseOnSelect expand="lg" variant={props.variant} bg={props.bg} style={{padding: 0}}>
-                    <Link to="/">
+
                         <Navbar.Brand>
-                            <img
-                                src={require("./HungryPeopleLogo.png")}
-                                className="d-inline-block align-top"
-                                height={props.logoSize}
-                                width={props.logoSize}
-                                alt="Img not found"
-                            />
+                            <Link to="/">
+                                <img
+                                    src={require("./HungryPeopleLogo.png")}
+                                    className="d-inline-block align-top"
+                                    height={props.logoSize}
+                                    width={props.logoSize}
+                                    alt="Img not found"
+                                />
+                            </Link>
                         </Navbar.Brand>
-                    </Link>
+
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
                         </Nav>
                         <Nav>
                             <Link to="/search">
-                                <Nav.Link className="align-top NavOption" style={styles}>Find Businesses </Nav.Link>
+                                <Nav.Link href="#1" className="align-top" style={styles}>Find Businesses </Nav.Link>
                             </Link>
                             <Link to="/orders">
-                                <Nav.Link className="align-top NavOption" style={styles}>Past Orders</Nav.Link>
+                                <Nav.Link href="#1" className="align-top" style={styles}>Past Orders</Nav.Link>
                             </Link>
                             <Link to="/profile">
-                                <Nav.Link className="align-top NavOption" style={styles}>Profile</Nav.Link>
+                                <Nav.Link href="#1" className="align-top" style={styles}>Profile</Nav.Link>
                             </Link>
-                             <Nav.Link className="align-top NavOption" onClick={() => {
+
+                             <Nav.Link className="align-top" onClick={() => {
                                  setUser(null);
                                  history.push("/");
                              }}
