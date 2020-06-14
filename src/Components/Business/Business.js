@@ -28,7 +28,7 @@ export default function Business(props) {
 
     const classes = useStyles();
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root} style={{margin: '30px 15px'}}>
             <CardActionArea>
 
                 <CardMedia
