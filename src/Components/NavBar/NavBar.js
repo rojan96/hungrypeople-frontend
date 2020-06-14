@@ -6,7 +6,6 @@ import {Link, useHistory} from 'react-router-dom';
 import './Style.css';
 import {AuthContext} from "../../context/auth";
 
-
 export function NavBar (props) {
     const styles = {
         fontSize: 20,
