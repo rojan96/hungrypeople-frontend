@@ -1,23 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 
 .profileContainer {
-    font-family: 'Poiret One', cursive;
+    font-family: 'Just Another Hand', cursive;
+    background-color: #0c5460;
+    border-radius: 5px;
 }
 
 .profileDiv {
-    background: gray;
     text-align: center;
     padding: 10px;
     display: flex;
     justify-content: center;
+    border: 2px outset black;
+    border-radius: 5px;
 }
 
 .profileDiv h3 {
-    padding: 80px 50px;
+    padding: 30px 50px;
+    font-size: 50px;
 }
 
 .accountInfoDiv {
-    background: lightsteelblue;
+    border: 2px outset black;
+    border-radius: 5px;
     text-align: center;
-    padding: 40px;
+    padding: 20px;
+}
+
+.accountInfoDiv p {
+    font-size: 30px;
+}
+.accountInfoDiv h4 {
+    font-size: 40px;
 }
