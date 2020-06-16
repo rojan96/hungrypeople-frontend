@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import {Link, useHistory} from 'react-router-dom';
 import './Style.css';
 import {AuthContext} from "../../context/auth";
-
+import '../App/Style.css'
 export function NavBar (props) {
     const styles = {
         fontSize: 20,
@@ -22,7 +22,7 @@ export function NavBar (props) {
                             <Link to="/">
                                 <img
                                     src={require("./HungryPeopleLogo.png")}
-                                    className="d-inline-block align-top"
+                                    className="d-inline-block align-top hvr-buzz-out"
                                     height={props.logoSize}
                                     width={props.logoSize}
                                     alt="Img not found"
@@ -36,13 +36,13 @@ export function NavBar (props) {
                         </Nav>
                         <Nav>
                             <Link to="/search">
-                                <Nav.Link href="#1" className="align-top" style={styles}>Find Businesses </Nav.Link>
+                                <Nav.Link href="#1" className="align-top hvr-buzz-out" style={styles}>Find Businesses </Nav.Link>
                             </Link>
                             <Link to="/orders">
-                                <Nav.Link href="#1" className="align-top" style={styles}>Past Orders</Nav.Link>
+                                <Nav.Link href="#1" className="align-top hvr-buzz-out" style={styles}>Past Orders</Nav.Link>
                             </Link>
                             <Link to="/profile">
-                                <Nav.Link href="#1" className="align-top" style={styles}>Profile</Nav.Link>
+                                <Nav.Link href="#1" className="align-top hvr-buzz-out" style={styles}>Profile</Nav.Link>
                             </Link>
 
                              <Nav.Link className="align-top" onClick={() => {
@@ -62,7 +62,7 @@ export function NavBar (props) {
                         <Navbar.Brand>
                             <img
                                 src={require("./HungryPeopleLogo.png")}
-                                className="d-inline-block align-top"
+                                className="d-inline-block align-top hvr-buzz-out"
                                 height={props.logoSize}
                                 width={props.logoSize}
                                 alt="Img not found"
@@ -75,16 +75,16 @@ export function NavBar (props) {
                         </Nav>
                         <Nav>
                             <Link to="/">
-                                <Nav.Link href="#memes" className="align-top" style={styles}>What we do</Nav.Link>
+                                <Nav.Link href="#memes" className="align-top hvr-buzz-out" style={styles}>What we do</Nav.Link>
                             </Link>
                             <Link to="/search">
-                                <Nav.Link href="#1" className="align-top" style={styles}>Find Businesses</Nav.Link>
+                                <Nav.Link href="#1" className="align-top hvr-buzz-out" style={styles}>Find Businesses</Nav.Link>
                             </Link>
                             <Link to="/login">
-                                <Nav.Link href="#2" className="align-top" style={styles}>Log in</Nav.Link>
+                                <Nav.Link href="#2" className="align-top hvr-buzz-out" style={styles}>Log in</Nav.Link>
                             </Link>
                             <Link to="/signup">
-                                <Nav.Link href="#3" className="align-top" style={styles}>Sign up</Nav.Link>
+                                <Nav.Link href="#3" className="align-top hvr-buzz-out" style={styles}>Sign up</Nav.Link>
                             </Link>
                         </Nav>
                     </Navbar.Collapse>

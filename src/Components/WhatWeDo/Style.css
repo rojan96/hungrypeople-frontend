@@ -1,7 +1,14 @@
+.WhatWeDo {
+    background-color: #ffd700;
+}
+
 .WhatWeDo-text {
     font-size: 40px;
+    color: gray;
+    padding: 0px 100px;
 }
 
 .WhatWeDo-title {
     font-size: 60px;
+    color: gray;
 }
