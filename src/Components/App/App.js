@@ -14,8 +14,8 @@ import PrivateRoute from "../../Routes/PrivateRoute";
 import ProfilePage from "../../pages/ProfilePage";
 import OrderPage from "../../pages/OrderPage";
 import {AuthContext} from "../../context/auth";
-import DesktopBg from "../../images/bg-curvy-desktop.svg";
 import {HowItWorks} from "../HowItWorks/HowItWorks";
+
 
 const styles = {
     color: 'lightgray',
