@@ -9,12 +9,17 @@ const divStyles = {
     justifyContent: 'flex-start',
     flexWrap: 'wrap'
 }
+
 function Orders() {
     const {user} = useContext(AuthContext);
+
     useEffect(() => {
-        fetchItems();
+        const orderIDs = fetchItems();
+        console.log(fetchEachOrder(orderIDs));
     }, []);
+
     const [items, setItems] = useState([]);
+
     const fetchItems = async () => {
         const data = await axios.get(
             `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users/${user.id}/orders/`, {
@@ -24,18 +29,27 @@ function Orders() {
                 }
             }
         );
-        data.data.content.forEach(item => {
-            const orderData = await axios.get(
-                `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users/${user.id}/orders/`, {
+        return data.data.content;
+    }
+
+    const fetchEachOrder = async (orderIDs) => {
+        let orders = [];
+        for (let orderID in orderIDs){
+            console.log(orderID.id);
+            const orderDataJson = await axios.get(
+                `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users/${user.id}/orders/${orderID.id}/orderItems/`, {
                     auth: {
                         username: 'c',
                         password: 'c'
                     }
                 }
             );
-        });
+            console.log(orderDataJson)
+            orders.push(orderDataJson.content);
+        }
 
-        setItems(data.data.content);
+        setItems(orders);
+        return orders;
     }
 
     try {

@@ -39,9 +39,7 @@ export default function Login() {
 
                 </FormGroup>
                 <Button block bsSize="large" disabled={!validateForm()} onClick={async () => {
-                    console.log(userName + password);
                     const user = await postLogin(userName, password);
-                    // console.log(user);
                     if (user) {
                         setUser(user);
                         history.push("/");

@@ -12,7 +12,6 @@ export const postLogin = async(userName, password) => {
             username: userName,
             password: password
         }}).then(data => {
-        console.log(data);
         if (data.status == 200) {
             userData = {
                 id: data.data.id,
@@ -31,7 +30,6 @@ export const postLogin = async(userName, password) => {
     }).catch(e => {
         return userData;
     });
-    getOrders(6);
     return data;
 }
 
