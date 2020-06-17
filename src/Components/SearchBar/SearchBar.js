@@ -20,7 +20,6 @@ function SearchBar() {
             'https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/business'
         );
         const items = await data.json();
-        console.log(items.content);
         setItems(items.content)
     }
 
@@ -37,7 +36,6 @@ function SearchBar() {
     } catch (error) {
         return (<div> Nothing found. </div>)
     }
-
 }
 
 export default SearchBar;

@@ -1,29 +1,20 @@
 import React, {useContext, useState} from "react";
 import {Button, FormControl, FormGroup, FormLabel} from "react-bootstrap";
 import "./Login.css";
-import axios from 'axios';
-import {Link, Redirect, useHistory} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {AuthContext} from "../../context/auth";
 import {postLogin} from "../../util/HPserver";
 
 export default function Login() {
-    // const [isLoggedIn, setLoggedIn] = useState(false);
-    // const [isError, setIsError] = useState(false);
+
+    const history = useHistory();
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const {user, setUser} = useContext(AuthContext);
-    const history = useHistory();
-    // const referer = '/';
-    // const url = "https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/users";
 
+    const {setUser} = useContext(AuthContext);
     function validateForm() {
         return userName.length > 0 && password.length > 0;
     }
-
-    // function handleSubmit(event) {
-    //     event.preventDefault();
-    // }
-    //
 
     return (
         <div className="Login">
@@ -48,11 +39,15 @@ export default function Login() {
 
                 </FormGroup>
                 <Button block bsSize="large" disabled={!validateForm()} onClick={async () => {
-
-                    const user = await postLogin();
-                    console.log(postLogin());
-                    setUser(user);
-                    history.push("/");
+                    console.log(userName + password);
+                    const user = await postLogin(userName, password);
+                    // console.log(user);
+                    if (user) {
+                        setUser(user);
+                        history.push("/");
+                    } else {
+                        alert("Wrong credentials");
+                    }
                 }}>
                     Login
                 </Button>

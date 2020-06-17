@@ -1,20 +1,57 @@
-import React from 'react';
-import './Orders.css';
+import React, {useContext, useEffect, useState} from 'react';
+import Business from "../Business/Business";
+import {AuthContext} from "../../context/auth";
+import axios from "axios";
 
-const style = {
-    textAlign: 'center',
-    background: '',
-    margin: 0,
-    padding: 20,
-    fontFamily: 'Cabin Sketch',
+
+const divStyles = {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    flexWrap: 'wrap'
+}
+function Orders() {
+    const {user} = useContext(AuthContext);
+    useEffect(() => {
+        fetchItems();
+    }, []);
+    const [items, setItems] = useState([]);
+    const fetchItems = async () => {
+        const data = await axios.get(
+            `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users/${user.id}/orders/`, {
+                auth: {
+                    username: 'c',
+                    password: 'c'
+                }
+            }
+        );
+        data.data.content.forEach(item => {
+            const orderData = await axios.get(
+                `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users/${user.id}/orders/`, {
+                    auth: {
+                        username: 'c',
+                        password: 'c'
+                    }
+                }
+            );
+        });
+
+        setItems(data.data.content);
+    }
+
+    try {
+        return (
+            <div style={divStyles}>
+                {
+                    items.map(item => (
+
+                        <h2>{item.id}</h2>
+                    ))
+                }
+            </div>
+        );
+    } catch (error) {
+        return (<div> Nothing found. </div>);
+    }
 }
 
-export default function Orders() {
-    return (
-        <div className="orderDiv">
-            <h1>Past Orders:</h1>
-            <h3>6/5/2020</h3>
-            <h4>Momo: 2</h4>
-        </div>
-    );
-}
+export default Orders;
