@@ -7,7 +7,7 @@ const divStyles = {
     flexWrap: 'wrap'
 }
 
-function SearchBar() {
+function ShowAllBusiness(props) {
 
     useEffect(() => {
         fetchItems();
@@ -38,4 +38,4 @@ function SearchBar() {
     }
 }
 
-export default SearchBar;
+export default ShowAllBusiness;

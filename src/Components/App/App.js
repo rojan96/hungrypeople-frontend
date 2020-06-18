@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Container from "@material-ui/core/Container";
 import {WhatWeDo} from "../WhatWeDo/WhatWeDo";
 import {RecommendedBusinesses} from "../RecommendedBusinesses/RecommendedBusinesses";
-import Search from '../SearchBar/SearchBar';
+import Search from '../ShowAllBusiness/ShowAllBusiness';
 import {NavBar} from "../NavBar/NavBar";
 import {JumboHeader} from "../JumboHeader/JumboHeader";
 import './Style.css';
@@ -24,7 +24,7 @@ const styles = {
     maxWidth: 'none'
 };
 
-const LogoSize = 100;
+const LogoSize = 150;
 function App () {
     const [user, setUser] = useState(null);
     const value = useMemo(() => ({user, setUser}), [user, setUser]);

@@ -6,6 +6,7 @@ import {Link, useHistory} from 'react-router-dom';
 import './Style.css';
 import {AuthContext} from "../../context/auth";
 import '../App/Style.css'
+import { HashLink } from 'react-router-hash-link';
 export function NavBar (props) {
     const styles = {
         fontSize: 20,
@@ -35,6 +36,9 @@ export function NavBar (props) {
                         <Nav className="mr-auto">
                         </Nav>
                         <Nav>
+                            <HashLink to="/#WhatWeDo">
+                                <Nav.Link href="#WhatWeDo" className="align-top hvr-buzz-out" style={styles}>What we do</Nav.Link>
+                            </HashLink>
                             <Link to="/search">
                                 <Nav.Link href="#1" className="align-top hvr-buzz-out" style={styles}>Find Businesses </Nav.Link>
                             </Link>
@@ -74,9 +78,9 @@ export function NavBar (props) {
                         <Nav className="mr-auto">
                         </Nav>
                         <Nav>
-                            <Link to="/">
-                                <Nav.Link href="#memes" className="align-top hvr-buzz-out" style={styles}>What we do</Nav.Link>
-                            </Link>
+                            <HashLink to="/#WhatWeDo">
+                                <Nav.Link href="#WhatWeDo" className="align-top hvr-buzz-out" style={styles}>What we do</Nav.Link>
+                            </HashLink>
                             <Link to="/search">
                                 <Nav.Link href="#1" className="align-top hvr-buzz-out" style={styles}>Find Businesses</Nav.Link>
                             </Link>

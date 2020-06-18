@@ -12,7 +12,8 @@ const styles = {
 export class WhatWeDo extends React.Component {
     render() {
         return (
-            <div className="WhatWeDo " style={styles}>
+            <div id="WhatWeDo" className="WhatWeDo" style={styles}>
+
                 <h1 className="WhatWeDo-title hvr-buzz-out">What we do</h1>
                 <h4 className="WhatWeDo-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor ac lorem eget
                     sagittis. Fusce tincidunt condimentum placerat. Orci varius natoque penatibus et magnis dis
