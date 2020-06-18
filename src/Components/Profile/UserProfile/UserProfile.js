@@ -8,7 +8,7 @@ export default function UserProfile (){
         return (
             <container className="profileContainer">
                 <div className="profileDiv">
-                    <img src={user.profilePicture} style={{height: 200}}/>
+                    <img src={user.profilePicture} alt = "User Profile" style={{height: 200}}/>
                     <h3>Welcome, {user.username}</h3>
                 </div>
                 <div className="accountInfoDiv">

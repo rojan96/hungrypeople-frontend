@@ -6,6 +6,7 @@ import {Link, useHistory} from 'react-router-dom';
 import './Style.css';
 import {AuthContext} from "../../context/auth";
 import '../App/Style.css'
+import { HashLink } from 'react-router-hash-link';
 export function NavBar (props) {
     const styles = {
         fontSize: 20,
@@ -35,21 +36,26 @@ export function NavBar (props) {
                         <Nav className="mr-auto">
                         </Nav>
                         <Nav>
+                            <HashLink to="/#WhatWeDo">
+                                <span className="nav-link hvr-buzz-out" style={styles}>What we do</span>
+                            </HashLink>
                             <Link to="/search">
-                                <Nav.Link href="#1" className="align-top hvr-buzz-out" style={styles}>Find Businesses </Nav.Link>
+                                <span className="nav-link hvr-buzz-out" style={styles}>Find Businesses </span>
                             </Link>
                             <Link to="/orders">
-                                <Nav.Link href="#1" className="align-top hvr-buzz-out" style={styles}>Past Orders</Nav.Link>
+                                <span className="nav-link hvr-buzz-out" style={styles}>Past Orders</span>
                             </Link>
                             <Link to="/profile">
-                                <Nav.Link href="#1" className="align-top hvr-buzz-out" style={styles}>Profile</Nav.Link>
+                                <span className="nav-link hvr-buzz-out" style={styles}>Profile</span>
                             </Link>
 
                              <Nav.Link className="align-top" onClick={() => {
                                  setUser(null);
                                  history.push("/");
                              }}
-                                       style={styles}>Logout</Nav.Link>
+                                       style={styles}>
+                                 Logout
+                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
@@ -74,17 +80,17 @@ export function NavBar (props) {
                         <Nav className="mr-auto">
                         </Nav>
                         <Nav>
-                            <Link to="/">
-                                <Nav.Link href="#memes" className="align-top hvr-buzz-out" style={styles}>What we do</Nav.Link>
-                            </Link>
+                            <HashLink to="/#WhatWeDo">
+                                <span className="nav-link hvr-buzz-out" style={styles}>What we do</span>
+                            </HashLink>
                             <Link to="/search">
-                                <Nav.Link href="#1" className="align-top hvr-buzz-out" style={styles}>Find Businesses</Nav.Link>
+                                <span className="nav-link hvr-buzz-out" style={styles}>Find Businesses</span>
                             </Link>
                             <Link to="/login">
-                                <Nav.Link href="#2" className="align-top hvr-buzz-out" style={styles}>Log in</Nav.Link>
+                                <span className="nav-link hvr-buzz-out" style={styles}>Log in</span>
                             </Link>
                             <Link to="/signup">
-                                <Nav.Link href="#3" className="align-top hvr-buzz-out" style={styles}>Sign up</Nav.Link>
+                                <span className="nav-link hvr-buzz-out" style={styles}>Sign up</span>
                             </Link>
                         </Nav>
                     </Navbar.Collapse>

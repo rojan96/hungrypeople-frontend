@@ -8,10 +8,9 @@ export default function SignUp() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [isLoggedIn, setLoggedIn] = useState(false);
-    const [isError, setIsError] = useState(false);
+    const [setLoggedIn] = useState(false);
+    const [setIsError] = useState(false);
 
-    const referer = '/Profile';
     const url = "https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/business";
 
     function validateForm() {
