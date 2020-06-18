@@ -12,7 +12,7 @@ export const postLogin = async(userName, password) => {
             username: userName,
             password: password
         }}).then(data => {
-        if (data.status == 200) {
+        if (data.status === 200) {
             userData = {
                 id: data.data.id,
                 username: data.data.username,
@@ -40,7 +40,7 @@ export const getOrders = async(id) => {
     let orders = null;
     const orderData = axios.get(url).then(data => {
         console.log(data);
-        if (data.status == 200) {
+        if (data.status === 200) {
             orders = {
 
             };

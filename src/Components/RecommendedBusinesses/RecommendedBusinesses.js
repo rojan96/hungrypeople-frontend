@@ -1,9 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
 import '../App/Style.css';
 import Business from "../Business/Business";
-import ShowAllBusiness from "../ShowAllBusiness/ShowAllBusiness";
+
 const styles = {
     color: 'White',
     fontFamily: 'Just Another Hand',
@@ -29,7 +28,7 @@ export class RecommendedBusinesses extends React.Component {
 
     render() {
         return (
-            <div style={styles} fluid>
+            <div style={styles} fluid="true">
                 <p className="hvr-buzz-out">Recommended Businesses</p>
                 <div style={stylesBusinessDiv}>
                     <Business content={content}/>

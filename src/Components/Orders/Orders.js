@@ -1,5 +1,4 @@
 import React, {useContext, useEffect, useState} from 'react';
-import Business from "../Business/Business";
 import {AuthContext} from "../../context/auth";
 import axios from "axios";
 

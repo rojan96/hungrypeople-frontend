@@ -1,4 +1,4 @@
-import React, {useContext, useMemo, useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Container from "@material-ui/core/Container";
 import {WhatWeDo} from "../WhatWeDo/WhatWeDo";
@@ -41,7 +41,7 @@ function App () {
             <Router>
                 <Switch>
                     <Route path="/" exact>
-                        <Container style={styles} className="intro-section" fluid>
+                        <Container style={styles} className="intro-section" fluid="true">
                             <NavBar variant={"dark"} isLoggedIn={isLoggedIn} logoSize={LogoSize}/>
                             <JumboHeader/>
                         </Container>

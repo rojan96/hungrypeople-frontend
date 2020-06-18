@@ -19,7 +19,7 @@ export default function Login() {
     return (
         <div className="Login">
             <form>
-                <FormGroup controlId="email" bsSize="large">
+                <FormGroup controlId="email" >
                     <FormLabel>Username</FormLabel>
                     <FormControl
                         autoFocus
@@ -29,7 +29,7 @@ export default function Login() {
                     />
                 </FormGroup>
 
-                <FormGroup controlId="password" bsSize="large">
+                <FormGroup controlId="password" >
                     <FormLabel>Password</FormLabel>
                     <FormControl
                         value={password}
@@ -38,7 +38,7 @@ export default function Login() {
                     />
 
                 </FormGroup>
-                <Button block bsSize="large" disabled={!validateForm()} onClick={async () => {
+                <Button block disabled={!validateForm()} onClick={async () => {
                     const user = await postLogin(userName, password);
                     if (user) {
                         setUser(user);
