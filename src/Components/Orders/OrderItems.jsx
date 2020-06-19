@@ -6,6 +6,9 @@ const divStyles = {
   display: "flex",
   justifyContent: "flex-start",
   flexWrap: "wrap",
+  margin: "2em",
+  color: "black",
+  padding: "2px",
 };
 
 function OrderItems(props) {
@@ -36,15 +39,14 @@ function OrderItems(props) {
     return (
       <div style={divStyles}>
         {orderItems.map((orderItem) => (
-          <div style={{ margin: 2 + "em" }}>
+          <div className="card" style={divStyles}>
             <div>
-              <h2>Item name: {orderItem.name}</h2>
-            </div>
-            <div>
-              <h2>Item description:{orderItem.description}</h2>
-            </div>
-            <div>
-              <h2>Item price: {orderItem.price}</h2>
+              <p>
+                <strong>Name: {orderItem.name}</strong>
+              </p>
+              <p>Description:{orderItem.description}</p>
+              <p>Price: {orderItem.price}</p>
+              <p>Category: {orderItem.category}</p>
             </div>
           </div>
         ))}
