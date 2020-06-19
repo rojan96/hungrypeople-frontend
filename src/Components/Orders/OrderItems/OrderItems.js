@@ -12,16 +12,10 @@ const divStyles = {
 };
 
 function OrderItems(props) {
-  const [orderItems, setOrderItems] = useState(0);
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetchItems();
-  }, []);
-
-  const fetchItems = async () => {
-    await axios
-      .get(
+    axios.get(
         `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users/${user.id}/orders/${props.id}/orderItems`,
         {
           auth: {
@@ -29,11 +23,15 @@ function OrderItems(props) {
             password: "c",
           },
         }
-      )
-      .then((data) => {
-        setOrderItems(data.data.content);
-      });
-  };
+    ).then(data => {
+      setOrderItems(data.data.content);
+    }).catch(err => {
+      console.log(err);
+    });
+  }, []);
+
+  const [orderItems, setOrderItems] = useState([]);
+
 
   try {
     return (
@@ -50,7 +48,7 @@ function OrderItems(props) {
             </div>
           </div>
         ))}
-        <br></br>
+        <br/>
       </div>
     );
   } catch (error) {

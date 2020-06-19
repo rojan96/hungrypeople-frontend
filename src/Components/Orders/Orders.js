@@ -9,29 +9,25 @@ const divStyles = {
   flexWrap: "wrap",
 };
 
-function Orders(props) {
-  const [orders, setOrders] = useState(0);
+function Orders() {
+  const [orders, setOrders] = useState([]);
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetchItems();
+    const id = user.id;
+    axios.get(
+            `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users/${id}/orders/`,
+            {
+              auth: {
+                username: "c",
+                password: "c",
+              },
+            }
+        )
+        .then((data) => {
+          setOrders(data.data.content);
+        });
   }, []);
-
-  const fetchItems = async () => {
-    await axios
-      .get(
-        `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users/${user.id}/orders/`,
-        {
-          auth: {
-            username: "c",
-            password: "c",
-          },
-        }
-      )
-      .then((data) => {
-        setOrders(data.data.content);
-      });
-  };
 
   try {
     return (
