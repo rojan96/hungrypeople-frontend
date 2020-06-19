@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState, state } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/auth";
 import axios from "axios";
-import OrderItems from "./OrderItems";
+import OrderItems from "./OrderItems/OrderItems";
 
 const divStyles = {
   display: "flex",

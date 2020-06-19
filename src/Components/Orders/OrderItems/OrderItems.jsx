@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState, state } from "react";
-import { AuthContext } from "../../context/auth";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../context/auth";
 import axios from "axios";
 
 const divStyles = {

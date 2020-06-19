@@ -16,8 +16,6 @@ export default function SignUp() {
     const [profilePicture, setProfilePicture] = useState("");
     const history = useHistory();
 
-    const url = "https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/users";
-
 
     function validateForm() {
         return email.length > 0 && password.length > 0 && username.length > 0 && phone.length;
