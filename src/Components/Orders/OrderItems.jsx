@@ -1,16 +1,18 @@
 import React, { useContext, useEffect, useState, state } from "react";
 import { AuthContext } from "../../context/auth";
 import axios from "axios";
-import OrderItems from "./OrderItems";
 
 const divStyles = {
   display: "flex",
   justifyContent: "flex-start",
   flexWrap: "wrap",
+  margin: "2em",
+  color: "black",
+  padding: "2px",
 };
 
-function Orders(props) {
-  const [orders, setOrders] = useState(0);
+function OrderItems(props) {
+  const [orderItems, setOrderItems] = useState(0);
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -20,7 +22,7 @@ function Orders(props) {
   const fetchItems = async () => {
     await axios
       .get(
-        `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users/${user.id}/orders/`,
+        `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users/${user.id}/orders/${props.id}/orderItems`,
         {
           auth: {
             username: "c",
@@ -29,21 +31,26 @@ function Orders(props) {
         }
       )
       .then((data) => {
-        setOrders(data.data.content);
+        setOrderItems(data.data.content);
       });
   };
 
   try {
     return (
       <div style={divStyles}>
-        {orders.map((order) => (
-          <div>
-            <h1> Order Number: {order.id}</h1>
+        {orderItems.map((orderItem) => (
+          <div className="card" style={divStyles}>
             <div>
-              <OrderItems key={order.id} id={order.id} />
+              <p>
+                <strong>Name: {orderItem.name}</strong>
+              </p>
+              <p>Description:{orderItem.description}</p>
+              <p>Price: {orderItem.price}</p>
+              <p>Category: {orderItem.category}</p>
             </div>
           </div>
         ))}
+        <br></br>
       </div>
     );
   } catch (error) {
@@ -51,4 +58,4 @@ function Orders(props) {
   }
 }
 
-export default Orders;
+export default OrderItems;
