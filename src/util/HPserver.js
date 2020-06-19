@@ -35,6 +35,29 @@ export const postLogin = async (userName, password) => {
     });
   return data;
 };
+const urlSignUp = `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users`;
+export function postSignup(userInfo) {
+  const data = axios.post(urlSignUp, {
+    username: userInfo.username,
+    password: userInfo.password,
+    phone: userInfo.phone,
+    firstName: userInfo.firstName,
+    lastName: userInfo.lastName,
+    profilePictureUrl: userInfo.profilePicture,
+    address: userInfo.address
+  }).then(result => {
+    console.log(result);
+    if (result.status === 200) {
+      return true;
+    }
+    return false;
+  }).catch(e => {
+    return false;
+  });
+  return data;
+}
+
+
 
 const urlGetOrders = `https://hpeopleserver.herokuapp.com/users/`;
 

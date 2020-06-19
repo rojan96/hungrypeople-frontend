@@ -1,48 +1,49 @@
-import React, {useState} from "react";
-import {Button, FormControl, FormGroup, FormLabel} from "react-bootstrap";
+
+import React, { useState } from "react";
+import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import "./SignUp.css";
-import axios from 'axios';
-import {Link, Redirect} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
+import {postSignup} from "../../util/HPserver";
 
 export default function SignUp() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [setLoggedIn] = useState(false);
-    const [setIsError] = useState(false);
+    const [phone, setPhone] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [address, setAddress] = useState("");
+    const [profilePicture, setProfilePicture] = useState("");
+    const history = useHistory();
 
-    const url = "https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/business";
+    const url = "https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/users";
+
 
     function validateForm() {
-        return email.length > 0 && password.length > 0 && username.length > 0;
+        return email.length > 0 && password.length > 0 && username.length > 0 && phone.length;
     }
 
-    // function handleSubmit(event) {
-    //     event.preventDefault();
-    //     postSignup();
-    // }
-
-    function postSignup() {
-        axios.post(url, {
-            fullName: username,
-            email: email,
-            password: password
-        }).then(result => {
-            console.log(result);
-            if (result.status === 200) {
-                setLoggedIn(true);
-            } else {
-                setIsError(true);
-            }
-        }).catch(e => {
-            setIsError(true);
-        });
-        return <Redirect to={"/"}/>;
-    }
 
     return (
         <div className="SignUp">
             <form>
+                <FormGroup controlId="firstname" bsSize="large">
+                    <FormLabel>First Name</FormLabel>
+                    <FormControl
+                        value={firstName}
+                        onChange={e => setFirstName(e.target.value)}
+                        type="firstname"
+                    />
+                </FormGroup>
+
+                <FormGroup controlId="lastname" bsSize="large">
+                    <FormLabel>Last Name</FormLabel>
+                    <FormControl
+                        value={lastName}
+                        onChange={e => setLastName(e.target.value)}
+                        type="lastname"
+                    />
+                </FormGroup>
 
                 <FormGroup controlId="email" bsSize="large">
                     <FormLabel>Email</FormLabel>
@@ -73,10 +74,56 @@ export default function SignUp() {
                     />
                 </FormGroup>
 
-                <Button block bsSize="large" disabled={!validateForm()} onClick={postSignup} type="submit">
+                <FormGroup controlId="phone" bsSize="large">
+                    <FormLabel>Phone number</FormLabel>
+                    <FormControl
+                        value={phone}
+                        onChange={e => setPhone(e.target.value)}
+                        type="phone"
+                    />
+                </FormGroup>
+
+                <FormGroup controlId="address" bsSize="large">
+                    <FormLabel>Address</FormLabel>
+                    <FormControl
+                        value={address}
+                        onChange={e => setAddress(e.target.value)}
+                        type="address"
+                    />
+                </FormGroup>
+
+                <FormGroup controlId="profilepicture" bsSize="large">
+                    <FormLabel>Profile Picture URL</FormLabel>
+                    <FormControl
+                        value={profilePicture}
+                        onChange={e => setProfilePicture(e.target.value)}
+                        type="profilepicture"
+                    />
+                </FormGroup>
+
+                <Button block bsSize="large" disabled={!validateForm()} onClick={async () => {
+                    const userInfo = {
+                        username: username,
+                        password: password,
+                        phone: phone,
+                        firstName: firstName,
+                        lastName: lastName,
+                        profilePictureUrl: profilePicture,
+                        address: address
+                    }
+                    const signedUp = await postSignup(userInfo);
+                    if (signedUp){
+                        alert(`you  have successfully signed up.`);
+                        history.push("/login");
+                    } else {
+                        alert(`Signup failed.`);
+                    }
+                }}>
                     Sign up
                 </Button>
-                <Link to="/login"><p>Already have an account?</p></Link>
+                <Link to="/login">
+                    <p>Already have an account?</p>
+                </Link>
 
             </form>
         </div>
