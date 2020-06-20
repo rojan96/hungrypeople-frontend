@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Business from "../Business/Business";
+import Business from "../Business";
 
 const divStyles = {
     display: 'flex',

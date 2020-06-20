@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../App/Style.css';
-import Business from "../Business/Business";
+import '../../App/Style.css';
+import Business from "../Business";
 
 const styles = {
     color: 'White',
@@ -35,8 +35,6 @@ export class RecommendedBusinesses extends React.Component {
                     <Business content={content}/>
                     <Business content={content}/>
                     <Business content={content}/>
-
-
                 </div>
             </div>
         );

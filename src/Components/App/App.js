@@ -2,8 +2,8 @@ import React, {useMemo, useState} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Container from "@material-ui/core/Container";
 import {WhatWeDo} from "../WhatWeDo/WhatWeDo";
-import {RecommendedBusinesses} from "../RecommendedBusinesses/RecommendedBusinesses";
-import Search from '../ShowAllBusiness/ShowAllBusiness';
+import {RecommendedBusinesses} from "../Business/RecommendedBusinesses/RecommendedBusinesses";
+import Search from '../Business/ShowAllBusiness/ShowAllBusiness';
 import {NavBar} from "../NavBar/NavBar";
 import {JumboHeader} from "../JumboHeader/JumboHeader";
 import './Style.css';
@@ -15,6 +15,7 @@ import ProfilePage from "../../pages/ProfilePage";
 import OrderPage from "../../pages/OrderPage";
 import {AuthContext} from "../../context/auth";
 import {HowItWorks} from "../HowItWorks/HowItWorks";
+import CreateBusinessPage from "../../pages/CreateBusinessPage";
 
 
 const styles = {
@@ -76,6 +77,7 @@ function App () {
                     </Route>
                     <PrivateRoute path="/profile" component={ProfilePage}/>
                     <PrivateRoute path="/orders" component={OrderPage}/>
+                    <PrivateRoute path="/createBusiness" component={CreateBusinessPage}/>
 
                 </Switch>
             </Router>

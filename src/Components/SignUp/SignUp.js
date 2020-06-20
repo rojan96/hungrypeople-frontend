@@ -98,7 +98,6 @@ export default function SignUp() {
                         type="profilepicture"
                     />
                 </FormGroup>
-
                 <Button block bsSize="large" disabled={!validateForm()} onClick={async () => {
                     const userInfo = {
                         username: username,
@@ -110,10 +109,13 @@ export default function SignUp() {
                         address: address
                     }
                     const signedUp = await postSignup(userInfo);
-                    if (signedUp){
+                    if (signedUp == "success"){
                         alert(`you  have successfully signed up.`);
                         history.push("/login");
-                    } else {
+                    } else if (signedUp == "username_taken" ){
+                        alert('Username already taken. Please try another one.');
+                    }
+                    else {
                         alert(`Signup failed.`);
                     }
                 }}>
