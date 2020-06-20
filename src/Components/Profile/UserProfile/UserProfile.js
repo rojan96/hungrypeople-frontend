@@ -1,7 +1,8 @@
 import React, {useContext} from 'react';
 import './UserProfile.css';
-
 import {AuthContext} from "../../../context/auth";
+import {Button} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 export default function UserProfile (){
     const {user} = useContext(AuthContext);
@@ -20,6 +21,9 @@ export default function UserProfile (){
                     <p>Address: {user.address}</p>
                     <p>Phone Number: {user.phone}</p>
                 </div>
+                <Link to="/createBusiness">
+                    <Button block bsSize="large">Create a Business</Button>
+                </Link>
             </container>
         );
 }
