@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Button, FormControl, FormGroup, FormLabel} from "react-bootstrap";
+import {Button, Container, FormControl, FormGroup, FormLabel} from "react-bootstrap";
 import {createBusiness, postLogin} from "../../../util/HPserver";
 
 
@@ -12,7 +12,7 @@ export const CreateBusiness = () => {
     }
 
     return(
-        <div>
+        <Container>
             <h1>
                 Start a business.
             </h1>
@@ -50,7 +50,7 @@ export const CreateBusiness = () => {
             }}>
                 Create Business
             </Button>
-        </div>
+        </Container>
 
 
     );
