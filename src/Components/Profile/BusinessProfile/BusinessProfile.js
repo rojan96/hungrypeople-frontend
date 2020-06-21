@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
-import './UserProfile.css';
+import './Style.css';
 import {AuthContext} from "../../../context/auth";
 import {Button} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
-export default function UserProfile (){
+export default function BusinessProfile (){
     const {user} = useContext(AuthContext);
         return (
             <container className="profileContainer">

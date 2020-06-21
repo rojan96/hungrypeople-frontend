@@ -27,6 +27,5 @@ export default function ProfilePage() {
             </div>
             <Footer/>
         </container>
-
     );
 }
