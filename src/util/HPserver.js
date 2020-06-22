@@ -1,6 +1,8 @@
 import axios from "axios";
-
-const urlLogin = `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/user`;
+const baseUrl = `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/`;
+const urlLogin = `${baseUrl}login`;
+const urlSignUp = `${baseUrl}users`;
+const urlCreateBusiness = `${baseUrl}business`;
 
 export const postLogin = async (userName, password) => {
   let userData = null;
@@ -33,8 +35,6 @@ export const postLogin = async (userName, password) => {
     });
 };
 
-const urlSignUp = `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users`;
-
 export function postSignup(userInfo) {
   return axios
     .post(urlSignUp, {
@@ -57,31 +57,35 @@ export function postSignup(userInfo) {
     });
 }
 
-const urlCreateBusiness = `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/business`;
 export function createBusiness(businessInfo) {
   var data = JSON.stringify({
-    fullName: "Chichi pasal",
-    email: "email@email.com",
+    fullName: businessInfo.businessName,
+    email: businessInfo.email,
   });
-
-  var config = {
-    method: "post",
-    url: urlCreateBusiness,
+  const axiosConfig = {
     headers: {
-      "Content-Type": "application/json",
-      Cookie: "SESSION=N2UzNzcyZGItOGZiNi00M2Y4LTgyMGItMWJhNTkyM2UyN2Fl",
+      "content-Type": "application/json",
+      Accept: "/",
+      "Cache-Control": "no-cache",
+      Cookie: document.cookie,
     },
-    data: data,
+    data: { data },
+    credentials: "same-origin",
   };
+  axios.defaults.withCredentials = true;
 
-  axios(config)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
+  axios
+    .post(urlCreateBusiness, axiosConfig)
+    .then((res) => {
+      // Some result here
+      console.log(res);
     })
-    .catch(function (error) {
-      console.log(error);
+    .catch((err) => {
+      console.log(":(");
     });
+
   return true;
+
   // return axios
   //   .post(
   //     urlCreateBusiness,
