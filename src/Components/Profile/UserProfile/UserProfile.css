@@ -12,8 +12,7 @@
   padding: 10px;
   display: flex;
   justify-content: center;
-  border: 2px outset black;
-  border-radius: 5px;
+  border-radius: 40%;
 }
 
 .profileDiv h3 {
@@ -22,8 +21,7 @@
 }
 
 .accountInfoDiv {
-  border: 2px outset black;
-  border-radius: 5px;
+  border-radius: 40%;
   text-align: center;
   padding: 20px;
 }

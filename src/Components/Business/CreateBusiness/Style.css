@@ -1,15 +1,15 @@
-.LoginPage {
+.CreateBusinessPage {
     display: flex;
     justify-content: center;
     color: White;
     font-family: "Rock Salt";
 }
 
-.InnerLogin {
+.InnerCreateBusiness{
     background-color: #353b48;
     opacity: 0.9;
     border-radius: 10%;
-    padding: 50px 100px 0px 100px;
+    padding: 50px;
     /* max-width: 450px;
     min-width: 400px; */
 }
@@ -19,7 +19,7 @@
         padding: 60px 0;
     }
 
-    .Login form {
+    .Login Form {
         margin: 0 auto;
         max-width: 320px;
     }

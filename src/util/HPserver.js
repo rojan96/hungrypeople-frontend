@@ -1,9 +1,12 @@
 import axios from "axios";
+import { useRadioGroup } from "@material-ui/core";
 const baseUrl = `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/`;
 const urlLogin = `${baseUrl}login`;
 const urlSignUp = `${baseUrl}users`;
 const urlCreateBusiness = `${baseUrl}business`;
 const urlProfileInfo = `${baseUrl}user`;
+// const urlFoodItems = `${baseUrl}business/`;
+const urlFoodItems = `https://jsonplaceholder.typicode.com/albums`;
 
 export const postLogin = async (userName, password) => {
   return axios
@@ -81,17 +84,14 @@ export function postSignup(userInfo) {
 }
 
 export async function createBusiness(businessInfo, token) {
-  var data = {
-    fullName: businessInfo.businessName,
-    email: businessInfo.email,
-  };
+
   const config = {
     method: "post",
     url: urlCreateBusiness,
     headers: {
       Authorization: token,
     },
-    data: data,
+    data: businessInfo,
   };
 
   axios(config)
@@ -104,4 +104,28 @@ export async function createBusiness(businessInfo, token) {
     });
 
   return true;
+}
+
+export async function getMenu() {
+  const config = {
+    method: "get",
+    url: urlFoodItems,
+  };
+
+  return axios(config)
+    .then((data) => {
+      let menu = [];
+      data.data.map((element) => {
+        let foodItem = {
+          userId: element.userId,
+          id: element.id,
+          title: element.title,
+        };
+        menu.push(foodItem);
+      });
+      return menu;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }

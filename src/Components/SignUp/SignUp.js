@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
+import { Button, FormGroup, FormControl, FormLabel, Form, Col } from "react-bootstrap";
 import "./SignUp.css";
 import { Link, useHistory } from "react-router-dom";
 import { postSignup } from "../../util/HPserver";
@@ -25,9 +25,13 @@ export default function SignUp() {
   }
 
   return (
-    <div className="SignUp">
-      <form>
-        <FormGroup controlId="firstname" bsSize="large">
+    <div className="SignupPage">
+      <div className = "InnerSignup">
+      <Form>
+        <h2>Sign up for HungryPeople</h2>
+        <hr/>
+        <Form.Row>
+        <FormGroup as={Col} md="6" controlId="firstname" bsSize="large">
           <FormLabel>First Name</FormLabel>
           <FormControl
             value={firstName}
@@ -36,7 +40,7 @@ export default function SignUp() {
           />
         </FormGroup>
 
-        <FormGroup controlId="lastname" bsSize="large">
+        <FormGroup as={Col} md="6" controlId="lastname" bsSize="large">
           <FormLabel>Last Name</FormLabel>
           <FormControl
             value={lastName}
@@ -44,6 +48,8 @@ export default function SignUp() {
             type="lastname"
           />
         </FormGroup>
+        </Form.Row>
+        
 
         <FormGroup controlId="email" bsSize="large">
           <FormLabel>Email</FormLabel>
@@ -55,7 +61,8 @@ export default function SignUp() {
           />
         </FormGroup>
 
-        <FormGroup controlId="username" bsSize="large">
+        <Form.Row>
+        <FormGroup as={Col} md="6"  controlId="username" bsSize="large">
           <FormLabel>Username</FormLabel>
           <FormControl
             autoFocus
@@ -65,7 +72,7 @@ export default function SignUp() {
           />
         </FormGroup>
 
-        <FormGroup controlId="password" bsSize="large">
+        <FormGroup as={Col} md="6"  controlId="password" bsSize="large">
           <FormLabel>Password</FormLabel>
           <FormControl
             value={password}
@@ -73,8 +80,10 @@ export default function SignUp() {
             type="password"
           />
         </FormGroup>
-
-        <FormGroup controlId="phone" bsSize="large">
+        </Form.Row>
+        
+        <Form.Row>
+        <FormGroup as={Col} md="8" controlId="phone" bsSize="large">
           <FormLabel>Phone number</FormLabel>
           <FormControl
             value={phone}
@@ -83,6 +92,7 @@ export default function SignUp() {
           />
         </FormGroup>
 
+        </Form.Row>
         <FormGroup controlId="address" bsSize="large">
           <FormLabel>Address</FormLabel>
           <FormControl
@@ -101,6 +111,7 @@ export default function SignUp() {
           />
         </FormGroup>
         <Button
+        variant="light"
           block
           bsSize="large"
           disabled={!validateForm()}
@@ -128,9 +139,11 @@ export default function SignUp() {
           Sign up
         </Button>
         <Link to="/login">
-          <p>Already have an account?</p>
+          <p style={{padding:15}}>Already have an account?</p>
         </Link>
-      </form>
+      </Form>
+      </div>
+      
     </div>
   );
 }
