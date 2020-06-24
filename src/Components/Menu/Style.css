@@ -1,5 +1,5 @@
 .MainMenu {
-    padding: 50px;
+    padding: 0px 10px;
 }
 
 .MenuItems {
@@ -8,4 +8,9 @@
     padding: 10px;
     margin: 1px;
     border: 1px solid white;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-evenly;
 }
