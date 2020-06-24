@@ -1,15 +1,14 @@
-import React from 'react';
-import './Footer.css';
+import React from "react";
+import "./Footer.css";
 
 const style = {
-    textAlign: 'center',
-    background: '#a5b1c2',
-    margin: 0,
+    textAlign: "center",
+    marginTop: "auto",
     padding: 20,
-    fontFamily: 'Just Another Hand',
-    width: '100%',
-    fontSize: 40
-}
+    fontFamily: "Just Another Hand",
+    width: "100%",
+    fontSize: 40,
+};
 
 export default function Footer() {
     return (

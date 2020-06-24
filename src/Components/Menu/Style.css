@@ -1,16 +1,29 @@
 .MainMenu {
-    padding: 0px 10px;
+    padding: 0px 50px;
 }
 
 .MenuItems {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     padding: 10px;
     margin: 1px;
-    border: 1px solid white;
+    align-content: flex-end;
 }
 
 .tabs {
     display: flex;
     justify-content: space-evenly;
+}
+
+p {
+    padding-right: 50px;
+}
+
+.CartIcon {
+    padding: 10px;
+    display: flex;
+}
+
+.ItemText {
+    font-size: medium;
 }

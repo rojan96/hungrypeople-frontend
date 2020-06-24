@@ -27,7 +27,7 @@ export function Menu() {
     }
 
     return (
-        <Tabs defaultActiveKey="home" className="MainMenu tabs">
+        <Tabs defaultActiveKey="1" className="MainMenu tabs">
             {Object.keys(userIds).map((userId) => (
                 <Tab eventKey={userId} title={userId}>
                     {userIds[userId].map((item) => (

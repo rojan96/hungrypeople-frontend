@@ -19,6 +19,7 @@ function ShowAllBusiness(props) {
       "https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/business"
     );
     const items = await data.json();
+    console.log(items);
     setItems(items.content);
   };
 

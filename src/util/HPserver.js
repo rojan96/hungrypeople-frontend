@@ -84,17 +84,14 @@ export function postSignup(userInfo) {
 }
 
 export async function createBusiness(businessInfo, token) {
-  var data = {
-    fullName: businessInfo.businessName,
-    email: businessInfo.email,
-  };
+
   const config = {
     method: "post",
     url: urlCreateBusiness,
     headers: {
       Authorization: token,
     },
-    data: data,
+    data: businessInfo,
   };
 
   axios(config)
