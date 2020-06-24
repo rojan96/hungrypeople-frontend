@@ -15,23 +15,24 @@ function OrderItems(props) {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    axios.get(
-        `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users/${user.id}/orders/${props.id}/orderItems`,
+    axios
+      .get(
+        `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users/orders/${props.id}/orderItems`,
         {
-          auth: {
-            username: "c",
-            password: "c",
+          headers: {
+            Authorization: user,
           },
         }
-    ).then(data => {
-      setOrderItems(data.data.content);
-    }).catch(err => {
-      console.log(err);
-    });
+      )
+      .then((data) => {
+        setOrderItems(data.data.content);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   const [orderItems, setOrderItems] = useState([]);
-
 
   try {
     return (
@@ -48,7 +49,7 @@ function OrderItems(props) {
             </div>
           </div>
         ))}
-        <br/>
+        <br />
       </div>
     );
   } catch (error) {

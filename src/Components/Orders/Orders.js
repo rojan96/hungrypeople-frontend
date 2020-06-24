@@ -14,19 +14,18 @@ function Orders() {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    const id = user.id;
-    axios.get(
-            `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users/${id}/orders/`,
-            {
-              auth: {
-                username: "c",
-                password: "c",
-              },
-            }
-        )
-        .then((data) => {
-          setOrders(data.data.content);
-        });
+    axios
+      .get(
+        `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/users/orders/`,
+        {
+          headers: {
+            Authorization: user,
+          },
+        }
+      )
+      .then((data) => {
+        setOrders(data.data.content);
+      });
   }, []);
 
   try {
