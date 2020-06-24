@@ -95,6 +95,17 @@ function App() {
             />
             <Footer />
           </Route>
+
+          <Route path="/business/menu">
+            <NavBar
+              variant={"dark"}
+              bg={"dark"}
+              isLoggedIn={isLoggedIn}
+              logoSize={LogoSize}
+            />
+            <Menu />
+            <Footer />
+          </Route>
           <PrivateRoute path="/profile" component={ProfilePage} />
           <PrivateRoute path="/orders" component={OrderPage} />
           <PrivateRoute path="/createBusiness" component={CreateBusinessPage} />

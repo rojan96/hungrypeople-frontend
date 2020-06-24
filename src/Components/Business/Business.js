@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -20,10 +21,8 @@ const useStyles = makeStyles({
   },
 });
 
-const imageUrl = {
-  sprite:
-    "https://images.unsplash.com/photo-1523905330026-b8bd1f5f320e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1358&q=80",
-};
+const sprite =
+  "https://images.unsplash.com/photo-1523905330026-b8bd1f5f320e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1358&q=80";
 
 export default function Business(props) {
   const classes = useStyles();
@@ -32,7 +31,7 @@ export default function Business(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={imageUrl.sprite}
+          image={sprite}
           title={props.content.fullName}
         />
 
@@ -50,11 +49,13 @@ export default function Business(props) {
       </CardActionArea>
 
       <CardActions>
+        <Link to="/business/menu">
+          <Button size="small" color="primary">
+            Menu
+          </Button>
+        </Link>
         <Button size="small" color="primary">
-          Order
-        </Button>
-        <Button size="small" color="primary">
-          More Details
+          Quick Order
         </Button>
       </CardActions>
     </Card>

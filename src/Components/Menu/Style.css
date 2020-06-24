@@ -1,0 +1,11 @@
+.MainMenu {
+    padding: 50px;
+}
+
+.MenuItems {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    margin: 1px;
+    border: 1px solid white;
+}
