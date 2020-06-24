@@ -3,35 +3,58 @@ const baseUrl = `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herok
 const urlLogin = `${baseUrl}login`;
 const urlSignUp = `${baseUrl}users`;
 const urlCreateBusiness = `${baseUrl}business`;
+const urlProfileInfo = `${baseUrl}user`;
 
 export const postLogin = async (userName, password) => {
-  let userData = null;
   return axios
-    .get(urlLogin, {
-      auth: {
-        username: userName,
-        password: password,
-      },
+    .post(urlLogin, {
+      username: userName,
+      password: password,
     })
     .then((data) => {
       if (data.status === 200) {
-        data = data.data;
-        userData = {
-          id: data.id,
-          username: data.username,
-          email: data.email,
-          address: data.address,
-          phone: data.phone,
-          firstName: data.firstName,
-          lastName: data.lastName,
-          profilePicture: data.profilePictureUrl,
+        let token = data.headers.authorization;
+        return token;
+      }
+      return null;
+    })
+    .catch((e) => {
+      return null;
+    });
+};
+
+export const getUserInfo = async (token) => {
+  let data = "";
+  const config = {
+    method: "get",
+    url: urlProfileInfo,
+    headers: {
+      Authorization: token,
+    },
+    data: data,
+  };
+
+  return axios(config)
+    .then((data) => {
+      if (data.status === 200) {
+        let user = data.data;
+        const userData = {
+          id: user.id,
+          username: user.username,
+          email: user.email,
+          address: user.address,
+          phone: user.phone,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          profilePicture: user.profilePictureUrl,
         };
         return userData;
       }
-      return userData;
+      alert("something went wrong");
     })
-    .catch((e) => {
-      return userData;
+    .catch((error) => {
+      console.log(error);
+      console.log("can u see dis");
     });
 };
 
@@ -57,25 +80,21 @@ export function postSignup(userInfo) {
     });
 }
 
-export function createBusiness(businessInfo) {
-  var data = JSON.stringify({
+export async function createBusiness(businessInfo, token) {
+  var data = {
     fullName: businessInfo.businessName,
     email: businessInfo.email,
-  });
-  const axiosConfig = {
-    headers: {
-      "content-Type": "application/json",
-      Accept: "/",
-      "Cache-Control": "no-cache",
-      Cookie: document.cookie,
-    },
-    data: { data },
-    credentials: "same-origin",
   };
-  axios.defaults.withCredentials = true;
+  const config = {
+    method: "post",
+    url: urlCreateBusiness,
+    headers: {
+      Authorization: token,
+    },
+    data: data,
+  };
 
-  axios
-    .post(urlCreateBusiness, axiosConfig)
+  axios(config)
     .then((res) => {
       // Some result here
       console.log(res);
@@ -85,26 +104,4 @@ export function createBusiness(businessInfo) {
     });
 
   return true;
-
-  // return axios
-  //   .post(
-  //     urlCreateBusiness,
-  //     (header: {
-  //       "Content-Type": "application/json",
-  //       Cookie: "SESSION=N2UzNzcyZGItOGZiNi00M2Y4LTgyMGItMWJhNTkyM2UyN2Fl",
-  //     }),
-  //     {
-  //       fullName: businessInfo.businessName,
-  //       email: businessInfo.email,
-  //     }
-  //   )
-  //   .then((result) => {
-  //     if (result.status === 200) {
-  //       return true;
-  //     }
-  //     return false;
-  //   })
-  //   .catch((e) => {
-  //     return false;
-  //   });
 }
