@@ -103,12 +103,12 @@ export const CreateBusiness = () => {
         disabled={!validateForm()}
         onClick={async () => {
           const businessInfo = {
-            fullName: businessName,
-            email: email,
-            phone: phone,
-            address: address,
-            coverPictureUrl: coverPictureUrl,
-            tags: tags.split(" ")
+            bFullName: businessName,
+            bEmail: email,
+            bPhone: phone,
+            bAddress: address,
+            bCoverPictureUrl: coverPictureUrl,
+            bTags: tags.split(" ")
           };
           const business = await createBusiness(businessInfo, user);
           if (business) {

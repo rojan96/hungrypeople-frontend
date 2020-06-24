@@ -31,19 +31,19 @@ export default function Business(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={sprite}
+          image={props.content.bCoverPictureUrl}
           title={props.content.fullName}
         />
 
         <CardContent>
           <Typography gutterBottom variant="h6" component="h4">
-            {props.content.fullName}
+            {props.content.bFullName}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             id: {props.content.id}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            email: {props.content.email}
+            email: {props.content.bEmail}
           </Typography>
         </CardContent>
       </CardActionArea>
