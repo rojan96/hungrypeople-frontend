@@ -1,7 +1,6 @@
-import React, {useState, useMemo, useContext} from 'react';
+import React, {useContext} from 'react';
 import {NavBar} from "../Components/NavBar/NavBar";
 import Footer from "../Components/Footer/Footer";
-import Orders from "../Components/Orders/Orders";
 import Container from "@material-ui/core/Container";
 import { JumboHeader } from "../Components/JumboHeader/JumboHeader";
 import { HowItWorks } from "../Components/HowItWorks/HowItWorks";

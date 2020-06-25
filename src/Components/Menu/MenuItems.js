@@ -5,7 +5,7 @@ import { Row, Col } from "react-bootstrap";
 
 export function MenuItems(props) {
     return (
-        <div className="MainMenu">
+        <div className="MainMenu hvr-reveal">
             <Row>
                 <Col>
                     <div className="MenuItems ">
@@ -17,7 +17,7 @@ export function MenuItems(props) {
                     </div>
                 </Col>
                 <Col className="CartIcon">
-                    <AddShoppingCartIcon fontSize="large" />
+                    <AddShoppingCartIcon style={{ fontSize: 50 }} />
                 </Col>
             </Row>
         </div>
