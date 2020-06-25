@@ -5,16 +5,16 @@ import { NavBar } from "../NavBar/NavBar";
 import "./Style.css";
 import Footer from "../Footer/Footer";
 import PrivateRoute from "../../Routes/PrivateRoute";
-import ProfilePage from "../../pages/ProfilePage";
+import ProfilePage from "../../pages/ProfilePage/ProfilePage";
 import OrderPage from "../../pages/OrderPage";
 import LoginPage from "../../pages/LoginPage/LoginPage";
 import SignupPage from "../../pages/SignupPage/SignupPage";
 import HomePage from "../../pages/HomePage";
-
 import { AuthContext } from "../../context/auth";
 import Menu from "../Menu/Menu";
 import CreateBusinessPage from "../../pages/CreateBusinessPage/CreateBusinessPage";
 import ShowAllBusinessPage from "../../pages/ShowAllBusinessPage/ShowAllBusinessPage";
+import BusinessProfilePage from "../../pages/ProfilePage/BusinessProfilePage";
 
 const LogoSize = 150;
 function App() {
@@ -37,20 +37,14 @@ function App() {
                     <Route path="/signup" component={SignupPage} />
                     <Route path="/search" component={ShowAllBusinessPage} />
 
-                    <Route path="/businessprofile">
-                        <NavBar
-                            variant={"dark"}
-                            bg={"dark"}
-                            isLoggedIn={isLoggedIn}
-                            logoSize={LogoSize}
-                        />
-                        <Footer />
-                    </Route>
+                    <Route
+                        path="/businessProfile"
+                        component={BusinessProfilePage}
+                    />
 
                     <Route path="/business/menu/:businessName">
                         <NavBar
                             variant={"dark"}
-                            bg={"dark"}
                             isLoggedIn={isLoggedIn}
                             logoSize={LogoSize}
                         />

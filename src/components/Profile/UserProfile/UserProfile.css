@@ -3,7 +3,8 @@
 .profileContainer {
     font-family: "Just Another Hand", cursive;
     letter-spacing: 3px;
-    background-color: #f5f6fa;
+    background-color: white;
+    opacity: 0.9;
     color: black;
     border-radius: 5%;
 }

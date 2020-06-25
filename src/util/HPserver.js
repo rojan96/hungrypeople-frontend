@@ -60,6 +60,43 @@ export const getUserInfo = async (token) => {
         });
 };
 
+export const getBusinessInfo = async (token) => {
+    const data = JSON.stringify({});
+
+    const config = {
+        method: "post",
+        url: urlCreateBusiness,
+        headers: {
+            // "Content-Type": "application/json",
+            Authorization: token,
+        },
+        data: data,
+    };
+
+    return axios(config)
+        .then((data) => {
+            console.log(data);
+            if (data.status === 200) {
+                let business = data.data;
+                console.log(business);
+                const businessData = {
+                    id: business.id,
+                    fullName: business.bFullName,
+                    email: business.bEmail,
+                    address: business.bAddress,
+                    phone: business.bPhone,
+                    profilePicture: business.bCoverPictureUrl,
+                };
+                return businessData;
+            }
+            alert("something went wrong");
+        })
+        .catch((error) => {
+            console.log(error);
+            console.log("can u see dis");
+        });
+};
+
 export function postSignup(userInfo) {
     return axios
         .post(urlSignUp, {

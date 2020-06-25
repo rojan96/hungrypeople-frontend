@@ -1,8 +1,9 @@
 import React from "react";
-import { NavBar } from "../Components/NavBar/NavBar";
-import UserProfile from "../Components/Profile/UserProfile/UserProfile";
-import Footer from "../Components/Footer/Footer";
-import Orders from "../Components/Orders/Orders";
+import { NavBar } from "../../components/NavBar/NavBar";
+import Footer from "../../components/Footer/Footer";
+import Orders from "../../components/Orders/Orders";
+import "./Style.css";
+import BusinessProfile from "../../components/Profile/BusinessProfile/BusinessProfile";
 
 const style = {
     textAlign: "center",
@@ -14,7 +15,7 @@ const style = {
 const isLoggedIn = true;
 const logoSize = 100;
 
-export default function ProfilePage() {
+export default function BusinessProfilePage() {
     return (
         <div>
             <NavBar
@@ -24,9 +25,8 @@ export default function ProfilePage() {
             />
             <div style={style}>
                 <div>
-                    <UserProfile />
+                    <BusinessProfile />
                 </div>
-                <Orders />
             </div>
             <Footer />
         </div>

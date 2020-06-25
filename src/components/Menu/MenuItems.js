@@ -10,14 +10,16 @@ export function MenuItems(props) {
                 <Col>
                     <div className="MenuItems ">
                         <p className="ItemText">Item Id: {props.item.id}</p>
+
                         <p className="ItemText">{props.item.userId}</p>
+
                         <p className="ItemText">
                             Item Name: {props.item.title}
                         </p>
                     </div>
                 </Col>
                 <Col className="CartIcon">
-                    <AddShoppingCartIcon style={{ fontSize: 50 }} />
+                    <AddShoppingCartIcon style={{ fontSize: 40 }} />
                 </Col>
             </Row>
         </div>

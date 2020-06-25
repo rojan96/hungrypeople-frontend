@@ -1,7 +1,7 @@
-import React from 'react';
-import {NavBar} from "../Components/NavBar/NavBar";
-import Footer from "../Components/Footer/Footer";
-import Orders from "../Components/Orders/Orders";
+import React from "react";
+import { NavBar } from "../components/NavBar/NavBar";
+import Footer from "../components/Footer/Footer";
+import Orders from "../components/Orders/Orders";
 
 // const style = {
 //     textAlign: 'center',
@@ -16,9 +16,14 @@ const logoSize = 100;
 export default function OrderPage() {
     return (
         <div>
-            <NavBar variant={"dark"} bg={"dark"} isLoggedIn={isLoggedIn} logoSize={logoSize}/>
-            <Orders/>
-            <Footer/>
+            <NavBar
+                variant={"dark"}
+                bg={"dark"}
+                isLoggedIn={isLoggedIn}
+                logoSize={logoSize}
+            />
+            <Orders />
+            <Footer />
         </div>
     );
 }

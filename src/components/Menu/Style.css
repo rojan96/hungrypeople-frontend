@@ -1,7 +1,25 @@
+body :focus {
+    outline: none;
+}
+
+.Menu {
+    max-width: 50%;
+}
+
+.Table {
+    display: flex;
+    justify-content: center;
+}
+
+.TableRow {
+    width: 100%;
+}
+
 .MainMenu {
     padding: 10px;
     color: black;
     margin: 5px;
+    min-width: 100%;
 }
 
 .MenuItems {
@@ -45,7 +63,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    border-color: #2098d1;
+    border-color: #738994;
     border-style: solid;
     border-width: 0;
     -webkit-transition-property: border-width;

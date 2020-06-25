@@ -4,7 +4,7 @@ import "./Style.css";
 import { MenuItems } from "./MenuItems";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import { Container } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
@@ -79,7 +79,7 @@ export default function Menu(props) {
     };
 
     return (
-        <Container>
+        <Container className="Menu">
             <div className={classes.root}>
                 <AppBar position="static" color="default">
                     <Tabs
@@ -99,18 +99,26 @@ export default function Menu(props) {
                         ))}
                     </Tabs>
                 </AppBar>
-
-                {Object.keys(userIds).map((userId) => (
-                    <TabPanel
-                        ClassName="tabpanel"
-                        value={value}
-                        index={parseInt(userId, 10) - 1}
-                    >
-                        {userIds[userId].map((item) => (
-                            <MenuItems className="hvr-outline-in" item={item} />
+                <Table striped bordered hover className="Table">
+                    <tbody>
+                        {Object.keys(userIds).map((userId) => (
+                            <TabPanel
+                                ClassName="tabpanel"
+                                value={value}
+                                index={parseInt(userId, 10) - 1}
+                            >
+                                {userIds[userId].map((item) => (
+                                    <tr>
+                                        <MenuItems
+                                            className="hvr-outline-in"
+                                            item={item}
+                                        />
+                                    </tr>
+                                ))}
+                            </TabPanel>
                         ))}
-                    </TabPanel>
-                ))}
+                    </tbody>
+                </Table>
             </div>
         </Container>
     );

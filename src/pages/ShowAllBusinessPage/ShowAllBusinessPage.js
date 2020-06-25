@@ -1,7 +1,7 @@
-import React, {useContext} from "react";
-import { NavBar } from "../../Components/NavBar/NavBar";
-import Footer from "../../Components/Footer/Footer";
-import Search from "../../Components/Business/ShowAllBusiness/ShowAllBusiness";
+import React, { useContext } from "react";
+import { NavBar } from "../../components/NavBar/NavBar";
+import Footer from "../../components/Footer/Footer";
+import Search from "../../components/Business/ShowAllBusiness/ShowAllBusiness";
 import { AuthContext } from "../../context/auth";
 // import "./Style.css";
 
@@ -18,17 +18,17 @@ const styles = {
 };
 
 export default function ShowAllBusinessPage() {
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const isLoggedIn = user ? true : false;
     return (
         <div style={styles}>
             <NavBar
-                            variant="dark"
-                            isLoggedIn={isLoggedIn}
-                            logoSize={logoSize}
-                        />
-                        <Search />
-                        <Footer />
+                variant="dark"
+                isLoggedIn={isLoggedIn}
+                logoSize={logoSize}
+            />
+            <Search />
+            <Footer />
         </div>
     );
 }

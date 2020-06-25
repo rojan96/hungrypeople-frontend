@@ -1,7 +1,7 @@
 import React from "react";
-import { NavBar } from "../../Components/NavBar/NavBar";
-import Footer from "../../Components/Footer/Footer";
-import Login from "../../Components/Login/Login";
+import { NavBar } from "../../components/NavBar/NavBar";
+import Footer from "../../components/Footer/Footer";
+import Login from "../../components/Login/Login";
 // import "./Style.css";
 
 const isLoggedIn = false;
