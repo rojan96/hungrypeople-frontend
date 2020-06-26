@@ -7,12 +7,14 @@ import { HowItWorks } from "../components/HowItWorks/HowItWorks";
 import { WhatWeDo } from "../components/WhatWeDo/WhatWeDo";
 import { RecommendedBusinesses } from "../components/Business/RecommendedBusinesses/RecommendedBusinesses";
 import { AuthContext } from "../context/auth";
+// import BackgroundPattern from "../images/pinkdust.png";
 
 const logoSize = 100;
 const styles = {
     color: "lightgray",
     fontFamily: "Just Another Hand",
-    backgroundColor: "#40739e",
+    // backgroundImage: `url(${BackgroundPattern})`,
+    backgroundColor: "#487eb0",
     maxWidth: "none",
 };
 export default function HomePage() {

@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 import { NavBar } from "../NavBar/NavBar";
 import "./Style.css";
 import Footer from "../Footer/Footer";

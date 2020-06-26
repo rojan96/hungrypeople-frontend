@@ -3,15 +3,15 @@ import { NavBar } from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import Login from "../../components/Login/Login";
 // import "./Style.css";
+import background from "../../images/wheat.png";
 
 const isLoggedIn = false;
 const logoSize = 100;
-const background =
-    "https://images.unsplash.com/photo-1572851899307-3c130a64e831?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80";
+// const background =
+//     "https://images.unsplash.com/photo-1572851899307-3c130a64e831?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80";
 
 const styles = {
     backgroundImage: `url(${background})`,
-    backgroundSize: "cover",
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh",
