@@ -30,7 +30,7 @@ export default function BusinessProfile() {
             <div className="profileDiv">
                 <div clasName="profilePicture">
                     <img
-                        src={businessInfo.CoverPictureUrl}
+                        src={businessInfo.bCoverPictureUrl}
                         alt="User Profile"
                         style={{ height: 200 }}
                     />
@@ -46,7 +46,7 @@ export default function BusinessProfile() {
                 <p>Phone Number: {businessInfo.bPhone}</p>
             </div>
             <div>
-                <Link to="/createBusiness">
+                <Link to="/addMenuItem">
                     <Button variant="dark" block>
                         <h2>Edit Menu</h2>
                     </Button>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { getMenu } from "../../util/HPserver";
 import "./Style.css";
 import { MenuItems } from "./MenuItems";
@@ -10,6 +10,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import AppBar from "@material-ui/core/AppBar";
+import { AuthContext } from "../../context/auth";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -55,23 +56,26 @@ export default function Menu(props) {
     const [menu, setMenu] = useState([]);
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
+    const { user } = useContext(AuthContext);
 
     useEffect(() => {
         async function fetchItems() {
-            let menuItems = await getMenu();
+            let menuItems = await getMenu(user);
+            console.log(menuItems);
             setMenu(menuItems);
         }
         fetchItems();
     }, []);
 
-    let userIds = {};
-
+    let categories = {};
+    let categoryItems = {};
     for (let item of menu) {
-        if (item.userId in userIds) {
-            userIds[item.userId].push(item);
+        if (item.category in categories) {
+            categories[item.category].push(item);
         } else {
-            userIds[item.userId] = [];
-            userIds[item.userId].push(item);
+            categories[item.category] = [];
+            categories[item.category].push(item);
+            categoryItems.push(item.category);
         }
     }
     const handleChange = (event, newValue) => {
@@ -91,23 +95,33 @@ export default function Menu(props) {
                         scrollButtons="auto"
                         aria-label="scrollable auto tabs example"
                     >
-                        {Object.keys(userIds).map((userId) => (
+                        {Object.keys(categories).map((category) => (
                             <Tab
-                                label={userId}
-                                {...a11yProps(parseInt(userId, 10))}
+                                label={category}
+                                {...a11yProps(
+                                    parseInt(
+                                        categoryItems.indexOf(category),
+                                        10
+                                    )
+                                )}
                             />
                         ))}
                     </Tabs>
                 </AppBar>
                 <Table striped bordered hover className="Table">
                     <tbody>
-                        {Object.keys(userIds).map((userId) => (
+                        {Object.keys(categories).map((category) => (
                             <TabPanel
                                 ClassName="tabpanel"
                                 value={value}
-                                index={parseInt(userId, 10) - 1}
+                                index={
+                                    parseInt(
+                                        categoryItems.indexOf(category),
+                                        10
+                                    ) - 1
+                                }
                             >
-                                {userIds[userId].map((item) => (
+                                {categories[category].map((item) => (
                                     <tr>
                                         <MenuItems
                                             className="hvr-outline-in"

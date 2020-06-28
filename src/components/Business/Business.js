@@ -26,9 +26,9 @@ const sprite =
 
 export default function Business(props) {
     const classes = useStyles();
-    const newTo = {
-        pathname: `/business/menu/${props.content.bFullName}`,
-    };
+    // const newTo = {
+    //     pathname: `/business/menu/${props.content.bFullName}`,
+    // };
     return (
         <Card
             className={classes.root}
@@ -88,7 +88,7 @@ export default function Business(props) {
             </CardActionArea>
 
             <CardActions>
-                <Link to={newTo}>
+                <Link to={`/business/menu/${props.content.id}`}>
                     <Button size="small" color="primary">
                         Menu
                     </Button>

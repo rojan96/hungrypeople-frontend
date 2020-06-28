@@ -10,13 +10,16 @@ export function MenuItems(props) {
                 <Col>
                     <div className="MenuItems ">
                         <p className="ItemText">Item Id: {props.item.id}</p>
-
-                        <p className="ItemText">{props.item.userId}</p>
-
                         <p className="ItemText">
-                            Item Name: {props.item.title}
+                            Item Id: {props.item.category}
+                        </p>
+                        <p className="ItemText">Item Id: {props.item.price}</p>
+                        <p className="ItemText">{props.item.name}</p>
+                        <p className="ItemText">
+                            Item Name: {props.item.description}
                         </p>
                     </div>
+                    ;
                 </Col>
                 <Col className="CartIcon">
                     <AddShoppingCartIcon style={{ fontSize: 40 }} />

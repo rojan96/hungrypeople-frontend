@@ -14,6 +14,7 @@ import Menu from "../Menu/Menu";
 import CreateBusinessPage from "../../pages/CreateBusinessPage/CreateBusinessPage";
 import ShowAllBusinessPage from "../../pages/ShowAllBusinessPage/ShowAllBusinessPage";
 import BusinessProfilePage from "../../pages/ProfilePage/BusinessProfilePage";
+import AddMenuItem from "../AddMenuItem/AddMenuItem";
 
 const LogoSize = 150;
 function App() {
@@ -57,6 +58,7 @@ function App() {
                         path="/createBusiness"
                         component={CreateBusinessPage}
                     />
+                    <PrivateRoute path="/addMenuItem" component={AddMenuItem} />
                 </Switch>
             </Router>
         </AuthContext.Provider>
