@@ -89,8 +89,23 @@ export default function Menu(props) {
 
     return (
         <Container className="Menu">
-            <img src={business.bCoverPictureUrl} height="200" />
-            <h1 style={{ textAlign: "center" }}>{business.bFullName} Menu</h1>
+            {business ? (
+                <div
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        flexDirection: "column",
+                    }}
+                >
+                    <img src={business.bCoverPictureUrl} />
+                    <h1 style={{ textAlign: "center" }}>
+                        {business.bFullName} Menu
+                    </h1>
+                </div>
+            ) : (
+                <h1>nothing found</h1>
+            )}
+
             <div className={classes.root}>
                 <AppBar position="static" color="default">
                     <Tabs
