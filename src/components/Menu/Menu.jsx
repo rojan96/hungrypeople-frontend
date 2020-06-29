@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { getMenu } from "../../util/HPserver";
+import { getMenu, getBusinessById } from "../../util/HPserver";
 import "./Style.css";
 import { MenuItems } from "./MenuItems";
 import PropTypes from "prop-types";
@@ -57,10 +57,14 @@ export default function Menu(props) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
     const { user } = useContext(AuthContext);
+    const [business, setBusiness] = useState({});
 
     useEffect(() => {
         async function fetchItems() {
             let menuItems = await getMenu(props.businessId);
+            let business = await getBusinessById(props.businessId);
+            console.log(business);
+            setBusiness(business);
             setMenu(menuItems);
         }
         fetchItems();
@@ -85,6 +89,8 @@ export default function Menu(props) {
 
     return (
         <Container className="Menu">
+            <img src={business.bCoverPictureUrl} height="200" />
+            <h1 style={{ textAlign: "center" }}>{business.bFullName} Menu</h1>
             <div className={classes.root}>
                 <AppBar position="static" color="default">
                     <Tabs

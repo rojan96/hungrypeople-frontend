@@ -17,22 +17,15 @@ const styles = {
     color: "lightgray",
     fontFamily: "Just Another Hand",
     maxWidth: "none",
-    backgroundColor: "##57606f",
+    backgroundColor: "#2f3542",
     // backgroundImage: `url(${BackgroundPattern})`,
     backgroundAttachment: "fixed",
 };
 export default function HomePage() {
-    const { user } = useContext(AuthContext);
-    const isLoggedIn = user ? true : false;
-
     return (
         <div>
             <Container style={styles} className="intro-section" fluid="true">
-                <NavBar
-                    variant={"dark"}
-                    isLoggedIn={isLoggedIn}
-                    logoSize={logoSize}
-                />
+                <NavBar variant={"dark"} />
                 <JumboHeader />
             </Container>
             <WhatWeDo />

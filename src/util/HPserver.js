@@ -5,6 +5,7 @@ const urlSignUp = `${baseUrl}users`;
 const urlCreateBusiness = `${baseUrl}business`;
 const urlGetBusinessInfo = `${baseUrl}user/business`;
 const urlProfileInfo = `${baseUrl}user`;
+const urlGetBusinessById = `${baseUrl}business/`;
 const urlFoodItems = `http://hpeopleserver.herokuapp.com/business/`;
 
 export const postLogin = async (userName, password) => {
@@ -138,6 +139,20 @@ export async function createBusiness(businessInfo, token) {
         });
 
     return true;
+}
+
+export async function getBusinessById(businessId) {
+    const config = {
+        method: "get",
+        url: `${urlGetBusinessById}${businessId}`,
+    };
+    return axios(config)
+        .then((data) => {
+            return data.data;
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 }
 
 export async function getMenu(businessId) {

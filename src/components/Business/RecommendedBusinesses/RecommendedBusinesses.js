@@ -4,9 +4,9 @@ import "../../App/Style.css";
 import Business from "../Business";
 
 const styles = {
-    color: "White",
+    color: "#2f3542",
     fontFamily: "Just Another Hand",
-    backgroundColor: "#4b6584",
+    backgroundColor: "#ced6e0",
     fontSize: 60,
     display: "flex",
     justifyContent: "center",

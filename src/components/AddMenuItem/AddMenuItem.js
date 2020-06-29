@@ -1,8 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
+import {
+    Button,
+    FormControl,
+    FormGroup,
+    FormLabel,
+    Form,
+} from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/auth";
 import { postMenuItem, getBusinessInfo } from "../../util/HPserver";
+import "./Style.css";
 
 export default function AddMenuItem() {
     const history = useHistory();
@@ -28,24 +35,27 @@ export default function AddMenuItem() {
     return (
         <div className="LoginPage">
             <div className="InnerLogin">
-                <h2>Add Menu Item</h2>
-                <form className="category">
-                    <FormGroup controlId="name">
-                        <FormLabel>name</FormLabel>
-                        <FormControl
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            type="name"
-                        />
-                    </FormGroup>
-                    <FormGroup controlId="price">
-                        <FormLabel>price</FormLabel>
-                        <FormControl
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
-                            type="price"
-                        />
-                    </FormGroup>
+                <Form className="AddMenuItemForm">
+                    <h2>Add Menu Item</h2>
+                    <Form.Row>
+                        <FormGroup controlId="name">
+                            <FormLabel>name</FormLabel>
+                            <FormControl
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                type="name"
+                            />
+                        </FormGroup>
+                        <FormGroup controlId="price">
+                            <FormLabel>price</FormLabel>
+                            <FormControl
+                                value={price}
+                                onChange={(e) => setPrice(e.target.value)}
+                                type="price"
+                            />
+                        </FormGroup>
+                    </Form.Row>
+
                     <FormGroup controlId="category">
                         <FormLabel>Category</FormLabel>
                         <FormControl
@@ -67,6 +77,7 @@ export default function AddMenuItem() {
 
                     <Button
                         variant="light"
+                        className="AddFoodButton"
                         block
                         disabled={!validateForm()}
                         onClick={async () => {
@@ -90,7 +101,7 @@ export default function AddMenuItem() {
                     >
                         Add Item
                     </Button>
-                </form>
+                </Form>
             </div>
         </div>
     );

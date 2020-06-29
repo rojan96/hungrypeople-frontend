@@ -1,15 +1,15 @@
 .WhatWeDo {
-    background-color: #2f3542;
+    background-color: #d2dae2;
     padding-bottom: 5px;
 }
 
 .WhatWeDo-text {
     font-size: 40px;
-    color: white;
+    color: gray;
     padding: 0px 100px;
 }
 
 .WhatWeDo-title {
     font-size: 60px;
-    color: white;
+    color: gray;
 }

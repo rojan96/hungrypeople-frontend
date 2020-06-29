@@ -1,9 +1,8 @@
-import React, { useContext, useState, useEffect } from "react";
+import React from "react";
 import { NavBar } from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import Menu from "../../components/Menu/Menu";
-import { AuthContext } from "../../context/auth";
-import { getBusinessInfo } from "../../util/HPserver";
+
 import "./Style.css";
 import BusinessProfile from "../../components/Profile/BusinessProfile/BusinessProfile";
 
@@ -15,18 +14,12 @@ const style = {
     display: "flex",
     justifyContent: "center",
 };
-const isLoggedIn = true;
-const logoSize = 100;
 
 export default function BusinessProfilePage({ match }) {
     console.log(match);
     return (
         <div>
-            <NavBar
-                variant={"dark"}
-                isLoggedIn={isLoggedIn}
-                logoSize={logoSize}
-            />
+            <NavBar variant={"dark"} />
             <div style={style}>
                 <div>
                     <BusinessProfile />

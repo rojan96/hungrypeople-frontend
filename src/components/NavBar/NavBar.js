@@ -12,10 +12,12 @@ export function NavBar(props) {
         fontSize: 20,
         fontFamily: "Rock Salt",
     };
-    const { setUser } = useContext(AuthContext);
+    const logoSize = 100;
+    const { user, setUser } = useContext(AuthContext);
     const history = useHistory();
+    const isLoggedIn = user ? true : false;
 
-    if (props.isLoggedIn) {
+    if (isLoggedIn) {
         return (
             <Navbar
                 collapseOnSelect
@@ -34,8 +36,8 @@ export function NavBar(props) {
                         <img
                             src={require("./HungryPeopleLogo.png")}
                             className="d-inline-block align-top hvr-buzz-out"
-                            height={props.logoSize}
-                            width={props.logoSize}
+                            height={logoSize}
+                            width={logoSize}
                             alt="Img not found"
                         />
                     </Link>
@@ -105,8 +107,8 @@ export function NavBar(props) {
                         <img
                             src={require("./HungryPeopleLogo.png")}
                             className="d-inline-block align-top hvr-buzz-out"
-                            height={props.logoSize}
-                            width={props.logoSize}
+                            height={logoSize}
+                            width={logoSize}
                             alt="Img not found"
                         />
                     </Navbar.Brand>

@@ -22,11 +22,7 @@ const styles = {
 export default function LoginPage() {
     return (
         <div style={styles}>
-            <NavBar
-                variant={"dark"}
-                isLoggedIn={isLoggedIn}
-                logoSize={logoSize}
-            />
+            <NavBar variant={"dark"} />
             <Login />
             <Footer />
         </div>

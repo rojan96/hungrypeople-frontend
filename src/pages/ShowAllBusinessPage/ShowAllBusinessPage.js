@@ -4,7 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import Search from "../../components/Business/ShowAllBusiness/ShowAllBusiness";
 import { AuthContext } from "../../context/auth";
 // import "./Style.css";
-import BackgroundPattern from "../../images/wheat.png";
+import BackgroundPattern from "../../images/kale-salad.jpg";
 
 const logoSize = 100;
 // const background =
@@ -23,11 +23,7 @@ export default function ShowAllBusinessPage() {
     const isLoggedIn = user ? true : false;
     return (
         <div style={styles}>
-            <NavBar
-                variant="dark"
-                isLoggedIn={isLoggedIn}
-                logoSize={logoSize}
-            />
+            <NavBar variant="light" />
             <Search />
             <Footer />
         </div>

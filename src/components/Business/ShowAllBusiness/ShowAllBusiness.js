@@ -3,7 +3,7 @@ import Business from "../Business";
 
 const divStyles = {
     display: "flex",
-    justifyContent: "flex-start",
+    justifyContent: "space-evenly",
     flexWrap: "wrap",
 };
 

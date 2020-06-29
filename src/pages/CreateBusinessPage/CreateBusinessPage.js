@@ -18,11 +18,7 @@ const styles = {
 export default function CreateBusinessPage() {
     return (
         <div style={styles}>
-            <NavBar
-                variant={"dark"}
-                isLoggedIn={isLoggedIn}
-                logoSize={logoSize}
-            />
+            <NavBar variant={"dark"} />
             <CreateBusiness />
             <Footer />
         </div>

@@ -13,17 +13,11 @@ const style = {
     fontFamily: "Just Another Hand",
     display: "flex",
 };
-const isLoggedIn = true;
-const logoSize = 100;
 
 export default function ProfilePage() {
     return (
         <div>
-            <NavBar
-                variant={"dark"}
-                isLoggedIn={isLoggedIn}
-                logoSize={logoSize}
-            />
+            <NavBar variant={"dark"} />
             <div style={style}>
                 <div>
                     <UserProfile />

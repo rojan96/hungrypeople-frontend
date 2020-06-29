@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Style.css";
 import "../App/Style.css";
 const styles = {
-    color: "White",
+    color: "black",
     fontFamily: "Just Another Hand",
     textAlign: "center",
 };

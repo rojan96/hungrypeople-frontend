@@ -20,11 +20,7 @@ const styles = {
 export default function SignUpPage() {
     return (
         <div style={styles}>
-            <NavBar
-                variant={"dark"}
-                isLoggedIn={isLoggedIn}
-                logoSize={logoSize}
-            />
+            <NavBar variant={"dark"} />
             <SignUp />
             <Footer />
         </div>
