@@ -56,7 +56,7 @@ export default function Login() {
                         Login
                     </Button>
                     <Link to="/signup">
-                        <p style={{padding:15}}>Don't have an account?</p>
+                        <p style={{ padding: 15 }}>Don't have an account?</p>
                     </Link>
                 </form>
             </div>

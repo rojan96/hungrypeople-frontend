@@ -3,9 +3,10 @@ const baseUrl = `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herok
 const urlLogin = `${baseUrl}login`;
 const urlSignUp = `${baseUrl}users`;
 const urlCreateBusiness = `${baseUrl}business`;
+const urlGetBusinessInfo = `${baseUrl}user/business`;
 const urlProfileInfo = `${baseUrl}user`;
-// const urlFoodItems = `${baseUrl}business/`;
-const urlFoodItems = `https://jsonplaceholder.typicode.com/albums`;
+const urlGetBusinessById = `${baseUrl}business/`;
+const urlFoodItems = `http://hpeopleserver.herokuapp.com/business/`;
 
 export const postLogin = async (userName, password) => {
     return axios
@@ -64,21 +65,19 @@ export const getBusinessInfo = async (token) => {
     const data = JSON.stringify({});
 
     const config = {
-        method: "post",
-        url: urlCreateBusiness,
+        method: "get",
+        url: urlGetBusinessInfo,
         headers: {
-            // "Content-Type": "application/json",
             Authorization: token,
+            "Content-Type": "application/json",
         },
-        data: data,
+        data: {},
     };
 
     return axios(config)
         .then((data) => {
-            console.log(data);
             if (data.status === 200) {
                 let business = data.data;
-                console.log(business);
                 const businessData = {
                     id: business.id,
                     fullName: business.bFullName,
@@ -115,6 +114,7 @@ export function postSignup(userInfo) {
             return false;
         })
         .catch((e) => {
+            console.log(e);
             return "username_taken";
         });
 }
@@ -141,20 +141,39 @@ export async function createBusiness(businessInfo, token) {
     return true;
 }
 
-export async function getMenu() {
+export async function getBusinessById(businessId) {
     const config = {
         method: "get",
-        url: urlFoodItems,
+        url: `${urlGetBusinessById}${businessId}`,
+    };
+    return axios(config)
+        .then((data) => {
+            return data.data;
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
+
+export async function getMenu(businessId) {
+    const data = "";
+    const config = {
+        method: "get",
+        url: `${urlFoodItems}${businessId}/menu`,
+        header: {},
+        data: data,
     };
 
     return axios(config)
         .then((data) => {
             let menu = [];
-            data.data.map((element) => {
+            data.data.content.map((element) => {
                 let foodItem = {
-                    userId: element.userId,
+                    category: element.category,
                     id: element.id,
-                    title: element.title,
+                    description: element.description,
+                    name: element.name,
+                    price: element.price,
                 };
                 menu.push(foodItem);
             });
@@ -162,5 +181,25 @@ export async function getMenu() {
         })
         .catch((error) => {
             console.log(error);
+        });
+}
+
+export async function postMenuItem(token, id, menuItem) {
+    var config = {
+        method: "post",
+        url: `https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/business/${id}/foodItems`,
+        headers: {
+            Authorization: token,
+        },
+        data: menuItem,
+    };
+
+    return axios(config)
+        .then((response) => {
+            console.log(response);
+            return response;
+        })
+        .catch((e) => {
+            console.log(e);
         });
 }

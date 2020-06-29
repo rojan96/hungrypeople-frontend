@@ -12,12 +12,12 @@ import "./Business.css";
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 400,
-        minWidth: 400,
+        maxWidth: 500,
+        minWidth: 450,
         margin: 10,
     },
     media: {
-        height: 140,
+        height: 200,
     },
 });
 
@@ -26,9 +26,7 @@ const sprite =
 
 export default function Business(props) {
     const classes = useStyles();
-    const newTo = {
-        pathname: `/business/menu/${props.content.bFullName}`,
-    };
+
     return (
         <Card
             className={classes.root}
@@ -88,12 +86,12 @@ export default function Business(props) {
             </CardActionArea>
 
             <CardActions>
-                <Link to={newTo}>
-                    <Button size="small" color="primary">
+                <Link to={`/business/menu/${props.content.id}`}>
+                    <Button size="small" color="secondary">
                         Menu
                     </Button>
                 </Link>
-                <Button size="small" color="primary">
+                <Button size="small" color="secondary">
                     Quick Order
                 </Button>
             </CardActions>

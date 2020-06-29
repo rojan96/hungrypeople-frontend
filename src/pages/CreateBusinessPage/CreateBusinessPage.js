@@ -6,7 +6,7 @@ import { CreateBusiness } from "../../components/Business/CreateBusiness/CreateB
 const isLoggedIn = true;
 const logoSize = 100;
 const background =
-    "https://images.unsplash.com/photo-1572851899307-3c130a64e831?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80";
+    "https://images.unsplash.com/photo-1480944657103-7fed22359e1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80";
 const styles = {
     backgroundImage: `url(${background})`,
     backgroundSize: "cover",
@@ -18,11 +18,7 @@ const styles = {
 export default function CreateBusinessPage() {
     return (
         <div style={styles}>
-            <NavBar
-                variant={"dark"}
-                isLoggedIn={isLoggedIn}
-                logoSize={logoSize}
-            />
+            <NavBar variant={"dark"} />
             <CreateBusiness />
             <Footer />
         </div>

@@ -3,28 +3,26 @@ import { NavBar } from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import Login from "../../components/Login/Login";
 // import "./Style.css";
-import background from "../../images/wheat.png";
+// import background from "../../images/wheat.png";
 
 const isLoggedIn = false;
 const logoSize = 100;
-// const background =
-//     "https://images.unsplash.com/photo-1572851899307-3c130a64e831?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80";
+const background =
+    "https://images.unsplash.com/photo-1592232610506-9426553027d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80";
 
 const styles = {
     backgroundImage: `url(${background})`,
+
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh",
+    justifyContent: "center",
 };
 
 export default function LoginPage() {
     return (
         <div style={styles}>
-            <NavBar
-                variant={"dark"}
-                isLoggedIn={isLoggedIn}
-                logoSize={logoSize}
-            />
+            <NavBar variant={"dark"} />
             <Login />
             <Footer />
         </div>

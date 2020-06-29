@@ -3,7 +3,7 @@ body :focus {
 }
 
 .Menu {
-    max-width: 50%;
+    margin: 0 auto;
 }
 
 .Table {
@@ -23,8 +23,8 @@ body :focus {
 }
 
 .MenuItems {
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
     justify-content: flex-start;
     margin: 1px;
 }

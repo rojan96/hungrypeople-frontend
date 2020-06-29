@@ -14,19 +14,16 @@ import Menu from "../Menu/Menu";
 import CreateBusinessPage from "../../pages/CreateBusinessPage/CreateBusinessPage";
 import ShowAllBusinessPage from "../../pages/ShowAllBusinessPage/ShowAllBusinessPage";
 import BusinessProfilePage from "../../pages/ProfilePage/BusinessProfilePage";
+import AddMenuItemPage from "../../pages/AddMenuItemPage";
+import MenuPage from "../../pages/MenuPage/MenuPage";
 
 const LogoSize = 150;
+
 function App() {
     const [user, setUser] = useState(null);
     const value = useMemo(() => ({ user, setUser }), [user, setUser]);
     const isLoggedIn = user ? true : false;
-    // const existingTokens = JSON.parse(localStorage.getItem("tokens"));
-    // const [authTokens, setAuthTokens] = useState(localStorage.getItem('authTokens') || '');
-    //
-    // const setTokens = (data) => {
-    //     localStorage.setItem("tokens", JSON.stringify(data));
-    //     setAuthTokens(data);
-    // }
+
     return (
         <AuthContext.Provider value={value}>
             <Router>
@@ -37,25 +34,22 @@ function App() {
                     <Route path="/search" component={ShowAllBusinessPage} />
 
                     <Route
-                        path="/businessProfile"
+                        path="/business/menu/:businessId"
+                        component={MenuPage}
+                    />
+                    <PrivateRoute
+                        path="/businessProfile/:businessId"
                         component={BusinessProfilePage}
                     />
-
-                    <Route path="/business/menu/:businessName">
-                        <NavBar
-                            variant={"dark"}
-                            isLoggedIn={isLoggedIn}
-                            logoSize={LogoSize}
-                        />
-                        <Menu />
-                        <Footer />
-                    </Route>
-
                     <PrivateRoute path="/profile" component={ProfilePage} />
                     <PrivateRoute path="/orders" component={OrderPage} />
                     <PrivateRoute
                         path="/createBusiness"
                         component={CreateBusinessPage}
+                    />
+                    <PrivateRoute
+                        path="/addMenuItem"
+                        component={AddMenuItemPage}
                     />
                 </Switch>
             </Router>

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { getMenu } from "../../util/HPserver";
+import React, { useState, useEffect, useContext } from "react";
+import { getMenu, getBusinessById } from "../../util/HPserver";
 import "./Style.css";
 import { MenuItems } from "./MenuItems";
 import PropTypes from "prop-types";
@@ -10,6 +10,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import AppBar from "@material-ui/core/AppBar";
+import { AuthContext } from "../../context/auth";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -46,7 +47,7 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        width: "100%",
+        minWidth: 800,
         backgroundColor: theme.palette.background.paper,
     },
 }));
@@ -55,31 +56,41 @@ export default function Menu(props) {
     const [menu, setMenu] = useState([]);
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
+    const { user } = useContext(AuthContext);
+    const [business, setBusiness] = useState({});
 
     useEffect(() => {
         async function fetchItems() {
-            let menuItems = await getMenu();
+            let menuItems = await getMenu(props.businessId);
+            let business = await getBusinessById(props.businessId);
+            console.log(business);
+            setBusiness(business);
             setMenu(menuItems);
         }
         fetchItems();
     }, []);
 
-    let userIds = {};
+    let categories = {};
+    let categoryItems = [];
 
     for (let item of menu) {
-        if (item.userId in userIds) {
-            userIds[item.userId].push(item);
+        if (item.category in categories) {
+            categories[item.category].push(item);
         } else {
-            userIds[item.userId] = [];
-            userIds[item.userId].push(item);
+            categories[item.category] = [];
+            categories[item.category].push(item);
+            categoryItems.push(item.category);
         }
     }
+
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
     return (
         <Container className="Menu">
+            <img src={business.bCoverPictureUrl} height="200" />
+            <h1 style={{ textAlign: "center" }}>{business.bFullName} Menu</h1>
             <div className={classes.root}>
                 <AppBar position="static" color="default">
                     <Tabs
@@ -91,23 +102,31 @@ export default function Menu(props) {
                         scrollButtons="auto"
                         aria-label="scrollable auto tabs example"
                     >
-                        {Object.keys(userIds).map((userId) => (
+                        {Object.keys(categories).map((category) => (
                             <Tab
-                                label={userId}
-                                {...a11yProps(parseInt(userId, 10))}
+                                label={category}
+                                {...a11yProps(
+                                    parseInt(
+                                        categoryItems.indexOf(category) - 1,
+                                        10
+                                    )
+                                )}
                             />
                         ))}
                     </Tabs>
                 </AppBar>
                 <Table striped bordered hover className="Table">
                     <tbody>
-                        {Object.keys(userIds).map((userId) => (
+                        {Object.keys(categories).map((category) => (
                             <TabPanel
                                 ClassName="tabpanel"
                                 value={value}
-                                index={parseInt(userId, 10) - 1}
+                                index={parseInt(
+                                    categoryItems.indexOf(category),
+                                    10
+                                )}
                             >
-                                {userIds[userId].map((item) => (
+                                {categories[category].map((item) => (
                                     <tr>
                                         <MenuItems
                                             className="hvr-outline-in"

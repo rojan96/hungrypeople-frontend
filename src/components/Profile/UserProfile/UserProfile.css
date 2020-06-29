@@ -3,7 +3,6 @@
 .profileContainer {
     font-family: "Just Another Hand", cursive;
     letter-spacing: 3px;
-    background-color: white;
     opacity: 0.9;
     color: black;
     border-radius: 5%;
@@ -20,6 +19,7 @@
     display: flex;
     justify-content: center;
     border-radius: 40%;
+    background-color: #40739e;
 }
 
 .profileDiv h3 {
@@ -28,6 +28,7 @@
 }
 
 .accountInfoDiv {
+    background-color: #40739e;
     border-radius: 40%;
     text-align: center;
     padding: 20px;
