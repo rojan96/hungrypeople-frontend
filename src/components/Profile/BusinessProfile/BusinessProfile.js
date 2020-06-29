@@ -12,6 +12,7 @@ export default function BusinessProfile() {
     useEffect(() => {
         async function fetchData() {
             const businessInfo = await getBusinessInfo(user);
+            console.log(businessInfo);
             businessInfo
                 ? setBusinessInfo(businessInfo)
                 : alert("Something went wrong bruh");
@@ -19,31 +20,26 @@ export default function BusinessProfile() {
         fetchData();
     }, []);
 
-    // id: user.id,
-    // fullName: user.bFullName,
-    // email: user.bEmail,
-    // address: user.bAddress,
-    // phone: user.bPhone,
-    // profilePicture: user.bCoverPictureUrl,
     return (
         <div className="profileContainer">
             <div className="profileDiv">
                 <div clasName="profilePicture">
                     <img
-                        src={businessInfo.bCoverPictureUrl}
+                        src={businessInfo.profilePicture}
                         alt="User Profile"
                         style={{ height: 200 }}
                     />
                 </div>
-                <h3>Welcome, {businessInfo.username}</h3>
+                <h3>Welcome, {businessInfo.fullName}</h3>
             </div>
             <div className="accountInfoDiv">
                 <h4>Your account information</h4>
                 <hr />
-                <p>Name: {businessInfo.bFullName}</p>
-                <p>Email: {businessInfo.bEmail} </p>
-                <p>Address: {businessInfo.bAddress}</p>
-                <p>Phone Number: {businessInfo.bPhone}</p>
+                <p>ID: {businessInfo.id}</p>
+                <p>Name: {businessInfo.fullName}</p>
+                <p>Email: {businessInfo.email} </p>
+                <p>Address: {businessInfo.address}</p>
+                <p>Phone Number: {businessInfo.phone}</p>
             </div>
             <div>
                 <Link to="/addMenuItem">

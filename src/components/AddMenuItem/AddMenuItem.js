@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/auth";
-import { postMenuItem } from "../../util/HPserver";
+import { postMenuItem, getBusinessInfo } from "../../util/HPserver";
 
 export default function AddMenuItem() {
     const history = useHistory();
@@ -10,8 +10,17 @@ export default function AddMenuItem() {
     const [description, setDescription] = useState("");
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
-
     const { user } = useContext(AuthContext);
+    const [businessInfo, setBusinessInfo] = useState({});
+
+    useEffect(() => {
+        async function fetchData() {
+            const businessInfo = await getBusinessInfo(user);
+            setBusinessInfo(businessInfo);
+        }
+        fetchData();
+    }, []);
+
     function validateForm() {
         return category.length > 0 && description.length > 0;
     }
@@ -21,6 +30,22 @@ export default function AddMenuItem() {
             <div className="InnerLogin">
                 <h2>Add Menu Item</h2>
                 <form className="category">
+                    <FormGroup controlId="name">
+                        <FormLabel>name</FormLabel>
+                        <FormControl
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            type="name"
+                        />
+                    </FormGroup>
+                    <FormGroup controlId="price">
+                        <FormLabel>price</FormLabel>
+                        <FormControl
+                            value={price}
+                            onChange={(e) => setPrice(e.target.value)}
+                            type="price"
+                        />
+                    </FormGroup>
                     <FormGroup controlId="category">
                         <FormLabel>Category</FormLabel>
                         <FormControl
@@ -40,24 +65,6 @@ export default function AddMenuItem() {
                         />
                     </FormGroup>
 
-                    <FormGroup controlId="name">
-                        <FormLabel>name</FormLabel>
-                        <FormControl
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            type="name"
-                        />
-                    </FormGroup>
-
-                    <FormGroup controlId="price">
-                        <FormLabel>price</FormLabel>
-                        <FormControl
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
-                            type="price"
-                        />
-                    </FormGroup>
-
                     <Button
                         variant="light"
                         block
@@ -71,6 +78,7 @@ export default function AddMenuItem() {
                             };
                             const saveMenuItem = await postMenuItem(
                                 user,
+                                businessInfo.id,
                                 menuItem
                             );
                             if (saveMenuItem) {

@@ -47,7 +47,7 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        width: "100%",
+        minWidth: 800,
         backgroundColor: theme.palette.background.paper,
     },
 }));
@@ -60,15 +60,15 @@ export default function Menu(props) {
 
     useEffect(() => {
         async function fetchItems() {
-            let menuItems = await getMenu(user);
-            console.log(menuItems);
+            let menuItems = await getMenu(props.businessId);
             setMenu(menuItems);
         }
         fetchItems();
     }, []);
 
     let categories = {};
-    let categoryItems = {};
+    let categoryItems = [];
+
     for (let item of menu) {
         if (item.category in categories) {
             categories[item.category].push(item);
@@ -78,6 +78,7 @@ export default function Menu(props) {
             categoryItems.push(item.category);
         }
     }
+
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -100,7 +101,7 @@ export default function Menu(props) {
                                 label={category}
                                 {...a11yProps(
                                     parseInt(
-                                        categoryItems.indexOf(category),
+                                        categoryItems.indexOf(category) - 1,
                                         10
                                     )
                                 )}
@@ -114,12 +115,10 @@ export default function Menu(props) {
                             <TabPanel
                                 ClassName="tabpanel"
                                 value={value}
-                                index={
-                                    parseInt(
-                                        categoryItems.indexOf(category),
-                                        10
-                                    ) - 1
-                                }
+                                index={parseInt(
+                                    categoryItems.indexOf(category),
+                                    10
+                                )}
                             >
                                 {categories[category].map((item) => (
                                     <tr>

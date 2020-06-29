@@ -3,10 +3,9 @@ const baseUrl = `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herok
 const urlLogin = `${baseUrl}login`;
 const urlSignUp = `${baseUrl}users`;
 const urlCreateBusiness = `${baseUrl}business`;
+const urlGetBusinessInfo = `${baseUrl}user/business`;
 const urlProfileInfo = `${baseUrl}user`;
-// const urlFoodItems = `${baseUrl}business/`;
-const urlFoodItems = `https://jsonplaceholder.typicode.com/albums`;
-const urlFoodItems2 = `http://hpeopleserver.herokuapp.com/business/7/foodItems`;
+const urlFoodItems = `http://hpeopleserver.herokuapp.com/business/`;
 
 export const postLogin = async (userName, password) => {
     return axios
@@ -65,10 +64,9 @@ export const getBusinessInfo = async (token) => {
     const data = JSON.stringify({});
 
     const config = {
-        method: "post",
-        url: urlCreateBusiness,
+        method: "get",
+        url: urlGetBusinessInfo,
         headers: {
-            // "Content-Type": "application/json",
             Authorization: token,
             "Content-Type": "application/json",
         },
@@ -77,10 +75,8 @@ export const getBusinessInfo = async (token) => {
 
     return axios(config)
         .then((data) => {
-            console.log(data);
             if (data.status === 200) {
                 let business = data.data;
-                console.log(business);
                 const businessData = {
                     id: business.id,
                     fullName: business.bFullName,
@@ -144,50 +140,19 @@ export async function createBusiness(businessInfo, token) {
     return true;
 }
 
-// export async function getMenu() {
-//     const config = {
-//         method: "get",
-//         url: urlFoodItems,
-//         headers: {
-//             Authorization:
-//                 "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJxIiwiZXhwIjoxNTkzODM1MjUzfQ.KJVCoFTCENP4qvDpaePAiOu4-us6McN0k9sh-NvHa_XAFKbqGlaZ1XS4d_1pTVRyAZZHOcai5tCSA--7s8hgcQ",
-//         },
-//     };
-//     return axios(config)
-//         .then((data) => {
-//             let menu = [];
-//             data.content.map((element) => {
-//                 let foodItem = {
-//                     category: element.category,
-//                     id: element.id,
-//                     description: element.description,
-//                     name: element.name,
-//                     price: element.price,
-//                 };
-//                 menu.push(foodItem);
-//             });
-//             return menu;
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         });
-// }
-export async function getMenu(token) {
-    console.log(token);
+export async function getMenu(businessId) {
     const data = "";
     const config = {
         method: "get",
-        url: urlFoodItems2,
-        header: {
-            Authorization: token,
-        },
+        url: `${urlFoodItems}${businessId}/menu`,
+        header: {},
         data: data,
     };
 
     return axios(config)
         .then((data) => {
             let menu = [];
-            data.content.map((element) => {
+            data.data.content.map((element) => {
                 let foodItem = {
                     category: element.category,
                     id: element.id,
@@ -204,11 +169,10 @@ export async function getMenu(token) {
         });
 }
 
-export async function postMenuItem(token, menuItem) {
+export async function postMenuItem(token, id, menuItem) {
     var config = {
         method: "post",
-        url:
-            "https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/business/7/foodItems",
+        url: `https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/business/${id}/foodItems`,
         headers: {
             Authorization: token,
         },
