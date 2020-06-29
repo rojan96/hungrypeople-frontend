@@ -1,5 +1,6 @@
 import axios from "axios";
-const baseUrl = `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/`;
+const baseUrl = `https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/`;
+//const baseUrl = `http://127.0.0.1:5000/`;
 const urlLogin = `${baseUrl}login`;
 const urlSignUp = `${baseUrl}users`;
 const urlCreateBusiness = `${baseUrl}business`;
@@ -9,12 +10,17 @@ const urlGetBusinessById = `${baseUrl}business/`;
 const urlFoodItems = `http://hpeopleserver.herokuapp.com/business/`;
 
 export const postLogin = async (userName, password) => {
-    return axios
-        .post(urlLogin, {
-            username: userName,
-            password: password,
-        })
+    const config = {
+        method: "post",
+        url: urlLogin,
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: { username: userName, password: password },
+    };
+    return axios(config)
         .then((data) => {
+            console.log(data);
             if (data.status === 200) {
                 let token = data.headers.authorization;
                 return token;
@@ -198,6 +204,35 @@ export async function postMenuItem(token, id, menuItem) {
         .then((response) => {
             console.log(response);
             return response;
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+}
+
+export async function updateBusiness(token, business) {
+    console.log(token);
+    console.log(business);
+    var config = {
+        method: "put",
+        url: urlGetBusinessInfo,
+        headers: {
+            Authorization: token,
+            "Content-Type": "application/json",
+        },
+        data: business,
+    };
+    console.log(config);
+    return axios(config)
+        .then((result) => {
+            if (result.status === 200) {
+                return "success";
+            }
+            return false;
+        })
+        .catch((e) => {
+            console.log(e);
+            return "request unsuccessful";
         })
         .catch((e) => {
             console.log(e);

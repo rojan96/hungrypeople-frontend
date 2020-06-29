@@ -72,14 +72,15 @@ export default function Menu(props) {
 
     let categories = {};
     let categoryItems = [];
-
-    for (let item of menu) {
-        if (item.category in categories) {
-            categories[item.category].push(item);
-        } else {
-            categories[item.category] = [];
-            categories[item.category].push(item);
-            categoryItems.push(item.category);
+    if (menu) {
+        for (let item of menu) {
+            if (item.category in categories) {
+                categories[item.category].push(item);
+            } else {
+                categories[item.category] = [];
+                categories[item.category].push(item);
+                categoryItems.push(item.category);
+            }
         }
     }
 
@@ -89,22 +90,20 @@ export default function Menu(props) {
 
     return (
         <Container className="Menu">
-            {business ? (
-                <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        flexDirection: "column",
-                    }}
-                >
-                    <img src={business.bCoverPictureUrl} />
-                    <h1 style={{ textAlign: "center" }}>
-                        {business.bFullName} Menu
-                    </h1>
-                </div>
-            ) : (
-                <h1>nothing found</h1>
-            )}
+            {/* {business ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+          }}
+        >
+          <img src={business.bCoverPictureUrl} />
+          <h1 style={{ textAlign: "center" }}>{business.bFullName} Menu</h1>
+        </div>
+      ) : (
+        <h1>nothing found</h1>
+      )} */}
 
             <div className={classes.root}>
                 <AppBar position="static" color="default">
