@@ -26,7 +26,7 @@ function Orders() {
             .then((data) => {
                 setOrders(data.data.content);
             });
-    }, []);
+    }, [user]);
 
     try {
         return (

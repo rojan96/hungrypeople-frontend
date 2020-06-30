@@ -1,10 +1,10 @@
-import React, { Component, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Form, Button, Col } from "react-bootstrap";
 import { updateBusiness } from "../../util/HPserver";
 import { AuthContext } from "../../context/auth";
 
 const EditFOrm = ({ business, handleClose, onUpdateBusiness }) => {
-    const [id, setBId] = useState(business.id);
+    const [id] = useState(business.id);
     const [bEmail, setBEmail] = useState(business.bEmail);
     const [bPhone, setBPhone] = useState(business.bPhone);
     const [bAddress, setBAddress] = useState(business.bAddress);

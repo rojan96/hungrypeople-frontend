@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { getMenu, getBusinessById } from "../../util/HPserver";
+import React, { useState, useEffect } from "react";
+import { getMenu } from "../../util/HPserver";
 import "./Style.css";
 import { MenuItems } from "./MenuItems";
 import PropTypes from "prop-types";
@@ -10,7 +10,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import AppBar from "@material-ui/core/AppBar";
-import { AuthContext } from "../../context/auth";
+//import { AuthContext } from "../../context/auth";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -56,18 +56,16 @@ export default function Menu(props) {
     const [menu, setMenu] = useState([]);
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
-    const { user } = useContext(AuthContext);
-    const [business, setBusiness] = useState({});
-
+    //const { user } = useContext(AuthContext);
     useEffect(() => {
         async function fetchItems() {
             let menuItems = await getMenu(props.businessId);
-            let business = await getBusinessById(props.businessId);
-            setBusiness(business);
+            // let business = await getBusinessById(props.businessId);
             setMenu(menuItems);
         }
         fetchItems();
-    }, []);
+        console.log("asdsad");
+    }, [props.businessId]);
 
     let categories = {};
     let categoryItems = [];

@@ -67,8 +67,6 @@ export const getUserInfo = async (token) => {
 };
 
 export const getBusinessInfo = async (token) => {
-    const data = JSON.stringify({});
-
     const config = {
         method: "get",
         url: urlGetBusinessInfo,

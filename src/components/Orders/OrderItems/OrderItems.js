@@ -30,7 +30,8 @@ function OrderItems(props) {
             .catch((err) => {
                 console.log(err);
             });
-    }, []);
+        // console.log("Order");
+    }, [user, props.id]);
 
     const [orderItems, setOrderItems] = useState([]);
 

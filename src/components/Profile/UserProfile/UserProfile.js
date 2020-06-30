@@ -18,7 +18,7 @@ export default function UserProfile() {
             setUserInfo(userInfo);
         }
         fetchData();
-    }, []);
+    }, [user]);
 
     return (
         <div className="profileContainer">

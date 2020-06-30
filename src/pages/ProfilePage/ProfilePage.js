@@ -4,7 +4,7 @@ import UserProfile from "../../components/Profile/UserProfile/UserProfile";
 import Footer from "../../components/Footer/Footer";
 import Orders from "../../components/Orders/Orders";
 import "./Style.css";
-import background from "../../images/fancy-pants.jpg";
+// import background from "../../images/fancy-pants.jpg";
 
 const style = {
     textAlign: "center",

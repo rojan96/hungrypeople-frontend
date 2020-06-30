@@ -26,7 +26,7 @@ function ShowAllBusiness(props) {
         return (
             <div style={divStyles}>
                 {items.map((item) => (
-                    <Business content={item} />
+                    <Business key={item.id} content={item} />
                 ))}
             </div>
         );

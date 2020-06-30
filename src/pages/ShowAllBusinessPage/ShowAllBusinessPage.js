@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NavBar } from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import Search from "../../components/Business/ShowAllBusiness/ShowAllBusiness";
-import { AuthContext } from "../../context/auth";
+// import { AuthContext } from "../../context/auth";
 // import "./Style.css";
 import BackgroundPattern from "../../images/kale-salad.jpg";
 
@@ -19,8 +19,6 @@ const styles = {
 };
 
 export default function ShowAllBusinessPage() {
-    const { user } = useContext(AuthContext);
-    const isLoggedIn = user ? true : false;
     return (
         <div style={styles}>
             <NavBar variant="light" />

@@ -1,8 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { NavBar } from "../NavBar/NavBar";
 import "./Style.css";
-import Footer from "../Footer/Footer";
 import PrivateRoute from "../../Routes/PrivateRoute";
 import ProfilePage from "../../pages/ProfilePage/ProfilePage";
 import OrderPage from "../../pages/OrderPage";
@@ -10,19 +8,18 @@ import LoginPage from "../../pages/LoginPage/LoginPage";
 import SignupPage from "../../pages/SignupPage/SignupPage";
 import HomePage from "../../pages/HomePage";
 import { AuthContext } from "../../context/auth";
-import Menu from "../Menu/Menu";
 import CreateBusinessPage from "../../pages/CreateBusinessPage/CreateBusinessPage";
 import ShowAllBusinessPage from "../../pages/ShowAllBusinessPage/ShowAllBusinessPage";
 import BusinessProfilePage from "../../pages/ProfilePage/BusinessProfilePage";
 import AddMenuItemPage from "../../pages/AddMenuItemPage";
 import MenuPage from "../../pages/MenuPage/MenuPage";
 
-const LogoSize = 150;
+//const LogoSize = 150;
 
 function App() {
     const [user, setUser] = useState(null);
     const value = useMemo(() => ({ user, setUser }), [user, setUser]);
-    const isLoggedIn = user ? true : false;
+    //    const isLoggedIn = user ? true : false;
 
     return (
         <AuthContext.Provider value={value}>

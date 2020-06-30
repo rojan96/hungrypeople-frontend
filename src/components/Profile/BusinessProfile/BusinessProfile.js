@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Style.css";
 import { AuthContext } from "../../../context/auth";
-import { Button, Row, Col, Container, Form } from "react-bootstrap";
+import { Button, Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { getBusinessInfo, updateBusiness } from "../../../util/HPserver";
+import { getBusinessInfo } from "../../../util/HPserver";
 import EditForm from "../EditProfile";
 import EditIcon from "@material-ui/icons/Edit";
 import ModalHeader from "react-bootstrap/ModalHeader";
@@ -77,9 +77,9 @@ export default function BusinessProfile() {
                 </Link>
 
                 <Modal show={show} onHide={handleClose}>
-                    {/* <ModalHeader closeButton>
-                        <ModalTitle>Username</ModalTitle>
-                    </ModalHeader> */}
+                    <ModalHeader closeButton>
+                        <ModalTitle>Edit business</ModalTitle>
+                    </ModalHeader>
                     <ModalBody>
                         <EditForm
                             business={businessInfo}
