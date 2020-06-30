@@ -23,7 +23,7 @@ export default function UserProfile() {
     return (
         <div className="profileContainer">
             <div className="profileDiv">
-                <div clasName="profilePicture">
+                <div className="profilePicture">
                     <img
                         src={userInfo.profilePicture}
                         alt="User Profile"
