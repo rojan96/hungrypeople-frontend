@@ -11,7 +11,7 @@ const EditFOrm = ({ business, handleclose }) => {
     const [profilePictureUrl, setProfilePictureUrl] = useState("");
     const [preference, setPreference] = useState("");
     const { user } = useContext(AuthContext);
-    console.log(business);
+    console.log(handleclose);
     return (
         <Form style={{ color: "black" }}>
             <Form.Row>
@@ -85,7 +85,6 @@ const EditFOrm = ({ business, handleclose }) => {
                     } else {
                         alert(`Edit failed.`);
                     }
-                    handleclose();
                 }}
             >
                 Submit

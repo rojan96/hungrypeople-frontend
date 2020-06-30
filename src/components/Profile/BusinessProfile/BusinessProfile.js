@@ -76,7 +76,7 @@ export default function BusinessProfile() {
                     <Modal.Body>
                         <EditForm
                             business={businessInfo}
-                            handleClose={this.handleClose}
+                            handleClose={handleClose}
                         />
                     </Modal.Body>
                 </Modal>
