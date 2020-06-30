@@ -63,7 +63,6 @@ export default function Menu(props) {
         async function fetchItems() {
             let menuItems = await getMenu(props.businessId);
             let business = await getBusinessById(props.businessId);
-            console.log(business);
             setBusiness(business);
             setMenu(menuItems);
         }

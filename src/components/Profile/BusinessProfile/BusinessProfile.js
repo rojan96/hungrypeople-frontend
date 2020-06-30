@@ -3,7 +3,7 @@ import "./Style.css";
 import { AuthContext } from "../../../context/auth";
 import { Button, Modal, Row, Col, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { getBusinessInfo } from "../../../util/HPserver";
+import { getBusinessInfo, updateBusiness } from "../../../util/HPserver";
 import EditForm from "../EditProfile";
 import EditIcon from "@material-ui/icons/Edit";
 
@@ -17,13 +17,16 @@ export default function BusinessProfile() {
     useEffect(() => {
         async function fetchData() {
             const businessInfo = await getBusinessInfo(user);
-            console.log(businessInfo);
             businessInfo
                 ? setBusinessInfo(businessInfo)
                 : alert("Something went wrong bruh");
         }
         fetchData();
-    }, [businessInfo]);
+    }, []);
+
+    const updateBusiness = (business) => {
+        setBusinessInfo(business);
+    };
 
     return (
         <div className="profileContainer">
@@ -56,10 +59,10 @@ export default function BusinessProfile() {
                 <h4>Your account information</h4>
                 <hr />
                 <p>ID: {businessInfo.id}</p>
-                <p>Name: {businessInfo.fullName}</p>
-                <p>Email: {businessInfo.email} </p>
-                <p>Address: {businessInfo.address}</p>
-                <p>Phone Number: {businessInfo.phone}</p>
+                <p>Name: {businessInfo.bFullName}</p>
+                <p>Email: {businessInfo.bEmail} </p>
+                <p>Address: {businessInfo.bAddress}</p>
+                <p>Phone Number: {businessInfo.bPhone}</p>
             </div>
 
             <div>
@@ -77,6 +80,7 @@ export default function BusinessProfile() {
                         <EditForm
                             business={businessInfo}
                             handleClose={handleClose}
+                            onUpdateBusiness={updateBusiness}
                         />
                     </Modal.Body>
                 </Modal>

@@ -3,15 +3,17 @@ import { Form, Button, Col } from "react-bootstrap";
 import { updateBusiness } from "../../util/HPserver";
 import { AuthContext } from "../../context/auth";
 
-const EditFOrm = ({ business, handleclose }) => {
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [address, setAddress] = useState("");
-    const [fullName, setFullName] = useState("");
-    const [profilePictureUrl, setProfilePictureUrl] = useState("");
-    const [preference, setPreference] = useState("");
+const EditFOrm = ({ business, handleclose, onUpdateBusiness }) => {
+    const [id, setBId] = useState(business.id);
+    const [bEmail, setBEmail] = useState(business.bEmail);
+    const [bPhone, setBPhone] = useState(business.bPhone);
+    const [bAddress, setBAddress] = useState(business.bAddress);
+    const [bFullName, setBFullName] = useState(business.bFullName);
+    const [bCoverPictureUrl, setBCoverPictureUrl] = useState(
+        business.bCoverPictureUrl
+    );
+    const [bPreference, setBPreference] = useState(business.setBPreference);
     const { user } = useContext(AuthContext);
-    console.log(handleclose);
     return (
         <Form style={{ color: "black" }}>
             <Form.Row>
@@ -19,16 +21,16 @@ const EditFOrm = ({ business, handleclose }) => {
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                         type="email"
-                        defaultValue={business.email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        defaultValue={business.bEmail}
+                        onChange={(e) => setBEmail(e.target.value)}
                     />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridPhone">
                     <Form.Label>Phone</Form.Label>
                     <Form.Control
-                        defaultValue={business.phone}
-                        onChange={(e) => setPhone(e.target.value)}
+                        defaultValue={business.bPhone}
+                        onChange={(e) => setBPhone(e.target.value)}
                     />
                 </Form.Group>
             </Form.Row>
@@ -36,32 +38,32 @@ const EditFOrm = ({ business, handleclose }) => {
             <Form.Group controlId="formAddress">
                 <Form.Label>Address</Form.Label>
                 <Form.Control
-                    defaultValue={business.address}
-                    onChange={(e) => setAddress(e.target.value)}
+                    defaultValue={business.bAddress}
+                    onChange={(e) => setBAddress(e.target.value)}
                 />
             </Form.Group>
 
             <Form.Group controlId="formFullName">
                 <Form.Label>Business Name</Form.Label>
                 <Form.Control
-                    defaultValue={business.fullName}
-                    onChange={(e) => setFullName(e.target.value)}
+                    defaultValue={business.bFullName}
+                    onChange={(e) => setBFullName(e.target.value)}
                 />
             </Form.Group>
 
-            <Form.Group controlId="formProfilePictureUrl">
+            <Form.Group controlId="formCoverPictureUrl">
                 <Form.Label>Profile Picture Url</Form.Label>
                 <Form.Control
-                    defaultValue={business.profilePictureUrl}
-                    onChange={(e) => setProfilePictureUrl(e.target.value)}
+                    defaultValue={business.bCoverPictureUrl}
+                    onChange={(e) => setBCoverPictureUrl(e.target.value)}
                 />
             </Form.Group>
 
             <Form.Group controlId="formPreference">
                 <Form.Label>Preference</Form.Label>
                 <Form.Control
-                    defaultValue={business.preference}
-                    onChange={(e) => setPreference(e.target.value)}
+                    defaultValue={business.bPreference}
+                    onChange={(e) => setBPreference(e.target.value)}
                 />
             </Form.Group>
 
@@ -69,13 +71,15 @@ const EditFOrm = ({ business, handleclose }) => {
                 variant="primary"
                 onClick={async () => {
                     const businessInfo = {
-                        bEmail: email,
-                        bPhone: phone,
-                        bAddress: address,
-                        bFullName: fullName,
-                        bProfilePictureUrl: profilePictureUrl,
-                        bPreference: preference,
+                        id: id,
+                        bEmail: bEmail,
+                        bPhone: bPhone,
+                        bAddress: bAddress,
+                        bFullName: bFullName,
+                        bCoverPictureUrl: bCoverPictureUrl,
+                        bPreference: bPreference,
                     };
+                    onUpdateBusiness(businessInfo);
                     const editBusiness = await updateBusiness(
                         user,
                         businessInfo

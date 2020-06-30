@@ -20,7 +20,6 @@ export const postLogin = async (userName, password) => {
     };
     return axios(config)
         .then((data) => {
-            console.log(data);
             if (data.status === 200) {
                 let token = data.headers.authorization;
                 return token;
@@ -86,11 +85,11 @@ export const getBusinessInfo = async (token) => {
                 let business = data.data;
                 const businessData = {
                     id: business.id,
-                    fullName: business.bFullName,
-                    email: business.bEmail,
-                    address: business.bAddress,
-                    phone: business.bPhone,
-                    profilePicture: business.bCoverPictureUrl,
+                    bFullName: business.bFullName,
+                    bEmail: business.bEmail,
+                    bAddress: business.bAddress,
+                    bPhone: business.bPhone,
+                    bCoverPictureUrl: business.bCoverPictureUrl,
                 };
                 return businessData;
             }
@@ -211,8 +210,6 @@ export async function postMenuItem(token, id, menuItem) {
 }
 
 export async function updateBusiness(token, business) {
-    console.log(token);
-    console.log(business);
     var config = {
         method: "put",
         url: urlGetBusinessInfo,
@@ -222,7 +219,6 @@ export async function updateBusiness(token, business) {
         },
         data: business,
     };
-    console.log(config);
     return axios(config)
         .then((result) => {
             if (result.status === 200) {
