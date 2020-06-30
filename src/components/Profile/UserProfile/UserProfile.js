@@ -18,12 +18,12 @@ export default function UserProfile() {
             setUserInfo(userInfo);
         }
         fetchData();
-    }, []);
+    }, [user]);
 
     return (
         <div className="profileContainer">
             <div className="profileDiv">
-                <div clasName="profilePicture">
+                <div className="profilePicture">
                     <img
                         src={userInfo.profilePicture}
                         alt="User Profile"

@@ -5,8 +5,6 @@ import Login from "../../components/Login/Login";
 // import "./Style.css";
 // import background from "../../images/wheat.png";
 
-const isLoggedIn = false;
-const logoSize = 100;
 const background =
     "https://images.unsplash.com/photo-1592232610506-9426553027d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80";
 

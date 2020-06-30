@@ -1,5 +1,6 @@
 import axios from "axios";
-const baseUrl = `https://cors-anywhere.herokuapp.com/https://hpeopleserver.herokuapp.com/`;
+const baseUrl = `https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/`;
+//const baseUrl = `http://127.0.0.1:5000/`;
 const urlLogin = `${baseUrl}login`;
 const urlSignUp = `${baseUrl}users`;
 const urlCreateBusiness = `${baseUrl}business`;
@@ -9,11 +10,15 @@ const urlGetBusinessById = `${baseUrl}business/`;
 const urlFoodItems = `http://hpeopleserver.herokuapp.com/business/`;
 
 export const postLogin = async (userName, password) => {
-    return axios
-        .post(urlLogin, {
-            username: userName,
-            password: password,
-        })
+    const config = {
+        method: "post",
+        url: urlLogin,
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: { username: userName, password: password },
+    };
+    return axios(config)
         .then((data) => {
             if (data.status === 200) {
                 let token = data.headers.authorization;
@@ -62,8 +67,6 @@ export const getUserInfo = async (token) => {
 };
 
 export const getBusinessInfo = async (token) => {
-    const data = JSON.stringify({});
-
     const config = {
         method: "get",
         url: urlGetBusinessInfo,
@@ -80,11 +83,11 @@ export const getBusinessInfo = async (token) => {
                 let business = data.data;
                 const businessData = {
                     id: business.id,
-                    fullName: business.bFullName,
-                    email: business.bEmail,
-                    address: business.bAddress,
-                    phone: business.bPhone,
-                    profilePicture: business.bCoverPictureUrl,
+                    bFullName: business.bFullName,
+                    bEmail: business.bEmail,
+                    bAddress: business.bAddress,
+                    bPhone: business.bPhone,
+                    bCoverPictureUrl: business.bCoverPictureUrl,
                 };
                 return businessData;
             }
@@ -198,6 +201,32 @@ export async function postMenuItem(token, id, menuItem) {
         .then((response) => {
             console.log(response);
             return response;
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+}
+
+export async function updateBusiness(token, business) {
+    var config = {
+        method: "put",
+        url: urlGetBusinessInfo,
+        headers: {
+            Authorization: token,
+            "Content-Type": "application/json",
+        },
+        data: business,
+    };
+    return axios(config)
+        .then((result) => {
+            if (result.status === 200) {
+                return "success";
+            }
+            return false;
+        })
+        .catch((e) => {
+            console.log(e);
+            return "request unsuccessful";
         })
         .catch((e) => {
             console.log(e);

@@ -16,7 +16,6 @@ const style = {
 };
 
 export default function BusinessProfilePage({ match }) {
-    console.log(match);
     return (
         <div>
             <NavBar variant={"dark"} />
