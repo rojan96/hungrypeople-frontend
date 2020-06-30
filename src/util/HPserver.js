@@ -7,7 +7,7 @@ const urlCreateBusiness = `${baseUrl}business`;
 const urlGetBusinessInfo = `${baseUrl}user/business`;
 const urlProfileInfo = `${baseUrl}user`;
 const urlGetBusinessById = `${baseUrl}business/`;
-const urlFoodItems = `http://hpeopleserver.herokuapp.com/business/`;
+const urlFoodItems = `${baseUrl}/business/`;
 
 export const postLogin = async (userName, password) => {
     const config = {

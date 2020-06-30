@@ -130,7 +130,7 @@ export default function Menu(props) {
                     <tbody>
                         {Object.keys(categories).map((category) => (
                             <TabPanel
-                                ClassName="tabpanel"
+                                className="tabpanel"
                                 value={value}
                                 index={parseInt(
                                     categoryItems.indexOf(category),
