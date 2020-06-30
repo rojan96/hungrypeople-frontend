@@ -1,11 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Style.css";
 import { AuthContext } from "../../../context/auth";
-import { Button, Modal, Row, Col, Container, Form } from "react-bootstrap";
+import { Button, Row, Col, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { getBusinessInfo, updateBusiness } from "../../../util/HPserver";
 import EditForm from "../EditProfile";
 import EditIcon from "@material-ui/icons/Edit";
+import ModalHeader from "react-bootstrap/ModalHeader";
+import ModalBody from "react-bootstrap/ModalBody";
+import Modal from "react-bootstrap/Modal";
+import ModalTitle from "react-bootstrap/ModalTitle";
 
 export default function BusinessProfile() {
     const { user } = useContext(AuthContext);
@@ -34,7 +38,7 @@ export default function BusinessProfile() {
                 <Container>
                     <Row>
                         <Col xs={12} md={8}>
-                            <div clasName="profilePicture">
+                            <div className="profilePicture">
                                 <img
                                     src={businessInfo.profilePicture}
                                     alt="User Profile"
@@ -73,16 +77,16 @@ export default function BusinessProfile() {
                 </Link>
 
                 <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Username</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
+                    {/* <ModalHeader closeButton>
+                        <ModalTitle>Username</ModalTitle>
+                    </ModalHeader> */}
+                    <ModalBody>
                         <EditForm
                             business={businessInfo}
                             handleClose={handleClose}
                             onUpdateBusiness={updateBusiness}
                         />
-                    </Modal.Body>
+                    </ModalBody>
                 </Modal>
             </div>
         </div>
