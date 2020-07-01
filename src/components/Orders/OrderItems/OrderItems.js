@@ -12,9 +12,7 @@ function OrderItems(props) {
         let sum = 0;
         orderItems.forEach((element) => {
             let val = parseInt(element.price);
-            if (isNaN(val)) {
-                val = 0;
-            }
+            if (isNaN(val)) val = 0;
             sum = sum + val;
         });
         return sum;
