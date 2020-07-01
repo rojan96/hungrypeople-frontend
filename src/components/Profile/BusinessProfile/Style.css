@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
 
 .profileContainer {
-    font-family: 'Just Another Hand', cursive;
-    background-color: #0c5460;
+    font-family: "Just Another Hand", cursive;
+    background-color: cornflowerblue;
     letter-spacing: 3px;
 }
 
@@ -22,6 +22,8 @@
 
 .accountInfoDiv {
     border: 2px outset black;
+    background-color: cornflowerblue;
+
     border-radius: 5px;
     text-align: center;
     padding: 20px;

@@ -8,6 +8,7 @@ const style = {
     fontFamily: "Just Another Hand",
     width: "100%",
     fontSize: 40,
+    color: "white",
 };
 
 export default function Footer() {

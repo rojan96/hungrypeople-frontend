@@ -4,7 +4,7 @@ import { AuthContext } from "../../../context/auth";
 import { Button, Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { getBusinessInfo } from "../../../util/HPserver";
-import EditForm from "../EditProfile";
+import { EditBusiness } from "../EditProfile";
 import EditIcon from "@material-ui/icons/Edit";
 import ModalHeader from "react-bootstrap/ModalHeader";
 import ModalBody from "react-bootstrap/ModalBody";
@@ -40,7 +40,7 @@ export default function BusinessProfile() {
                         <Col xs={12} md={8}>
                             <div className="profilePicture">
                                 <img
-                                    src={businessInfo.profilePicture}
+                                    src={businessInfo.bCoverPictureUrl}
                                     alt="User Profile"
                                     style={{ height: 200 }}
                                 />
@@ -67,6 +67,27 @@ export default function BusinessProfile() {
                 <p>Email: {businessInfo.bEmail} </p>
                 <p>Address: {businessInfo.bAddress}</p>
                 <p>Phone Number: {businessInfo.bPhone}</p>
+                <p>Description: {businessInfo.bDescription}</p>
+                <p> Tags: </p>
+                {businessInfo.bTags ? (
+                    <ul>
+                        {businessInfo.bTags.map((tag) => (
+                            <li>{tag}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <li>No tags yet.</li>
+                )}
+                <p>Categories:</p>
+                {businessInfo.bCategories ? (
+                    <ul>
+                        {businessInfo.bCategories.map((tag) => (
+                            <li>{tag}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <li>No categories yet.</li>
+                )}
             </div>
 
             <div>
@@ -81,7 +102,7 @@ export default function BusinessProfile() {
                         <ModalTitle>Edit business</ModalTitle>
                     </ModalHeader>
                     <ModalBody>
-                        <EditForm
+                        <EditBusiness
                             business={businessInfo}
                             handleClose={handleClose}
                             onUpdateBusiness={updateBusiness}

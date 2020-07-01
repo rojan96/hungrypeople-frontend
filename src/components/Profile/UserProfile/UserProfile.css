@@ -19,7 +19,7 @@
     display: flex;
     justify-content: center;
     border-radius: 40%;
-    background-color: #40739e;
+    background-color: cornflowerblue;
 }
 
 .profileDiv h3 {
@@ -29,6 +29,8 @@
 
 .accountInfoDiv {
     background-color: #40739e;
+    background-color: cornflowerblue;
+
     border-radius: 40%;
     text-align: center;
     padding: 20px;
