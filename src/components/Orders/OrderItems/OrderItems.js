@@ -1,18 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../context/auth";
 import axios from "axios";
-
-const divStyles = {
-    display: "flex",
-    justifyContent: "flex-start",
-    flexWrap: "wrap",
-    margin: "2em",
-    color: "black",
-    padding: "2px",
-};
+import TableCell from "@material-ui/core/TableCell";
+import TableRow from "@material-ui/core/TableRow";
 
 function OrderItems(props) {
     const { user } = useContext(AuthContext);
+    const [orderItems, setOrderItems] = useState([]);
+
+    const getSum = (orderItems) => {
+        let sum = orderItems.reduce((a, b) => {
+            let p1 = a.price;
+            let p2 = b.price;
+            if (isNaN(parseInt(p1))) p1 = 0;
+            if (isNaN(parseInt(p2))) p2 = 0;
+            return parseInt(p1) + parseInt(p2);
+        });
+        return sum;
+    };
 
     useEffect(() => {
         axios
@@ -25,34 +30,26 @@ function OrderItems(props) {
                 }
             )
             .then((data) => {
+                // console.log("here");
                 setOrderItems(data.data.content);
+                props.handleItemCount(data.data.content.length);
+                props.handleTotalPrice(getSum(data.data.content));
             })
             .catch((err) => {
                 console.log(err);
             });
-        // console.log("Order");
-    }, [user, props.id]);
-
-    const [orderItems, setOrderItems] = useState([]);
+    }, []);
 
     try {
-        return (
-            <div style={divStyles}>
-                {orderItems.map((orderItem) => (
-                    <div key={orderItem.id} className="card" style={divStyles}>
-                        <div>
-                            <p>
-                                <strong>Name: {orderItem.name}</strong>
-                            </p>
-                            <p>Description:{orderItem.description}</p>
-                            <p>Price: {orderItem.price}</p>
-                            <p>Category: {orderItem.category}</p>
-                        </div>
-                    </div>
-                ))}
-                <br />
-            </div>
-        );
+        return orderItems.map((orderItem) => (
+            <TableRow key={orderItem.id}>
+                <TableCell component="th" scope="row">
+                    {orderItem.name}
+                </TableCell>
+                <TableCell align="right">1</TableCell>
+                <TableCell align="right">{orderItem.price}</TableCell>
+            </TableRow>
+        ));
     } catch (error) {
         return <div> Nothing found. </div>;
     }
