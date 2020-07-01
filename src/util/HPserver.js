@@ -1,13 +1,13 @@
 import axios from "axios";
-const baseUrl = `https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/`;
+export const baseUrl = `https://cors-anywhere.herokuapp.com/http://hpeopleserver.herokuapp.com/`;
 //const baseUrl = `http://127.0.0.1:5000/`;
-const urlLogin = `${baseUrl}login`;
-const urlSignUp = `${baseUrl}users`;
-const urlCreateBusiness = `${baseUrl}business`;
-const urlGetBusinessInfo = `${baseUrl}user/business`;
-const urlProfileInfo = `${baseUrl}user`;
-const urlGetBusinessById = `${baseUrl}business/`;
-const urlFoodItems = `${baseUrl}/business/`;
+export const urlLogin = `${baseUrl}login`;
+export const urlSignUp = `${baseUrl}users`;
+export const urlCreateBusiness = `${baseUrl}business`;
+export const urlGetBusinessInfo = `${baseUrl}user/business`;
+export const urlProfileInfo = `${baseUrl}user`;
+export const urlGetBusinessById = `${baseUrl}business/`;
+export const urlFoodItems = `${baseUrl}/business/`;
 
 export const postLogin = async (userName, password) => {
     const config = {
@@ -45,18 +45,7 @@ export const getUserInfo = async (token) => {
     return axios(config)
         .then((data) => {
             if (data.status === 200) {
-                let user = data.data;
-                const userData = {
-                    id: user.id,
-                    username: user.username,
-                    email: user.email,
-                    address: user.address,
-                    phone: user.phone,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    profilePicture: user.profilePictureUrl,
-                };
-                return userData;
+                return data.data;
             }
             alert("something went wrong");
         })
@@ -198,15 +187,15 @@ export async function postMenuItem(token, id, menuItem) {
         });
 }
 
-export async function updateBusiness(token, business) {
+export async function updateInfo(token, dto, url) {
     var config = {
         method: "put",
-        url: urlGetBusinessInfo,
+        url: url,
         headers: {
             Authorization: token,
             "Content-Type": "application/json",
         },
-        data: business,
+        data: dto,
     };
     return axios(config)
         .then((result) => {
