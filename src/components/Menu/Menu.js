@@ -64,7 +64,6 @@ export default function Menu(props) {
             setMenu(menuItems);
         }
         fetchItems();
-        console.log("asdsad");
     }, [props.businessId]);
 
     let categories = {};
