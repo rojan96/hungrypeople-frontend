@@ -4,7 +4,7 @@ import { AuthContext } from "../../../context/auth";
 import { Button, Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { getBusinessInfo } from "../../../util/HPserver";
-import EditForm from "../EditProfile";
+import { EditBusiness } from "../EditProfile";
 import EditIcon from "@material-ui/icons/Edit";
 import ModalHeader from "react-bootstrap/ModalHeader";
 import ModalBody from "react-bootstrap/ModalBody";
@@ -81,7 +81,7 @@ export default function BusinessProfile() {
                         <ModalTitle>Edit business</ModalTitle>
                     </ModalHeader>
                     <ModalBody>
-                        <EditForm
+                        <EditBusiness
                             business={businessInfo}
                             handleClose={handleClose}
                             onUpdateBusiness={updateBusiness}

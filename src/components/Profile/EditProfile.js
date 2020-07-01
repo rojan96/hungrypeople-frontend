@@ -3,16 +3,16 @@ import { Form, Button, Col } from "react-bootstrap";
 import { updateBusiness } from "../../util/HPserver";
 import { AuthContext } from "../../context/auth";
 
-const EditFOrm = ({ business, handleClose, onUpdateBusiness }) => {
+export const EditBusiness = ({ business, handleClose, onUpdateBusiness }) => {
     const [id] = useState(business.id);
-    const [bEmail, setBEmail] = useState(business.bEmail);
-    const [bPhone, setBPhone] = useState(business.bPhone);
-    const [bAddress, setBAddress] = useState(business.bAddress);
     const [bFullName, setBFullName] = useState(business.bFullName);
+    const [bEmail, setBEmail] = useState(business.bEmail);
     const [bCoverPictureUrl, setBCoverPictureUrl] = useState(
         business.bCoverPictureUrl
     );
-    const [bPreference, setBPreference] = useState(business.setBPreference);
+    const [bAddress, setBAddress] = useState(business.bAddress);
+    const [bPhone, setBPhone] = useState(business.bPhone);
+    const [bDescription, setBDescription] = useState(business.bDescription);
     const { user } = useContext(AuthContext);
     return (
         <Form style={{ color: "black" }}>
@@ -59,11 +59,11 @@ const EditFOrm = ({ business, handleClose, onUpdateBusiness }) => {
                 />
             </Form.Group>
 
-            <Form.Group controlId="formPreference">
-                <Form.Label>Preference</Form.Label>
+            <Form.Group controlId="formDescription">
+                <Form.Label>Description</Form.Label>
                 <Form.Control
-                    defaultValue={business.bPreference}
-                    onChange={(e) => setBPreference(e.target.value)}
+                    defaultValue={business.bDescription}
+                    onChange={(e) => setBDescription(e.target.value)}
                 />
             </Form.Group>
 
@@ -77,7 +77,7 @@ const EditFOrm = ({ business, handleClose, onUpdateBusiness }) => {
                         bAddress: bAddress,
                         bFullName: bFullName,
                         bCoverPictureUrl: bCoverPictureUrl,
-                        bPreference: bPreference,
+                        bDescription: bDescription,
                     };
                     onUpdateBusiness(businessInfo);
                     const editBusiness = await updateBusiness(
@@ -97,5 +97,3 @@ const EditFOrm = ({ business, handleClose, onUpdateBusiness }) => {
         </Form>
     );
 };
-
-export default EditFOrm;

@@ -80,16 +80,7 @@ export const getBusinessInfo = async (token) => {
     return axios(config)
         .then((data) => {
             if (data.status === 200) {
-                let business = data.data;
-                const businessData = {
-                    id: business.id,
-                    bFullName: business.bFullName,
-                    bEmail: business.bEmail,
-                    bAddress: business.bAddress,
-                    bPhone: business.bPhone,
-                    bCoverPictureUrl: business.bCoverPictureUrl,
-                };
-                return businessData;
+                return data.data;
             }
             alert("something went wrong");
         })
