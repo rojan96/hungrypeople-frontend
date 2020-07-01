@@ -9,12 +9,13 @@ function OrderItems(props) {
     const [orderItems, setOrderItems] = useState([]);
 
     const getSum = (orderItems) => {
-        let sum = orderItems.reduce((a, b) => {
-            let p1 = a.price;
-            let p2 = b.price;
-            if (isNaN(parseInt(p1))) p1 = 0;
-            if (isNaN(parseInt(p2))) p2 = 0;
-            return parseInt(p1) + parseInt(p2);
+        let sum = 0;
+        orderItems.forEach((element) => {
+            let val = parseInt(element.price);
+            if (isNaN(val)) {
+                val = 0;
+            }
+            sum = sum + val;
         });
         return sum;
     };
