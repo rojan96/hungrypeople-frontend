@@ -40,7 +40,7 @@ export default function BusinessProfile() {
                         <Col xs={12} md={8}>
                             <div className="profilePicture">
                                 <img
-                                    src={businessInfo.profilePicture}
+                                    src={businessInfo.bCoverPictureUrl}
                                     alt="User Profile"
                                     style={{ height: 200 }}
                                 />
@@ -67,6 +67,27 @@ export default function BusinessProfile() {
                 <p>Email: {businessInfo.bEmail} </p>
                 <p>Address: {businessInfo.bAddress}</p>
                 <p>Phone Number: {businessInfo.bPhone}</p>
+                <p>Description: {businessInfo.bDescription}</p>
+                <p> Tags: </p>
+                {businessInfo.bTags ? (
+                    <ul>
+                        {businessInfo.bTags.map((tag) => (
+                            <li>{tag}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <li>No tags yet.</li>
+                )}
+                <p>Categories:</p>
+                {businessInfo.bCategories ? (
+                    <ul>
+                        {businessInfo.bCategories.map((tag) => (
+                            <li>{tag}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <li>No categories yet.</li>
+                )}
             </div>
 
             <div>
