@@ -40,7 +40,7 @@ export default function UserProfile() {
                         <Col xs={12} md={8}>
                             <div className="profilePicture">
                                 <img
-                                    src={userInfo.profilePicture}
+                                    src={userInfo.profilePictureUrl}
                                     alt="User Profile"
                                     style={{ height: 200 }}
                                 />
