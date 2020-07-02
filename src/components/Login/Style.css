@@ -1,22 +1,22 @@
-.LoginPage {
+.LoginPage,
+.SignupPage {
     display: flex;
     justify-content: center;
-    color: White;
+    color: whitesmoke;
     font-family: "Rock Salt";
 }
 
+.InnerSignup,
 .InnerLogin {
     background-color: #353b48;
-    opacity: 0.9;
+    opacity: 0.95;
     border-radius: 10%;
     padding: 50px 100px 0px 100px;
-    /* max-width: 450px;
-    min-width: 400px; */
 }
 
 @media all and (min-width: 480px) {
     .Login {
-        padding: 60px 0;
+        padding: 10px 0;
     }
 
     .Login form {

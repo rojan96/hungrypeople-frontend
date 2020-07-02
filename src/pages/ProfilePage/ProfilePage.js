@@ -4,6 +4,7 @@ import UserProfile from "../../components/Profile/UserProfile/UserProfile";
 import Footer from "../../components/Footer/Footer";
 import Orders from "../../components/Orders/Orders";
 import "./Style.css";
+import { Row, Col } from "react-bootstrap";
 // import background from "../../images/fancy-pants.jpg";
 
 const style = {
@@ -18,12 +19,17 @@ export default function ProfilePage() {
     return (
         <div>
             <NavBar variant={"dark"} />
-            <div style={style}>
-                <div>
+
+            <Row style={style}>
+                <Col md={5} sm={12}>
                     <UserProfile />
-                </div>
-                <Orders />
-            </div>
+                </Col>
+                <Col md={7} sm={12}>
+                    <h1 className="OrdersHeading">Your orders:</h1>
+                    <Orders />
+                </Col>
+            </Row>
+
             <Footer />
         </div>
     );

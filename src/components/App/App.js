@@ -19,7 +19,6 @@ import MenuPage from "../../pages/MenuPage/MenuPage";
 function App() {
     const [user, setUser] = useState(null);
     const value = useMemo(() => ({ user, setUser }), [user, setUser]);
-    //    const isLoggedIn = user ? true : false;
 
     return (
         <AuthContext.Provider value={value}>

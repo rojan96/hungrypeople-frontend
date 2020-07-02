@@ -1,6 +1,9 @@
 body {
-    background-image: url(../../images/fancy-pants.jpg);
     display: flex;
     flex-direction: column;
     min-height: 100%;
+}
+
+.OrdersHeading {
+    color: white;
 }

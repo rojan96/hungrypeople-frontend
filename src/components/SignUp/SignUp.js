@@ -7,9 +7,10 @@ import {
     Form,
     Col,
 } from "react-bootstrap";
-import "./SignUp.css";
+import "../Login/Style.css";
 import { Link, useHistory } from "react-router-dom";
 import { postSignup } from "../../util/HPserver";
+import { notify } from "../../util/Toast";
 
 export default function SignUp() {
     const [username, setUsername] = useState("");
@@ -46,6 +47,7 @@ export default function SignUp() {
                         >
                             <FormLabel>First Name</FormLabel>
                             <FormControl
+                                className="TextInput"
                                 value={firstName}
                                 onChange={(e) => setFirstName(e.target.value)}
                                 type="firstname"
@@ -60,6 +62,7 @@ export default function SignUp() {
                         >
                             <FormLabel>Last Name</FormLabel>
                             <FormControl
+                                className="TextInput"
                                 value={lastName}
                                 onChange={(e) => setLastName(e.target.value)}
                                 type="lastname"
@@ -70,6 +73,7 @@ export default function SignUp() {
                     <FormGroup controlId="email" bsSize="large">
                         <FormLabel>Email</FormLabel>
                         <FormControl
+                            className="TextInput"
                             autoFocus
                             type="email"
                             value={email}
@@ -86,6 +90,7 @@ export default function SignUp() {
                         >
                             <FormLabel>Username</FormLabel>
                             <FormControl
+                                className="TextInput"
                                 autoFocus
                                 type="userName"
                                 value={username}
@@ -101,6 +106,7 @@ export default function SignUp() {
                         >
                             <FormLabel>Password</FormLabel>
                             <FormControl
+                                className="TextInput"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 type="password"
@@ -111,6 +117,7 @@ export default function SignUp() {
                     <FormGroup controlId="phone" bsSize="large">
                         <FormLabel>Phone number</FormLabel>
                         <FormControl
+                            className="TextInput"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                             type="phone"
@@ -120,6 +127,7 @@ export default function SignUp() {
                     <FormGroup controlId="address" bsSize="large">
                         <FormLabel>Address</FormLabel>
                         <FormControl
+                            className="TextInput"
                             value={address}
                             onChange={(e) => setAddress(e.target.value)}
                             type="address"
@@ -129,6 +137,7 @@ export default function SignUp() {
                     <FormGroup controlId="profilepicture" bsSize="large">
                         <FormLabel>Profile Picture URL</FormLabel>
                         <FormControl
+                            className="TextInput"
                             value={profilePicture}
                             onChange={(e) => setProfilePicture(e.target.value)}
                             type="profilepicture"
@@ -146,19 +155,24 @@ export default function SignUp() {
                                 phone: phone,
                                 firstName: firstName,
                                 lastName: lastName,
+                                email: email,
                                 profilePictureUrl: profilePicture,
                                 address: address,
                             };
+
                             const signedUp = await postSignup(userInfo);
                             if (signedUp === "success") {
-                                alert(`you  have successfully signed up.`);
+                                notify(
+                                    `👍 You  have successfully signed up!`,
+                                    true
+                                );
                                 history.push("/login");
                             } else if (signedUp === "username_taken") {
-                                alert(
-                                    "Username already taken. Please try another one."
+                                notify(
+                                    " 👎 Username already taken. Please try another one."
                                 );
                             } else {
-                                alert(`Signup failed.`);
+                                notify(`  👎Signup failed.`);
                             }
                         }}
                     >

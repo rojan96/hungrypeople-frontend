@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./Style.css";
+import "../Style.css";
 import { AuthContext } from "../../../context/auth";
 import { Button, Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -37,16 +37,16 @@ export default function BusinessProfile() {
             <div className="profileDiv">
                 <Container>
                     <Row>
-                        <Col xs={12} md={8}>
+                        <Col xs={11} md={11}>
                             <div className="profilePicture">
                                 <img
                                     src={businessInfo.bCoverPictureUrl}
                                     alt="User Profile"
-                                    style={{ height: 200 }}
+                                    style={{ height: 500 }}
                                 />
                             </div>
                         </Col>
-                        <Col xs={6} md={4}>
+                        <Col xs={1} md={1}>
                             <Button variant="primary" onClick={handleShow}>
                                 <EditIcon />
                             </Button>
