@@ -6,6 +6,7 @@ import {
     urlGetBusinessInfo,
 } from "../../util/HPserver";
 import { AuthContext } from "../../context/auth";
+import { notify } from "../../util/Toast";
 
 export const EditBusiness = ({ business, handleClose, onUpdateBusiness }) => {
     const [id] = useState(business.id);
@@ -23,10 +24,15 @@ export const EditBusiness = ({ business, handleClose, onUpdateBusiness }) => {
 
     function getString(bList) {
         let newString = "";
-        bList.forEach((element) => {
-            newString = newString + " " + element;
-        });
-        return newString;
+        try {
+            bList.forEach((element) => {
+                newString = newString + " " + element;
+            });
+            return newString;
+        } catch (error) {
+            console.log("Problem with getString. Undefined?");
+            console.log(error);
+        }
     }
 
     return (
@@ -113,9 +119,9 @@ export const EditBusiness = ({ business, handleClose, onUpdateBusiness }) => {
                         urlGetBusinessInfo
                     );
                     if (editBusiness === "success") {
-                        alert(`Business edited successfully.`);
+                        notify(` 🙌 Business edited successfully.`, true);
                     } else {
-                        alert(`Edit failed.`);
+                        notify(`🙃 Edit failed.`);
                     }
                     handleClose();
                 }}
@@ -214,9 +220,9 @@ export const EditUser = ({ userInfo, handleClose, onUpdateUser }) => {
                         urlProfileInfo
                     );
                     if (editUser === "success") {
-                        alert(`User edited successfully.`);
+                        notify(` 🙌 User edited successfully.`, true);
                     } else {
-                        alert(`Edit failed.`);
+                        notify(`🙃 Edit failed.`);
                     }
                     handleClose();
                 }}

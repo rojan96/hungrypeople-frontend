@@ -2,6 +2,10 @@
     text-align: center;
     margin: 0;
     padding: 20px;
-    font-family: 'Cabin Sketch', cursive;
+    font-family: "Cabin Sketch", cursive;
     flex-grow: 4;
+}
+
+.OrderComponent {
+    margin-top: 20px;
 }

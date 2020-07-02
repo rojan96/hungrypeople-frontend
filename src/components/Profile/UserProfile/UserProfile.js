@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
 import { getUserInfo, getBusinessInfo } from "../../../util/HPserver";
 import { EditUser } from "../EditProfile";
-import "./UserProfile.css";
+import "../Style.css";
 import ModalHeader from "react-bootstrap/ModalHeader";
 import ModalBody from "react-bootstrap/ModalBody";
 import Modal from "react-bootstrap/Modal";
@@ -37,16 +37,16 @@ export default function UserProfile() {
             <div className="profileDiv">
                 <Container>
                     <Row>
-                        <Col xs={12} md={8}>
+                        <Col xs={10}>
                             <div className="profilePicture">
                                 <img
                                     src={userInfo.profilePictureUrl}
                                     alt="User Profile"
-                                    style={{ height: 200 }}
+                                    style={{ height: 300 }}
                                 />
                             </div>
                         </Col>
-                        <Col xs={6} md={4}>
+                        <Col xs={2}>
                             <Button variant="primary" onClick={handleShow}>
                                 <EditIcon />
                             </Button>
@@ -55,6 +55,7 @@ export default function UserProfile() {
                     <Row>
                         <Col>
                             <h3>Welcome, {userInfo.username}</h3>
+                            <hr />
                         </Col>
                     </Row>
                 </Container>

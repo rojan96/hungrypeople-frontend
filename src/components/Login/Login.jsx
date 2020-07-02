@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
-import "./Login.css";
+import "./Style.css";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/auth";
 import { postLogin } from "../../util/HPserver";
+import "react-toastify/dist/ReactToastify.css";
+import { notify } from "../../util/Toast";
 
 export default function Login() {
     const history = useHistory();
@@ -27,6 +29,7 @@ export default function Login() {
                             type="userName"
                             value={userName}
                             onChange={(e) => setUserName(e.target.value)}
+                            className="TextInput"
                         />
                     </FormGroup>
 
@@ -36,8 +39,10 @@ export default function Login() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             type="password"
+                            className="TextInput"
                         />
                     </FormGroup>
+
                     <Button
                         variant="light"
                         block
@@ -45,11 +50,11 @@ export default function Login() {
                         onClick={async () => {
                             const user = await postLogin(userName, password);
                             if (user) {
-                                alert("Login Successful!");
+                                notify(`👋 Welcome, ${userName}`, true);
                                 setUser(user);
                                 history.push("/");
                             } else {
-                                alert("Wrong credentials");
+                                notify("👎 Wrong credentials, Try again.");
                             }
                         }}
                     >

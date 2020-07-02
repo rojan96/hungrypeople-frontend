@@ -16,6 +16,7 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import "./Orders.css";
 
 const useRowStyles = makeStyles({
     root: {
@@ -44,7 +45,7 @@ export default function CollapsibleTable() {
             });
     }, []);
     return (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} className="OrderComponent">
             <Table aria-label="collapsible table">
                 <TableHead>
                     <TableRow>

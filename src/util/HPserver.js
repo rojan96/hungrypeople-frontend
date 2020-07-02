@@ -81,15 +81,7 @@ export const getBusinessInfo = async (token) => {
 
 export function postSignup(userInfo) {
     return axios
-        .post(urlSignUp, {
-            username: userInfo.username,
-            password: userInfo.password,
-            phone: userInfo.phone,
-            firstName: userInfo.firstName,
-            lastName: userInfo.lastName,
-            profilePictureUrl: userInfo.profilePictureUrl,
-            address: userInfo.address,
-        })
+        .post(urlSignUp, userInfo)
         .then((result) => {
             if (result.status === 200) {
                 return "success";

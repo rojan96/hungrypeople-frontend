@@ -7,6 +7,10 @@ import "./Style.css";
 import { AuthContext } from "../../context/auth";
 import "../App/Style.css";
 import { HashLink } from "react-router-hash-link";
+import ShoppingCart from "@material-ui/icons/ShoppingCart";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import SearchIcon from "@material-ui/icons/Search";
+import { FiLogOut } from "react-icons/fi";
 export function NavBar(props) {
     const styles = {
         fontSize: 20,
@@ -16,70 +20,74 @@ export function NavBar(props) {
     const { user, setUser } = useContext(AuthContext);
     const history = useHistory();
     const isLoggedIn = user ? true : false;
+    const iconSize = 40;
+    return (
+        <Navbar
+            collapseOnSelect
+            expand="lg"
+            variant={props.variant}
+            bg={props.bg}
+            style={{
+                padding: "0px 20px",
+            }}
+        >
+            <Navbar.Brand>
+                <Link to="/">
+                    <img
+                        src={require("./HungryPeopleLogo.png")}
+                        className="d-inline-block align-top hvr-buzz-out"
+                        height={logoSize}
+                        width={logoSize}
+                        alt="Img not found"
+                    />
+                </Link>
+            </Navbar.Brand>
 
-    if (isLoggedIn) {
-        return (
-            <Navbar
-                collapseOnSelect
-                expand="lg"
-                variant={props.variant}
-                bg={props.bg}
-                style={{
-                    paddingTop: 0,
-                    paddingBottom: 0,
-                    paddingLeft: 20,
-                    paddingRight: 20,
-                }}
-            >
-                <Navbar.Brand>
-                    <Link to="/">
-                        <img
-                            src={require("./HungryPeopleLogo.png")}
-                            className="d-inline-block align-top hvr-buzz-out"
-                            height={logoSize}
-                            width={logoSize}
-                            alt="Img not found"
-                        />
-                    </Link>
-                </Navbar.Brand>
-
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="mr-auto"></Nav>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="mr-auto"></Nav>
+                {isLoggedIn ? (
                     <Nav>
-                        <HashLink to="/#WhatWeDo">
-                            <span
-                                className="nav-link hvr-buzz-out"
-                                style={styles}
-                            >
-                                What we do
-                            </span>
-                        </HashLink>
                         <Link to="/search">
                             <span
                                 className="nav-link hvr-buzz-out"
                                 style={styles}
                             >
-                                Find Businesses{" "}
+                                <SearchIcon
+                                    style={{ fontSize: `${iconSize}` }}
+                                />
                             </span>
                         </Link>
-                        <Link to="/orders">
+                        {/* <Link to="/orders">
                             <span
                                 className="nav-link hvr-buzz-out"
                                 style={styles}
                             >
                                 Past Orders
                             </span>
-                        </Link>
+                        </Link> */}
                         <Link to="/profile">
                             <span
                                 className="nav-link hvr-buzz-out"
                                 style={styles}
                             >
-                                Profile
+                                <AccountCircleIcon
+                                    style={{ fontSize: `${iconSize}` }}
+                                />
                             </span>
                         </Link>
 
+                        <Link>
+                            <span
+                                className="nav-link hvr-buzz-out"
+                                style={styles}
+                            >
+                                <ShoppingCart
+                                    className="nav-link hvr-buzz-out"
+                                    style={{ fontSize: 50 }}
+                                />
+                            </span>
+                        </Link>
                         <Nav.Link
                             className="align-top"
                             onClick={() => {
@@ -88,43 +96,11 @@ export function NavBar(props) {
                             }}
                             style={styles}
                         >
-                            Logout
+                            <FiLogOut style={{ fontSize: `${iconSize}` }} />
                         </Nav.Link>
                     </Nav>
-                </Navbar.Collapse>
-            </Navbar>
-        );
-    } else {
-        return (
-            <Navbar
-                collapseOnSelect
-                expand="lg"
-                variant={props.variant}
-                bg={props.bg}
-            >
-                <Link to="/">
-                    <Navbar.Brand>
-                        <img
-                            src={require("./HungryPeopleLogo.png")}
-                            className="d-inline-block align-top hvr-buzz-out"
-                            height={logoSize}
-                            width={logoSize}
-                            alt="Img not found"
-                        />
-                    </Navbar.Brand>
-                </Link>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="mr-auto"></Nav>
+                ) : (
                     <Nav>
-                        <HashLink to="/#WhatWeDo">
-                            <span
-                                className="nav-link hvr-buzz-out"
-                                style={styles}
-                            >
-                                What we do
-                            </span>
-                        </HashLink>
                         <Link to="/search">
                             <span
                                 className="nav-link hvr-buzz-out"
@@ -150,8 +126,8 @@ export function NavBar(props) {
                             </span>
                         </Link>
                     </Nav>
-                </Navbar.Collapse>
-            </Navbar>
-        );
-    }
+                )}
+            </Navbar.Collapse>
+        </Navbar>
+    );
 }
