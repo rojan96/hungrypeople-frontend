@@ -10,6 +10,7 @@ import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/auth";
 import { postMenuItem, getBusinessInfo } from "../../util/HPserver";
 import "./Style.css";
+import { notify } from "../../util/Toast";
 
 export default function AddMenuItem() {
     const history = useHistory();
@@ -41,6 +42,7 @@ export default function AddMenuItem() {
                         <FormGroup controlId="name">
                             <FormLabel>name</FormLabel>
                             <FormControl
+                                className="TextInput"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 type="name"
@@ -49,6 +51,7 @@ export default function AddMenuItem() {
                         <FormGroup controlId="price">
                             <FormLabel>price</FormLabel>
                             <FormControl
+                                className="TextInput"
                                 value={price}
                                 onChange={(e) => setPrice(e.target.value)}
                                 type="price"
@@ -59,6 +62,7 @@ export default function AddMenuItem() {
                     <FormGroup controlId="category">
                         <FormLabel>Category</FormLabel>
                         <FormControl
+                            className="TextInput"
                             autoFocus
                             type="category"
                             value={category}
@@ -69,6 +73,7 @@ export default function AddMenuItem() {
                     <FormGroup controlId="description">
                         <FormLabel>Description</FormLabel>
                         <FormControl
+                            className="TextInput"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                             type="description"
@@ -93,9 +98,12 @@ export default function AddMenuItem() {
                                 menuItem
                             );
                             if (saveMenuItem) {
-                                alert("Successfully added new menu item");
+                                notify(
+                                    "Successfully added new menu item",
+                                    true
+                                );
                             } else {
-                                alert("Something went wrong");
+                                notify("Something went wrong");
                             }
                         }}
                     >

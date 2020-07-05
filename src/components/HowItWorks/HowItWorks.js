@@ -14,9 +14,10 @@ import Row from "react-bootstrap/Row";
 //     "https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80";
 
 const styles = {
-    color: "white",
+    color: "#d2dae2",
     fontFamily: "Just Another Hand",
-    backgroundColor: "#485460",
+    backgroundColor: "#2f3542",
+
     // backgroundRepeat: "no-repeat",
     // backgroundSize: "cover",
     textAlign: "center",
@@ -90,7 +91,7 @@ export class HowItWorks extends React.Component {
                         viewBox="0 0 1440 250"
                     >
                         <path
-                            fill="#ced6e0"
+                            fill="#d2dae2"
                             fillOpacity="1"
                             d="M0,256L40,256C80,256,160,256,240,224C320,192,400,128,480,117.3C560,107,640,149,720,176C800,203,880,213,960,224C1040,235,1120,245,1200,250.7C1280,256,1360,256,1400,256L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
                         ></path>

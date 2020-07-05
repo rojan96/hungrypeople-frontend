@@ -70,23 +70,23 @@ export default function BusinessProfile() {
                 <p>Description: {businessInfo.bDescription}</p>
                 <p> Tags: </p>
                 {businessInfo.bTags ? (
-                    <ul>
+                    <p>
                         {businessInfo.bTags.map((tag) => (
-                            <li>{tag}</li>
+                            <p>{tag} </p>
                         ))}
-                    </ul>
+                    </p>
                 ) : (
-                    <li>No tags yet.</li>
+                    <p>No tags yet.</p>
                 )}
                 <p>Categories:</p>
                 {businessInfo.bCategories ? (
-                    <ul>
+                    <p>
                         {businessInfo.bCategories.map((tag) => (
-                            <li>{tag}</li>
+                            <p>{tag}</p>
                         ))}
-                    </ul>
+                    </p>
                 ) : (
-                    <li>No categories yet.</li>
+                    <p>No categories yet.</p>
                 )}
             </div>
 
