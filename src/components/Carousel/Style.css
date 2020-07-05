@@ -1,0 +1,16 @@
+.carousel-div {
+    background: #f5f6fa;
+    text-align: center;
+}
+
+.carousel {
+    height: 700px;
+    overflow: hidden;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}

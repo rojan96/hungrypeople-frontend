@@ -6,12 +6,13 @@ import Business from "../Business";
 const styles = {
     color: "#2f3542",
     fontFamily: "Just Another Hand",
-    backgroundColor: "#ced6e0",
+    backgroundColor: "#d2dae2",
     fontSize: 60,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
+    paddingBottom: 20,
 };
 
 const stylesBusinessDiv = {
