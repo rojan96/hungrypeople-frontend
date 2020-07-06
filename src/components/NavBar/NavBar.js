@@ -7,10 +7,11 @@ import "./Style.css";
 import { AuthContext } from "../../context/auth";
 import "../App/Style.css";
 import { HashLink } from "react-router-hash-link";
-import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import SearchIcon from "@material-ui/icons/Search";
 import { FiLogOut } from "react-icons/fi";
+import CartDrawer from "../Cart/CartDrawer/CartDrawer";
+
 export function NavBar(props) {
     const styles = {
         fontSize: 20,
@@ -19,8 +20,9 @@ export function NavBar(props) {
     const logoSize = 100;
     const { user, setUser } = useContext(AuthContext);
     const history = useHistory();
-    const isLoggedIn = user ? true : false;
+    const isLoggedIn = true; //user ? true : false; //
     const iconSize = 40;
+
     return (
         <Navbar
             collapseOnSelect
@@ -58,14 +60,7 @@ export function NavBar(props) {
                                 />
                             </span>
                         </Link>
-                        {/* <Link to="/orders">
-                            <span
-                                className="nav-link hvr-buzz-out"
-                                style={styles}
-                            >
-                                Past Orders
-                            </span>
-                        </Link> */}
+
                         <Link to="/profile">
                             <span
                                 className="nav-link hvr-buzz-out"
@@ -82,10 +77,9 @@ export function NavBar(props) {
                                 className="nav-link hvr-buzz-out"
                                 style={styles}
                             >
-                                <ShoppingCart
-                                    className="nav-link hvr-buzz-out"
-                                    style={{ fontSize: 50 }}
-                                />
+                                <div>
+                                    <CartDrawer />
+                                </div>
                             </span>
                         </Link>
                         <Nav.Link

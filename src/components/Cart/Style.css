@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+
+.cart-header {
+    color: black;
+    font-family: "Satisfy", cursive;
+    padding-top: 3%;
+}
+
+.store-name {
+    padding-top: 5%;
+    font-size: 20px;
+    color: black;
+    padding-left: 10%;
+}
+
+.total {
+}

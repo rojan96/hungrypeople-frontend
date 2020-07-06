@@ -16,9 +16,9 @@ const styles = {
 };
 
 const stylesHeader = {
-    fontSize: 60,
+    fontSize: 90,
     fontWeight: "lighter",
-    fontFamily: "Rock Salt",
+    fontFamily: "Sacramento",
     overflow: "hidden",
 };
 
