@@ -14,6 +14,12 @@
     padding: 50px 100px 0px 100px;
 }
 
+.InnerSignup Form,
+h2,
+.InnerLogin h2 {
+    color: white;
+}
+
 @media all and (min-width: 480px) {
     .Login {
         padding: 10px 0;
