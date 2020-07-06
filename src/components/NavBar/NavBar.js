@@ -20,7 +20,7 @@ export function NavBar(props) {
     const logoSize = 100;
     const { user, setUser } = useContext(AuthContext);
     const history = useHistory();
-    const isLoggedIn = true; //user ? true : false; //
+    const isLoggedIn = user ? true : false; //true; //
     const iconSize = 40;
 
     return (
