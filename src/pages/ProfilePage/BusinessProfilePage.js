@@ -22,7 +22,7 @@ export default function BusinessProfilePage({ match }) {
             <div style={style}>
                 <div>
                     <BusinessProfile />
-                    <Menu businessId={match.params.businessId} />
+                    <Menu businessId={match.params.businessId} edit={true} />
                 </div>
             </div>
             <Footer />

@@ -6,11 +6,12 @@ import { Link, useHistory } from "react-router-dom";
 import "./Style.css";
 import { AuthContext } from "../../context/auth";
 import "../App/Style.css";
-import { HashLink } from "react-router-hash-link";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import SearchIcon from "@material-ui/icons/Search";
-import { FiLogOut } from "react-icons/fi";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import CartDrawer from "../Cart/CartDrawer/CartDrawer";
+import { Button } from "react-bootstrap";
+import { notify } from "../../util/Toast";
 
 export function NavBar(props) {
     const styles = {
@@ -51,46 +52,47 @@ export function NavBar(props) {
                 {isLoggedIn ? (
                     <Nav>
                         <Link to="/search">
-                            <span
-                                className="nav-link hvr-buzz-out"
-                                style={styles}
-                            >
-                                <SearchIcon
-                                    style={{ fontSize: `${iconSize}` }}
-                                />
+                            <span className="hvr-buzz-out">
+                                <Button className="nav-link" variant="none">
+                                    <SearchIcon
+                                        style={{ fontSize: `${iconSize}` }}
+                                    />
+                                </Button>
                             </span>
                         </Link>
 
                         <Link to="/profile">
-                            <span
-                                className="nav-link hvr-buzz-out"
-                                style={styles}
-                            >
-                                <AccountCircleIcon
-                                    style={{ fontSize: `${iconSize}` }}
-                                />
+                            <span className="hvr-buzz-out">
+                                <Button className="nav-link" variant="none">
+                                    <AccountCircleIcon
+                                        style={{ fontSize: `${iconSize}` }}
+                                    />
+                                </Button>
                             </span>
                         </Link>
 
                         <Link>
-                            <span
-                                className="nav-link hvr-buzz-out"
-                                style={styles}
-                            >
+                            <span className="hvr-buzz-out">
                                 <div>
                                     <CartDrawer />
                                 </div>
                             </span>
                         </Link>
                         <Nav.Link
-                            className="align-top"
+                            className="hvr-buzz-out"
                             onClick={() => {
                                 setUser(null);
+                                notify(" 😒 Successfully Logged Out!", true);
                                 history.push("/");
                             }}
-                            style={styles}
                         >
-                            <FiLogOut style={{ fontSize: `${iconSize}` }} />
+                            <span className="hvr-buzz-out">
+                                <Button className="nav-link" variant="none">
+                                    <ExitToAppIcon
+                                        style={{ fontSize: `${iconSize}` }}
+                                    />
+                                </Button>
+                            </span>
                         </Nav.Link>
                     </Nav>
                 ) : (

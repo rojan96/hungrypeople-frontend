@@ -8,6 +8,8 @@ export const urlGetBusinessInfo = `${baseUrl}user/business`;
 export const urlProfileInfo = `${baseUrl}user`;
 export const urlGetBusinessById = `${baseUrl}business/`;
 export const urlFoodItems = `${baseUrl}/business/`;
+export const urlGetCartItems = `${baseUrl}cartItems`;
+export const urlPostCartItems = `${baseUrl}cartItem/`;
 
 export const postLogin = async (userName, password) => {
     const config = {
@@ -199,6 +201,53 @@ export async function updateInfo(token, dto, url) {
         .catch((e) => {
             console.log(e);
             return "request unsuccessful";
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+}
+
+export async function getCart(token) {
+    let data = "";
+    const config = {
+        method: "get",
+        url: urlGetCartItems,
+        headers: {
+            Authorization: token,
+        },
+        data: data,
+    };
+
+    return axios(config)
+        .then((data) => {
+            if (data.status === 200) {
+                return data.data;
+            }
+            alert("something went wrong in cart");
+        })
+        .catch((error) => {
+            alert("something went wrong in cart");
+            console.log(error);
+            console.log("can u see dis");
+        });
+}
+
+export async function postItemToCart(token, businessId, item) {
+    var config = {
+        method: "post",
+        url: `${urlPostCartItems}${businessId}`,
+        headers: {
+            Authorization: token,
+        },
+        data: item,
+    };
+
+    return axios(config)
+        .then((response) => {
+            if (response.status === 200) {
+                return true;
+            }
+            return false;
         })
         .catch((e) => {
             console.log(e);

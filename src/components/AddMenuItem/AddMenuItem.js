@@ -6,14 +6,12 @@ import {
     FormLabel,
     Form,
 } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/auth";
 import { postMenuItem, getBusinessInfo } from "../../util/HPserver";
 import "./Style.css";
 import { notify } from "../../util/Toast";
 
 export default function AddMenuItem() {
-    const history = useHistory();
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [name, setName] = useState("");

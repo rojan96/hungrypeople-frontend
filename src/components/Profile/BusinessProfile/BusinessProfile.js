@@ -47,7 +47,7 @@ export default function BusinessProfile() {
                             </div>
                         </Col>
                         <Col xs={1} md={1}>
-                            <Button variant="primary" onClick={handleShow}>
+                            <Button variant="secondary" onClick={handleShow}>
                                 <EditIcon />
                             </Button>
                         </Col>
