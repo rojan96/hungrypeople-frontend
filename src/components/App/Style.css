@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Pacifico&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
-@import "~antd/dist/antd.css";
+@import url("~antd/dist/antd.css");
 @import url("https://fonts.googleapis.com/css2?family=The+Girl+Next+Door&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 * {

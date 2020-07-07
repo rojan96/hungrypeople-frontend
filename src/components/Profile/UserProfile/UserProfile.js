@@ -47,7 +47,7 @@ export default function UserProfile() {
                             </div>
                         </Col>
                         <Col xs={2}>
-                            <Button variant="primary" onClick={handleShow}>
+                            <Button variant="secondary" onClick={handleShow}>
                                 <EditIcon />
                             </Button>
                         </Col>

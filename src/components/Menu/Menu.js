@@ -141,6 +141,8 @@ export default function Menu(props) {
                                         <MenuItems
                                             className="hvr-outline-in"
                                             item={item}
+                                            edit={props.edit}
+                                            businessId={props.businessId}
                                         />
                                     </tr>
                                 ))}
