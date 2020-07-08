@@ -4,11 +4,12 @@ import clsx from "clsx";
 import List from "@material-ui/core/List";
 import CartItem from "../CartItem/CartItem";
 import "../Style.css";
-
 import { Row, Col, Button } from "react-bootstrap";
 import ArrowBackIosOutlinedIcon from "@material-ui/icons/ArrowBackIosOutlined";
-import { getCart } from "../../../util/HPserver";
+import { getCart, postOrder } from "../../../util/HPserver";
 import { AuthContext } from "../../../context/auth";
+import { notify } from "../../../util/Toast";
+
 const useStyles = makeStyles({
     list: {
         width: 400,
@@ -136,7 +137,19 @@ const CartList = ({ anchor, toggleDrawer }) => {
                 }}
             >
                 <h3 className="total">Total: ${total}</h3>
-                <Button variant="secondary">Place Order</Button>
+                <Button
+                    variant="secondary"
+                    onClick={async () => {
+                        const orderStatus = await postOrder(user);
+                        if (orderStatus) {
+                            notify(`👋 Successfully Posted Order`, true);
+                        } else {
+                            notify("👎 Something Went Wrong.");
+                        }
+                    }}
+                >
+                    Place Order
+                </Button>
             </div>
         </div>
     );

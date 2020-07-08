@@ -10,6 +10,7 @@ export const urlGetBusinessById = `${baseUrl}business/`;
 export const urlFoodItems = `${baseUrl}/business/`;
 export const urlGetCartItems = `${baseUrl}cartItems`;
 export const urlPostCartItems = `${baseUrl}cartItem/`;
+export const urlPostOrder = `${baseUrl}postOrders/`;
 
 export const postLogin = async (userName, password) => {
     const config = {
@@ -112,6 +113,7 @@ export async function createBusiness(businessInfo, token) {
             console.log(res);
         })
         .catch((err) => {
+            console.log(err);
             console.log(":(");
         });
 
@@ -240,6 +242,28 @@ export async function postItemToCart(token, businessId, item) {
             Authorization: token,
         },
         data: item,
+    };
+
+    return axios(config)
+        .then((response) => {
+            if (response.status === 200) {
+                return true;
+            }
+            return false;
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+}
+
+export async function postOrder(token) {
+    const config = {
+        method: "POST",
+        url: urlPostOrder,
+        headers: {
+            Authorization: token,
+        },
+        data: "",
     };
 
     return axios(config)

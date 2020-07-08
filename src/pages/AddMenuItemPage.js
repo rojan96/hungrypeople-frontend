@@ -1,7 +1,7 @@
 import React from "react";
-import AddMenuItem from "../components/AddMenuItem/AddMenuItem";
-import Footer from "../components/Footer/Footer";
-import { NavBar } from "../components/NavBar/NavBar";
+import AddMenuItem from "../components/Forms/AddMenuItem/AddMenuItem";
+import Footer from "../components/StaticComponents/Footer/Footer";
+import { NavBar } from "../components/StaticComponents/NavBar/NavBar";
 
 export default function AddMenuItemPage() {
     return (

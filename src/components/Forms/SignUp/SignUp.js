@@ -7,10 +7,10 @@ import {
     Form,
     Col,
 } from "react-bootstrap";
-import "../Login/Style.css";
+import "../Style.css";
 import { Link, useHistory } from "react-router-dom";
-import { postSignup } from "../../util/HPserver";
-import { notify } from "../../util/Toast";
+import { postSignup } from "../../../util/HPserver";
+import { notify } from "../../../util/Toast";
 
 export default function SignUp() {
     const [username, setUsername] = useState("");

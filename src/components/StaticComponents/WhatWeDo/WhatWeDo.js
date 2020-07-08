@@ -1,7 +1,6 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./Style.css";
-import "../App/Style.css";
+import "../../App/Style.css";
 const styles = {
     color: "#2f3542",
     fontFamily: "Just Another Hand",

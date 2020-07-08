@@ -1,7 +1,7 @@
 import React from "react";
-import { NavBar } from "../../components/NavBar/NavBar";
-import Footer from "../../components/Footer/Footer";
-import SignUp from "../../components/SignUp/SignUp";
+import { NavBar } from "../../components/StaticComponents/NavBar/NavBar";
+import Footer from "../../components/StaticComponents/Footer/Footer";
+import SignUp from "../../components/Forms/SignUp/SignUp";
 // import "./Style.css";
 // import background from "../../images/wheat.png";
 

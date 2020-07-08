@@ -1,0 +1,11 @@
+span:hover {
+    text-decoration: none;
+}
+
+.nav-link {
+    padding-right: 50px;
+}
+
+.nav-link:hover {
+    text-decoration: none;
+}

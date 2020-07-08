@@ -19,22 +19,13 @@ export const CreateBusiness = () => {
     const [address, setAddress] = useState("");
     const [phone, setPhone] = useState("");
     const [tags, setTags] = useState([]);
+    const [description, setDescription] = useState("");
+    const [categories, setCategories] = useState([]);
 
     function validateForm() {
         return businessName.length > 0 && email.length > 0;
     }
 
-    //   {
-    //     "createdAt": "2020-06-18T23:05:38.957+00:00",
-    //     "updatedAt": "2020-06-18T23:05:38.957+00:00",
-    //     "id": 1,
-    //     "fullName": null,
-    //     "email": null,
-    //     "coverPictureUrl": null,
-    //     "address": null,
-    //     "phone": null,
-    //     "tags": []
-    // }
     return (
         <div className="CreateBusinessPage">
             <div className="InnerCreateBusiness">
@@ -42,6 +33,7 @@ export const CreateBusiness = () => {
                 <FormGroup controlId="businessName">
                     <FormLabel>Business Name</FormLabel>
                     <FormControl
+                        className="TextInput"
                         autoFocus
                         type="businessName"
                         value={businessName}
@@ -53,6 +45,7 @@ export const CreateBusiness = () => {
                     <FormGroup as={Col} md="6" controlId="email">
                         <FormLabel>Email</FormLabel>
                         <FormControl
+                            className="TextInput"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             type="email"
@@ -61,6 +54,7 @@ export const CreateBusiness = () => {
                     <FormGroup as={Col} md="6" controlId="phone" bsSize="large">
                         <FormLabel>Phone number</FormLabel>
                         <FormControl
+                            className="TextInput"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                             type="phone"
@@ -71,6 +65,7 @@ export const CreateBusiness = () => {
                 <FormGroup controlId="address" bsSize="large">
                     <FormLabel>Address</FormLabel>
                     <FormControl
+                        className="TextInput"
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
                         type="address"
@@ -80,6 +75,7 @@ export const CreateBusiness = () => {
                 <FormGroup controlId="coverPictureUrl" bsSize="large">
                     <FormLabel>Cover Picture URL</FormLabel>
                     <FormControl
+                        className="TextInput"
                         value={coverPictureUrl}
                         onChange={(e) => setCoverPictureUrl(e.target.value)}
                         type="profilepicture"
@@ -89,9 +85,32 @@ export const CreateBusiness = () => {
                 <FormGroup controlId="tags" bsSize="large">
                     <FormLabel>Tags</FormLabel>
                     <FormControl
+                        className="TextInput"
                         value={tags}
                         onChange={(e) => setTags(e.target.value)}
                         type="tags"
+                    />
+                </FormGroup>
+
+                <FormGroup controlId="description">
+                    <FormLabel>Description</FormLabel>
+                    <FormControl
+                        className="TextInput"
+                        autoFocus
+                        type="description"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
+                </FormGroup>
+
+                <FormGroup controlId="categories">
+                    <FormLabel>Categories</FormLabel>
+                    <FormControl
+                        className="TextInput"
+                        autoFocus
+                        type="description"
+                        value={categories}
+                        onChange={(e) => setCategories(e.target.value)}
                     />
                 </FormGroup>
 
@@ -106,6 +125,9 @@ export const CreateBusiness = () => {
                             bAddress: address,
                             bCoverPictureUrl: coverPictureUrl,
                             bTags: tags.split(" "),
+                            bDescription: description,
+                            bCategories: categories.split(""),
+                            enabled: "false",
                         };
                         const business = await createBusiness(
                             businessInfo,

@@ -1,10 +1,9 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import FoodTable from "../../images/undraw_breakfast_psiw.svg";
-import FoodPicker from "../../images/undraw_healthy_options_sdo3.svg";
-import Shopping from "../../images/undraw_shopping_app_flsj.svg";
-import Dinner from "../../images/undraw_special_event_4aj8.svg";
-import "../App/Style.css";
+import FoodTable from "../../../images/undraw_breakfast_psiw.svg";
+import FoodPicker from "../../../images/undraw_healthy_options_sdo3.svg";
+import Shopping from "../../../images/undraw_shopping_app_flsj.svg";
+import Dinner from "../../../images/undraw_special_event_4aj8.svg";
+import "../../App/Style.css";
 import "./Style.css";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";

@@ -6,10 +6,10 @@ import {
     FormLabel,
     Form,
 } from "react-bootstrap";
-import { AuthContext } from "../../context/auth";
-import { postMenuItem, getBusinessInfo } from "../../util/HPserver";
+import { AuthContext } from "../../../context/auth";
+import { postMenuItem, getBusinessInfo } from "../../../util/HPserver";
 import "./Style.css";
-import { notify } from "../../util/Toast";
+import { notify } from "../../../util/Toast";
 
 export default function AddMenuItem() {
     const [category, setCategory] = useState("");

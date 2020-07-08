@@ -1,22 +1,22 @@
 import React, { useContext } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link, useHistory } from "react-router-dom";
 import "./Style.css";
-import { AuthContext } from "../../context/auth";
-import "../App/Style.css";
+import { AuthContext } from "../../../context/auth";
+import "../../App/Style.css";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import SearchIcon from "@material-ui/icons/Search";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import CartDrawer from "../Cart/CartDrawer/CartDrawer";
+import CartDrawer from "../../Cart/CartDrawer/CartDrawer";
 import { Button } from "react-bootstrap";
-import { notify } from "../../util/Toast";
+import { notify } from "../../../util/Toast";
 
 export function NavBar(props) {
     const styles = {
         fontSize: 20,
         fontFamily: "Rock Salt",
+        textDecoration: "none",
     };
     const logoSize = 100;
     const { user, setUser } = useContext(AuthContext);

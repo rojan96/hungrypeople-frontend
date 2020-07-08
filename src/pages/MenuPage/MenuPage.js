@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { NavBar } from "../../components/NavBar/NavBar";
-import Footer from "../../components/Footer/Footer";
+import { NavBar } from "../../components/StaticComponents/NavBar/NavBar";
+import Footer from "../../components/StaticComponents/Footer/Footer";
 import Menu from "../../components/Menu/Menu";
 import "../../components/App/Style.css";
 import { getBusinessById } from "../../util/HPserver";
