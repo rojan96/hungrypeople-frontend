@@ -28,7 +28,7 @@ const CartItem = ({ text, index }) => {
                         }
                     }}
                 />
-                <h4>{quantity}</h4>
+                <h4>{text.quantity}</h4>
 
                 <RemoveCircleOutlineIcon
                     onClick={() => {

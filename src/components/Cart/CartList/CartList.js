@@ -40,9 +40,7 @@ const CartList = ({ anchor, toggleDrawer }) => {
 
     const getTotal = async (cart) => {
         let totalPrice = 0;
-        console.log(cart);
         for (let item of cart) {
-            console.log(item);
             const price = isNaN(parseInt(item.price))
                 ? 0
                 : parseInt(item.price);

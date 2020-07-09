@@ -11,6 +11,7 @@ export const urlFoodItems = `${baseUrl}/business/`;
 export const urlGetCartItems = `${baseUrl}cartItems`;
 export const urlPostCartItems = `${baseUrl}cartItem/`;
 export const urlPostOrder = `${baseUrl}postOrders/`;
+export const urlPutCartItem = `${baseUrl}cartItem/`;
 
 export const postLogin = async (userName, password) => {
     const config = {
@@ -203,9 +204,6 @@ export async function updateInfo(token, dto, url) {
         .catch((e) => {
             console.log(e);
             return "request unsuccessful";
-        })
-        .catch((e) => {
-            console.log(e);
         });
 }
 
@@ -220,18 +218,72 @@ export async function getCart(token) {
         data: data,
     };
 
-    return axios(config)
-        .then((data) => {
-            if (data.status === 200) {
-                return data.data;
+    async function getRawCart() {
+        return await axios(config)
+            .then((data) => {
+                if (data.status === 200) {
+                    return data.data;
+                }
+                alert("something went wrong in cart");
+            })
+            .catch((error) => {
+                alert("something went wrong in cart");
+                console.log(error);
+                console.log("can u see dis");
+            });
+    }
+
+    const cart = await getRawCart();
+    console.log(cart);
+
+    if (cart.length > 0) {
+        for (let cartItem of cart) {
+            console.log(cartItem);
+            if (
+                cartItem.price == null ||
+                cartItem.price == "string" ||
+                cartItem.price == NaN ||
+                cartItem.quantity == null ||
+                cartItem.quantity == NaN ||
+                cartItem.quantity == "string"
+            ) {
+                console.log("ISTHISWORKING?");
+                // const data = JSON.stringify();
+                const config2 = {
+                    method: "put",
+                    url: `${urlPutCartItem}${cartItem.id}`,
+                    headers: {
+                        Authorization: token,
+                    },
+                    data: {
+                        businessName: cartItem.businessName,
+                        category: cartItem.category,
+                        createdAt: cartItem.createdAt,
+                        description: cartItem.description,
+                        id: cartItem.id,
+                        name: cartItem.name,
+                        price:
+                            cartItem.price == null ||
+                            cartItem.price == "string" ||
+                            cartItem.price == NaN
+                                ? 1
+                                : parseInt(cartItem.price),
+                        quantity:
+                            cartItem.quantity == null ||
+                            cartItem.quantity == NaN ||
+                            cartItem.quantity == "string"
+                                ? 1
+                                : parseInt(cartItem.quantity),
+                        updatedAt: cartItem.updatedAt,
+                    },
+                };
+                cartItem = await axios(config2);
+                console.log(cartItem);
             }
-            alert("something went wrong in cart");
-        })
-        .catch((error) => {
-            alert("something went wrong in cart");
-            console.log(error);
-            console.log("can u see dis");
-        });
+        }
+    }
+
+    return getRawCart();
 }
 
 export async function postItemToCart(token, businessId, item) {
