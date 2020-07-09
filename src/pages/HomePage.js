@@ -1,12 +1,12 @@
 import React from "react";
-import { NavBar } from "../components/NavBar/NavBar";
-import Footer from "../components/Footer/Footer";
+import { NavBar } from "../components/StaticComponents/NavBar/NavBar";
+import Footer from "../components/StaticComponents/Footer/Footer";
 import Container from "@material-ui/core/Container";
-import { JumboHeader } from "../components/JumboHeader/JumboHeader";
-import { HowItWorks } from "../components/HowItWorks/HowItWorks";
-import { WhatWeDo } from "../components/WhatWeDo/WhatWeDo";
+import { JumboHeader } from "../components/StaticComponents/JumboHeader/JumboHeader";
+import { HowItWorks } from "../components/StaticComponents/HowItWorks/HowItWorks";
+import { WhatWeDo } from "../components/StaticComponents/WhatWeDo/WhatWeDo";
 import { RecommendedBusinesses } from "../components/Business/RecommendedBusinesses/RecommendedBusinesses";
-import CarouselComponent from "../components/Carousel/Carousel";
+import CarouselComponent from "../components/StaticComponents/Carousel/Carousel";
 
 const styles = {
     color: "lightgray",

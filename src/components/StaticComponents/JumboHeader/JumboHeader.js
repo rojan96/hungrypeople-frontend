@@ -1,9 +1,8 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import { Link } from "react-router-dom";
-import "../App/Style.css";
-import mainIllustration from "../../images/illustration-intro.svg";
+import "../../App/Style.css";
+import mainIllustration from "../../../images/illustration-intro.svg";
 
 const styles = {
     background: "none",

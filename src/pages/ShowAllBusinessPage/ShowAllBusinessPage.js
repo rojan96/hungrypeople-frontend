@@ -1,6 +1,6 @@
 import React from "react";
-import { NavBar } from "../../components/NavBar/NavBar";
-import Footer from "../../components/Footer/Footer";
+import { NavBar } from "../../components/StaticComponents/NavBar/NavBar";
+import Footer from "../../components/StaticComponents/Footer/Footer";
 import Search from "../../components/Business/ShowAllBusiness/ShowAllBusiness";
 import BackgroundPattern from "../../images/kale-salad.jpg";
 

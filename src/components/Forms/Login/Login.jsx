@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
-import "./Style.css";
+import "../Style.css";
 import { Link, useHistory } from "react-router-dom";
-import { AuthContext } from "../../context/auth";
-import { postLogin } from "../../util/HPserver";
+import { AuthContext } from "../../../context/auth";
+import { postLogin } from "../../../util/HPserver";
 import "react-toastify/dist/ReactToastify.css";
-import { notify } from "../../util/Toast";
+import { notify } from "../../../util/Toast";
 
 export default function Login() {
     const history = useHistory();
